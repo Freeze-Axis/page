@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Freeze公式サイト</title>
+  <meta name="description" content="Freeze">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#a9ceec">
+  <meta property="og:url" content="">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="ツール一覧/拡張機能">
+  <meta property="og:description" content="公式ホームページ">
+  <meta property="og:site_name" content="Freeze">
+  <meta property="og:image" content="https://media.discordapp.net/attachments/1317818459425345586/1338027029341143080/GeWAKeKasAA-_6Y_-_.jpg">
+  <link rel="icon" type="image/png" href="https://media.discordapp.net/attachments/1317818459425345586/1338027029341143080/GeWAKeKasAA-_6Y_-_.jpg">
+  <!-- Google Fonts: Roboto -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #5a8fc0;
+      --sidebar-bg: rgba(0, 0, 0, 0.8);
+      --content-bg: rgba(0, 0, 0, 0.6);
+      --card-bg: rgba(255, 255, 255, 0.1);
+      --hover-bg: rgba(255, 255, 255, 0.25);
+      --accent-color: #81d4fa;
+      --link-color: #50fa7b;
+      --text-color: #fff;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: linear-gradient(135deg, var(--primary-color), #4a7aa6);
+      color: var(--text-color);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    .container {
+      display: flex;
+      min-height: 100vh;
+      backdrop-filter: blur(2px);
+    }
+    .sidebar {
+      width: 250px;
+      background: var(--sidebar-bg);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 2px 0 8px rgba(0,0,0,0.5);
+      position: relative;
+    }
+    .logo {
+      text-align: center;
+      font-size: 32px;
+      font-weight: 700;
+      margin-bottom: 30px;
+      color: var(--accent-color);
+      letter-spacing: 1px;
+    }
+    .menu-toggle {
+      cursor: pointer;
+      font-size: 28px;
+      color: var(--text-color);
+      display: none;
+    }
+    nav ul { list-style: none; }
+    nav ul li { margin-bottom: 15px; }
+    nav ul li a {
+      display: block;
+      text-decoration: none;
+      color: var(--text-color);
+      padding: 12px 15px;
+      background: var(--card-bg);
+      border-radius: 8px;
+      transition: background 0.3s, color 0.3s;
+    }
+    nav ul li a:hover {
+      background: var(--hover-bg);
+      color: var(--sidebar-bg);
+    }
+    .content {
+      flex: 1;
+      padding: 40px;
+      background: var(--content-bg);
+      backdrop-filter: blur(5px);
+      overflow-y: auto;
+    }
+    .card {
+      background: var(--card-bg);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      margin-bottom: 30px;
+      border: 1px solid rgba(255,255,255,0.2);
+    }
+    .card h1 { font-size: 36px; margin-bottom: 20px; color: var(--accent-color); }
+    .card p { font-size: 18px; margin-bottom: 20px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    /* スマホなどの狭い画面では1カラム表示に調整 */
+    @media (max-width: 480px) {
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    .tool-card {
+      background: #1e1e1e;
+      border-radius: 12px;
+      padding: 0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+      transition: transform 0.3s, box-shadow 0.3s, border 0.3s;
+      text-align: center;
+      border: 2px solid transparent;
+    }
+    .tool-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.7);
+      border-color: var(--link-color);
+    }
+    .tool-card h2 { font-size: 24px; margin: 10px 0; color: var(--accent-color); }
+    .tool-card p { font-size: 16px; margin-bottom: 15px; }
+    .tool-card a {
+      display: inline-block;
+      text-decoration: none;
+      color: var(--link-color);
+      font-weight: 700;
+      border: 2px solid var(--link-color);
+      padding: 10px 18px;
+      border-radius: 5px;
+      transition: background 0.3s, color 0.3s;
+    }
+    .tool-card a:hover {
+      background: var(--link-color);
+      color: #fff;
+    }
+    footer {
+      background: var(--sidebar-bg);
+      text-align: center;
+      padding: 15px;
+      color: var(--text-color);
+    }
+    footer a {
+      color: var(--accent-color);
+      text-decoration: none;
+      padding: 5px 10px;
+      background: var(--card-bg);
+      border-radius: 5px;
+      transition: background 0.3s, color 0.3s;
+    }
+    footer a:hover {
+      background: var(--hover-bg);
+      color: var(--sidebar-bg);
+    }
+    @media (max-width: 768px) {
+      .container { flex-direction: column; }
+      .sidebar {
+        width: 100%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        position: relative;
+      }
+      .content { padding: 20px; }
+      .menu-toggle { display: block; }
+      .sidebar nav {
+        display: none;
+        width: 100%;
+        background: var(--sidebar-bg);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 10px 0;
+        z-index: 1000;
+      }
+      .sidebar nav.active { display: block; }
+      .sidebar nav ul li { margin: 10px 0; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar">
+      <div class="logo">Freeze</div>
+      <div class="menu-toggle" id="menu-toggle">&#9776;</div>
+      <!-- 外部ファイルからナビゲーションを読み込む -->
+      <nav id="mobile-nav"></nav>
+    </aside>
+    <main class="content">
+      <div class="card">
+        <h1>ツールリンク</h1>
+        <p>以下のツールからお選びください。</p>
+        <div class="grid">
+          <div class="tool-card">
+            <h2>Web荒らしツール</h2>
+            <p>高機能Webツール。</p>
+            <a href="https://freeze-axis.github.io/raider/" target="_blank">アクセス</a>
+          </div>
+          <div class="tool-card">
+            <h2>DMグループ荒らしツール</h2>
+            <p>グループ追加・作成。</p>
+            <a href="https://freeze-axis.github.io/add_group/" target="_blank">アクセス</a>
+          </div>
+          <div class="tool-card">
+            <h2>通報ツール</h2>
+            <p>複数tokenで連続通報</p>
+            <a href="https://freeze-axis.github.io/discord_report/" target="_blank">アクセス</a>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <footer>
+    <p>
+      <a href="LICENSE.html" target="_blank">©Freeze 2025</a> | 
+      <a href="https://discord.gg/XR444zcxZ6" target="_blank">Discord server</a>
+    </p>
+  </footer>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      fetch("nav.html")
+        .then(response => response.text())
+        .then(data => {
+          document.getElementById("mobile-nav").innerHTML = data;
+        })
+        .catch(error => console.error("Navigationの読み込みに失敗しました:", error));
+      
+      const menuToggle = document.getElementById('menu-toggle');
+      menuToggle.addEventListener('click', () => {
+        document.getElementById("mobile-nav").classList.toggle('active');
+      });
+    });
+  </script>
+</body>
+</html>
