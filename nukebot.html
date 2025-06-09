@@ -29,9 +29,7 @@
       <a href="index.html" class="logo">Freeze</a>
       <button id="nav-toggle" class="nav-toggle" aria-label="メニュー開閉">☰</button>
       <nav id="nav">
-        <a href="index.html">トップ</a>
-        <a href="tools.html">ツール一覧</a>
-        <a href="nukebot.html">NukeBot</a>
+        <!-- JS で nav.html の #header-menu が挿入されます -->
       </nav>
     </div>
   </header>
@@ -40,43 +38,43 @@
   <main class="nukebot-container">
     <h2 class="section-title">NukeBot 使い方ガイド</h2>
     <div class="timeline">
-      
       <div class="timeline-item" data-step="1">
         <div class="timeline-content">
           <h3>導入方法</h3>
-          <p>下のボタンをクリックして Discord に Bot を追加してください。</p>
+          <p>下のボタンをクリックで導入できます</p>
           <a href="https://discord.com/oauth2/authorize?client_id=1371794313448652830" target="_blank">Botを追加</a>
         </div>
       </div>
-      
       <div class="timeline-item" data-step="2">
         <div class="timeline-content">
-          <h3>/通常攻撃 コマンド</h3>
-          <p>指定した攻撃タイプのメッセージを 5 連続で送信します。高速連打で強力な連続送信が可能です。</p>
+          <h3>/通常攻撃（外部アプリコマンド）</h3>
+          <p>3つの攻撃タイプを選択すると、ボタンが送信されます。<br>
+            ボタンを押すことでメッセージが5件送信されます。<br>
+            連打する事で連続送信が可能です。</p>
         </div>
       </div>
-      
       <div class="timeline-item" data-step="3">
         <div class="timeline-content">
-          <h3>!nuke コマンド</h3>
-          <p>サーバー名の変更、チャンネル全削除＆再生成、@everyone 権限付与など、一括破壊を自動実行。</p>
+          <h3>!nuke</h3>
+          <p>サーバー名の変更、チャンネル全削除＆チャンネル大量作成、<br>
+            @everyoneに全権限付与など、一括破壊を自動実行。</p>
         </div>
       </div>
-      
       <div class="timeline-item" data-step="4">
         <div class="timeline-content">
-          <h3>!allban コマンド</h3>
-          <p>現在のサーバー、または指定したギルド ID の全メンバーを並列 BAN します。</p>
+          <h3>!allban [Guild ID]</h3>
+          <p>現在のサーバー、またはサーバーIDの指定で、<br>
+            そのサーバーから全メンバーをBANします。</p>
         </div>
       </div>
-
     </div>
   </main>
 
-  <!-- フッター（画面下部中央固定） -->
+  <!-- フッター -->
   <footer>
-    <a href="LICENSE.html" target="_blank">©Freeze 2025</a> |
-    <a href="https://discord.gg/reRxqAXSSG" target="_blank">Discord</a>
+    <nav id="footer-nav">
+      <!-- JS で nav.html の #footer-menu が挿入されます -->
+    </nav>
   </footer>
 
   <script src="assets/js/app.js"></script>

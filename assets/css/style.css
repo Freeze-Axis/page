@@ -68,17 +68,27 @@ header .container {
   color: var(--clr-primary);
   text-decoration: none;
 }
-nav {
+
+/* nav#nav 内に挿入される <ul id="header-menu"> */
+nav#nav {
+  /* 基本的に display:block、内部 ul で flex レイアウト */
+}
+nav#nav ul#header-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: flex;
   gap: var(--spacing-md);
 }
-nav a {
+nav#nav li {
+}
+nav#nav a {
   color: var(--clr-text);
   text-decoration: none;
   padding: var(--spacing-xs) var(--spacing-sm);
   position: relative;
 }
-nav a::after {
+nav#nav a::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -88,8 +98,8 @@ nav a::after {
   background: var(--clr-accent);
   transition: width var(--transition), left var(--transition);
 }
-nav a:hover::after,
-nav a:focus::after {
+nav#nav a:hover::after,
+nav#nav a:focus::after {
   width: 100%;
   left: 0;
 }
@@ -102,16 +112,21 @@ nav a:focus::after {
   color: var(--clr-text);
 }
 
-/* モバイル対応 */
+/* モバイル対応 ヘッダー */
 @media (max-width: 768px) {
-  nav {
+  nav#nav {
     display: none;
-    flex-direction: column;
+  }
+  nav#nav.active {
+    display: block;
     background: var(--clr-card);
     width: 100%;
   }
-  nav.active {
+  nav#nav.active ul#header-menu {
     display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
   }
   .nav-toggle {
     display: block;
@@ -235,7 +250,7 @@ nav a:focus::after {
 .timeline-item::before {
   content: attr(data-step);
   position: absolute;
-  left: -1.25rem;
+  left: -125rem;
   top: 0.25rem;
   width: 2rem;
   height: 2rem;
@@ -287,6 +302,25 @@ footer {
   box-shadow: 0 -2px 8px var(--clr-shadow);
   padding: var(--spacing-md);
   text-align: center;
+}
+/* footer nav#footer-nav 内に挿入される <ul id="footer-menu"> */
+footer nav#footer-nav ul#footer-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+}
+@media (max-width: 768px) {
+  /* 必要に応じてフッターを縦並びにしたい場合は以下を有効化 */
+  /*
+  footer nav#footer-nav ul#footer-menu {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+  }
+  */
 }
 footer a {
   color: var(--clr-accent);

@@ -30,9 +30,7 @@
       <a href="index.html" class="logo">Freeze</a>
       <button id="nav-toggle" class="nav-toggle" aria-label="メニュー開閉">☰</button>
       <nav id="nav">
-        <a href="index.html">トップ</a>
-        <a href="tools.html">ツール一覧</a>
-        <a href="nukebot.html">NukeBot</a>
+        <!-- JS で nav.html の #header-menu が挿入されます -->
       </nav>
     </div>
   </header>
@@ -41,13 +39,16 @@
   <section class="hero">
     <h1>Freeze☭Axis</h1>
     <p>Freezeは2022年から活動する多目的グループです。</p>
-    <a href="https://discord.gg/reRxqAXSSG" target="_blank">Discordサーバーに参加する</a>
+    <a href="https://discord.gg/reRxqAXSSG" target="_blank" class="btn">Discordサーバーに参加する</a>
   </section>
+
+  <!-- 必要に応じてメインコンテンツを追加 -->
 
   <!-- フッター -->
   <footer>
-    <a href="LICENSE.html" target="_blank">©Freeze 2025</a> │
-    <a href="https://discord.gg/reRxqAXSSG" target="_blank">Discord</a>
+    <nav id="footer-nav">
+      <!-- JS で nav.html の #footer-menu が挿入されます -->
+    </nav>
   </footer>
 
   <script src="assets/js/app.js"></script>
