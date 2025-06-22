@@ -8,13 +8,13 @@
 
   <!-- 動的に更新するタイトル -->
   <title id="page-title">Freeze公式サイト - NukeBot使い方ガイド</title>
-  <meta name="description" content="Discordで活動する多目的グループ“Freeze”の公式サイトです。" />
+  <meta name="description" content="Discordで活動する多目的グループ“Freeze”の公式サイトです。" id="meta-desc" />
   <link rel="icon" href="https://i.ibb.co/39dXLvV3/Freeze-logo.png" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Freeze" />
-  <meta property="og:title" content="荒らしBot使い方ガイド" id="og-title" />
+  <meta property="og:title" content="NukeBot使い方ガイド" id="og-title" />
   <meta property="og:description" content="詳細情報はサイトをチェック" id="og-desc" />
   <meta property="og:url" content="" id="og-url" />
   <meta property="og:image" content="https://i.ibb.co/39dXLvV3/Freeze-logo.png" id="og-image" />
@@ -41,7 +41,6 @@
 
     function updateUI(hash) {
       const current = metaConfig[hash] ? hash : 'appcmd';
-      // タグ切替
       document.querySelectorAll('.toggle-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.target === current));
       document.querySelectorAll('.command-section').forEach(sec => sec.classList.toggle('active', sec.id === current));
       updateMeta(current);
@@ -51,9 +50,11 @@
       const cfg = metaConfig[hash] || metaConfig.appcmd;
       const fullUrl = `${location.origin}${location.pathname}#${hash}`;
       const titleText = `Freeze公式サイト - ${cfg.title}`;
-      // document title
+      // title
       document.title = titleText;
       document.getElementById('page-title').textContent = titleText;
+      // description meta
+      document.getElementById('meta-desc').setAttribute('content', cfg.description);
       // OGP
       document.getElementById('og-title').setAttribute('content', cfg.title);
       document.getElementById('og-desc').setAttribute('content', cfg.description);
@@ -62,15 +63,11 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      const initialHash = location.hash.replace('#','');
-      updateUI(initialHash);
-      // ハッシュ変更対応
+      updateUI(location.hash.replace('#',''));
       window.addEventListener('hashchange', () => updateUI(location.hash.replace('#','')));
-
-      // ボタン切替処理
       document.querySelectorAll('.toggle-btn').forEach(btn => {
         btn.addEventListener('click', () => {
-          const tgt = btn.dataset.target;
+          const tgt = btn.dataset-target || btn.dataset.target;
           history.replaceState(null, '', `#${tgt}`);
           updateUI(tgt);
         });
