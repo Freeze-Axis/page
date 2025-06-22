@@ -6,100 +6,122 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#a9ceec" />
 
-  <title>Freeze公式サイト - NukeBot使い方</title>
+  <title>荒らしBot使い方</title>
   <meta name="description" content="Discordで活動する多目的グループ“Freeze”の公式サイトです。" />
   <link rel="icon" href="https://i.ibb.co/39dXLvV3/Freeze-logo.png" />
 
-  <!-- Open Graph (デフォルト: 外部アプリ) -->
+  <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Freeze" />
-  <meta property="og:title" content="NukeBot使い方 - 外部アプリコマンド" />
-  <meta property="og:description" content="/通常攻撃: 3つの攻撃タイプを選択し、最大5件のメッセージを連続送信可能。" />
-  <meta property="og:url" content="https://yourdomain.com/nukebot.html#external" />
-  <meta property="og:image" content="https://i.ibb.co/39dXLvV3/Freeze-logo.png" />
+  <meta property="og:title" content="荒らしBot使い方" />
+  <meta property="og:description" content="詳細情報はサイトをチェック" />
+  <meta property="og:url" content="" />
+  <meta property="og:image" content="" />
   <!----------------------------------------------------------------->
 
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <!-- CSS -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <!-- ページ固有スタイル -->
   <style>
-    .toggle-btns { display: flex; justify-content: center; gap: var(--spacing-md); margin-bottom: var(--spacing-lg); }
-    .toggle-btn { padding: var(--spacing-sm) var(--spacing-lg); border: none; border-radius: var(--radius); cursor: pointer; background: var(--clr-card); color: var(--clr-text); transition: background var(--transition); }
-    .toggle-btn.active { background: var(--clr-primary); color: var(--clr-bg); }
-    .command-section { display: none; }
-    .command-section.active { display: block; }
+    /* トグルボタン */
+    .toggle-btns {
+      display: flex;
+      justify-content: center;
+      gap: var(--spacing-md);
+      margin-bottom: var(--spacing-lg);
+    }
+    .toggle-btn {
+      padding: var(--spacing-sm) var(--spacing-lg);
+      border: none;
+      border-radius: var(--radius);
+      background: var(--clr-card);
+      color: var(--clr-text);
+      cursor: pointer;
+      transition: background var(--transition);
+    }
+    .toggle-btn.active {
+      background: var(--clr-primary);
+      color: var(--clr-bg);
+    }
+    /* コマンド表示セクション */
+    .command-section {
+      display: none;
+    }
+    .command-section.active {
+      display: block;
+    }
   </style>
+
+  <!-- ハッシュごとの meta 情報 -->
+  <script>
+    const metaConfig = {
+      appcmd: {
+        title: '外部アプリ版 荒らしBot使い方',
+        description: '詳細はサイトをチェック'
+      },
+      guildcmd: {
+        title: 'NukeBot使い方',
+        description: '詳細はサイトをチェック'
+      }
+    };
+
+    function updateMeta(hash) {
+      const cfg = metaConfig[hash] || metaConfig.appcmd;
+      const fullUrl = `${location.origin}${location.pathname}#${hash}`;
+
+      // タイトル
+      document.getElementById('page-title').textContent        = `Freeze公式サイト - ${cfg.title}`;
+      // OGP タグ
+      document.getElementById('og-title').setAttribute('content',       cfg.title);
+      document.getElementById('og-desc').setAttribute('content',        cfg.description);
+      document.getElementById('og-url').setAttribute('content',         fullUrl);
+    }
+  </script>
 </head>
 <body>
-
-  <script>
-    // ハッシュによるメタ情報切替
-    document.addEventListener('DOMContentLoaded', () => {
-      const hash = location.hash.replace('#', '') || 'external';
-      const titleMap = {
-        external: 'NukeBot使い方 - 外部アプリコマンド',
-        server: 'NukeBot使い方 - サーバー内コマンド'
-      };
-      const descMap = {
-        external: '/通常攻撃: 3つの攻撃タイプを選択し、最大5件のメッセージを連続送信可能。',
-        server: '!nuke: サーバー名変更、全チャンネル削除＆大量作成など!allban: 全メンバーBAN実行。'
-      };
-      // ドキュメントタイトル
-      document.title = `Freeze公式サイト - ${titleMap[hash]}`;
-      // メタ OG タイトル
-      const ogTitle = document.querySelector('meta[property="og:title"]');
-      const ogDesc = document.querySelector('meta[property="og:description"]');
-      const ogUrl = document.querySelector('meta[property="og:url"]');
-      ogTitle.setAttribute('content', titleMap[hash]);
-      ogDesc.setAttribute('content', descMap[hash]);
-      ogUrl.setAttribute('content', `${location.origin}${location.pathname}#${hash}`);
-    });
-  </script>
-
   <!-- ヘッダー -->
   <header>
     <div class="container">
       <a href="index.html" class="logo">Freeze</a>
       <button id="nav-toggle" class="nav-toggle" aria-label="メニュー開閉">☰</button>
-      <nav id="nav">
-        <!-- JS で nav.html の #header-menu が挿入されます -->
-      </nav>
+      <nav id="nav"><!-- nav.html #header-menu --></nav>
     </div>
   </header>
 
   <!-- メイン -->
-  <main class="nukebot-container" style="padding: var(--spacing-lg); max-width: 800px; margin: auto;">
+  <main class="nukebot-container" style="padding:var(--spacing-lg); max-width:800px; margin:auto;">
     <h2 class="section-title">NukeBot 使い方ガイド</h2>
-
-    <!-- トグルボタン -->
     <div class="toggle-btns">
-      <button class="toggle-btn" data-target="external">外部アプリコマンド</button>
-      <button class="toggle-btn" data-target="server">サーバー内コマンド</button>
+      <button class="toggle-btn" data-target="appcmd">外部アプリコマンド</button>
+      <button class="toggle-btn" data-target="guildcmd">サーバー内コマンド</button>
     </div>
 
     <!-- 外部アプリコマンド -->
-    <section id="external" class="command-section">
+    <section id="appcmd" class="command-section">
       <div class="timeline">
         <div class="timeline-item" data-step="1">
           <div class="timeline-content">
-            <h3>/通常攻撃（外部アプリコマンド）</h3>
-            <p>3つの攻撃タイプを選択。<br>ボタン連打で最大5件のメッセージを連続送信可能。</p>
+            <h3>/通常攻撃<br>（外部アプリコマンド）</h3>
+            <p>3つの攻撃タイプを選択。ボタン連打で最大5件連続送信可能。</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- サーバー内コマンド -->
-    <section id="server" class="command-section">
+    <section id="guildcmd" class="command-section">
       <div class="timeline">
         <div class="timeline-item" data-step="1">
           <div class="timeline-content">
             <h3>!nuke</h3>
-            <p>サーバー名変更、全チャンネル削除＆大量作成、@everyoneに全権限付与など、一括破壊を自動実行。</p>
+            <p>サーバー名変更／全チャンネル削除＆大量作成／@everyoneに権限付与。</p>
           </div>
         </div>
         <div class="timeline-item" data-step="2">
           <div class="timeline-content">
             <h3>!allban [Guild ID]</h3>
-            <p>現在のサーバーまたは指定サーバーIDの全メンバーをBAN。</p>
+            <p>指定サーバーで全メンバーBAN実行。</p>
           </div>
         </div>
       </div>
@@ -108,31 +130,43 @@
 
   <!-- フッター -->
   <footer>
-    <nav id="footer-nav">
-      <!-- JS で nav.html の #footer-menu が挿入されます -->
-    </nav>
+    <nav id="footer-nav"><!-- nav.html #footer-menu --></nav>
   </footer>
 
+  <!-- グローバルスクリプト -->
   <script src="assets/js/app.js"></script>
+
+  <!-- ページ固有スクリプト -->
   <script>
-    // ボタン切替 & 初期表示
     document.addEventListener('DOMContentLoaded', () => {
-      const hash = location.hash.replace('#', '') || 'external';
-      const buttons = document.querySelectorAll('.toggle-btn');
-      const sections = document.querySelectorAll('.command-section');
-      buttons.forEach(btn => {
-        const target = btn.getAttribute('data-target');
-        if (target === hash) btn.classList.add('active');
+      const current = (location.hash.replace('#','') || 'appcmd');
+
+      // 初期表示
+      document.querySelectorAll('.toggle-btn').forEach(btn => {
+        btn.classList.toggle('active', btn.dataset.target === current);
+      });
+      document.querySelectorAll('.command-section').forEach(sec => {
+        sec.classList.toggle('active', sec.id === current);
+      });
+
+      // meta 更新
+      updateMeta(current);
+
+      // ボタン切替処理
+      document.querySelectorAll('.toggle-btn').forEach(btn => {
         btn.addEventListener('click', () => {
-          history.replaceState(null, '', `#${target}`);
-          buttons.forEach(b => b.classList.toggle('active', b === btn));
-          sections.forEach(sec => sec.classList.toggle('active', sec.id === target));
-          // メタ情報更新用イベント発火
-          const evt = new Event('DOMContentLoaded');
-          document.dispatchEvent(evt);
+          const tgt = btn.dataset.target;
+          history.replaceState(null, '', `#${tgt}`);
+          updateMeta(tgt);
+
+          document.querySelectorAll('.toggle-btn').forEach(b => {
+            b.classList.toggle('active', b === btn);
+          });
+          document.querySelectorAll('.command-section').forEach(s => {
+            s.classList.toggle('active', s.id === tgt);
+          });
         });
       });
-      sections.forEach(sec => sec.classList.toggle('active', sec.id === hash));
     });
   </script>
 </body>
