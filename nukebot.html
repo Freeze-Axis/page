@@ -8,14 +8,14 @@
 
   <!-- 動的に更新するタイトル -->
   <title id="page-title">Freeze公式サイト - NukeBot使い方ガイド</title>
-  <meta name="description" content="Discordで活動する多目的グループ“Freeze”の公式サイトです。" id="meta-desc" />
+  <meta name="description" content="Discordで活動する多目的グループ“Freeze”の公式サイトです。" id="meta-description" />
   <link rel="icon" href="https://i.ibb.co/39dXLvV3/Freeze-logo.png" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Freeze" />
   <meta property="og:title" content="NukeBot使い方ガイド" id="og-title" />
-  <meta property="og:description" content="詳細情報はサイトをチェック" id="og-desc" />
+  <meta property="og:description" content="詳細情報はサイトをチェック" id="og-description" />
   <meta property="og:url" content="" id="og-url" />
   <meta property="og:image" content="https://i.ibb.co/39dXLvV3/Freeze-logo.png" id="og-image" />
   <!----------------------------------------------------------------->
@@ -39,37 +39,41 @@
       guildcmd: { title: 'NukeBot使い方', description: '詳細はサイトをチェック' }
     };
 
+    function updateMeta(hash) {
+      const cfg = metaConfig[hash] || metaConfig.appcmd;
+      const fullUrl = `${location.origin}${location.pathname}#${hash}`;
+      const titleText = `Freeze公式サイト - ${cfg.title}`;
+
+      // <title> とブラウザタブ
+      document.title = titleText;
+      document.getElementById('page-title').textContent = titleText;
+      // description (標準)
+      document.getElementById('meta-description').setAttribute('content', cfg.description);
+      // OGP
+      document.getElementById('og-title').setAttribute('content', cfg.title);
+      document.getElementById('og-description').setAttribute('content', cfg.description);
+      document.getElementById('og-url').setAttribute('content', fullUrl);
+      document.getElementById('og-image').setAttribute('content', 'https://i.ibb.co/39dXLvV3/Freeze-logo.png');
+    }
+
     function updateUI(hash) {
-      const current = metaConfig[hash] ? hash : 'appcmd';
+      const current = Object.keys(metaConfig).includes(hash) ? hash : 'appcmd';
+      // セクション切り替え
       document.querySelectorAll('.toggle-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.target === current));
       document.querySelectorAll('.command-section').forEach(sec => sec.classList.toggle('active', sec.id === current));
       updateMeta(current);
     }
 
-    function updateMeta(hash) {
-      const cfg = metaConfig[hash] || metaConfig.appcmd;
-      const fullUrl = `${location.origin}${location.pathname}#${hash}`;
-      const titleText = `Freeze公式サイト - ${cfg.title}`;
-      // title
-      document.title = titleText;
-      document.getElementById('page-title').textContent = titleText;
-      // description meta
-      document.getElementById('meta-desc').setAttribute('content', cfg.description);
-      // OGP
-      document.getElementById('og-title').setAttribute('content', cfg.title);
-      document.getElementById('og-desc').setAttribute('content', cfg.description);
-      document.getElementById('og-url').setAttribute('content', fullUrl);
-      document.getElementById('og-image').setAttribute('content', 'https://i.ibb.co/39dXLvV3/Freeze-logo.png');
-    }
-
     document.addEventListener('DOMContentLoaded', () => {
-      updateUI(location.hash.replace('#',''));
-      window.addEventListener('hashchange', () => updateUI(location.hash.replace('#','')));
+      // 初期表示
+      updateUI(location.hash.replace('#', ''));
+      // ハッシュ変更
+      window.addEventListener('hashchange', () => updateUI(location.hash.replace('#', '')));
+      // ボタンでハッシュ更新
       document.querySelectorAll('.toggle-btn').forEach(btn => {
         btn.addEventListener('click', () => {
-          const tgt = btn.dataset-target || btn.dataset.target;
-          history.replaceState(null, '', `#${tgt}`);
-          updateUI(tgt);
+          const tgt = btn.dataset.target;
+          location.hash = tgt;
         });
       });
     });
