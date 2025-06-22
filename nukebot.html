@@ -10,18 +10,49 @@
   <meta name="description" content="Discordで活動する多目的グループ“Freeze”の公式サイトです。" />
   <link rel="icon" href="https://i.ibb.co/39dXLvV3/Freeze-logo.png" />
 
-  <!-- Open Graph -->
+  <!-- Open Graph (デフォルト: 外部アプリ) -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Freeze" />
-  <meta property="og:title" content="NukeBot使い方" />
-  <meta property="og:description" content="詳細情報はサイトをチェック" />
-  <meta property="og:url" content="" />
-  <meta property="og:image" content="" />
+  <meta property="og:title" content="NukeBot使い方 - 外部アプリコマンド" />
+  <meta property="og:description" content="/通常攻撃: 3つの攻撃タイプを選択し、最大5件のメッセージを連続送信可能。" />
+  <meta property="og:url" content="https://yourdomain.com/nukebot.html#external" />
+  <meta property="og:image" content="https://i.ibb.co/39dXLvV3/Freeze-logo.png" />
   <!----------------------------------------------------------------->
 
   <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    .toggle-btns { display: flex; justify-content: center; gap: var(--spacing-md); margin-bottom: var(--spacing-lg); }
+    .toggle-btn { padding: var(--spacing-sm) var(--spacing-lg); border: none; border-radius: var(--radius); cursor: pointer; background: var(--clr-card); color: var(--clr-text); transition: background var(--transition); }
+    .toggle-btn.active { background: var(--clr-primary); color: var(--clr-bg); }
+    .command-section { display: none; }
+    .command-section.active { display: block; }
+  </style>
 </head>
 <body>
+
+  <script>
+    // ハッシュによるメタ情報切替
+    document.addEventListener('DOMContentLoaded', () => {
+      const hash = location.hash.replace('#', '') || 'external';
+      const titleMap = {
+        external: 'NukeBot使い方 - 外部アプリコマンド',
+        server: 'NukeBot使い方 - サーバー内コマンド'
+      };
+      const descMap = {
+        external: '/通常攻撃: 3つの攻撃タイプを選択し、最大5件のメッセージを連続送信可能。',
+        server: '!nuke: サーバー名変更、全チャンネル削除＆大量作成など!allban: 全メンバーBAN実行。'
+      };
+      // ドキュメントタイトル
+      document.title = `Freeze公式サイト - ${titleMap[hash]}`;
+      // メタ OG タイトル
+      const ogTitle = document.querySelector('meta[property="og:title"]');
+      const ogDesc = document.querySelector('meta[property="og:description"]');
+      const ogUrl = document.querySelector('meta[property="og:url"]');
+      ogTitle.setAttribute('content', titleMap[hash]);
+      ogDesc.setAttribute('content', descMap[hash]);
+      ogUrl.setAttribute('content', `${location.origin}${location.pathname}#${hash}`);
+    });
+  </script>
 
   <!-- ヘッダー -->
   <header>
@@ -34,40 +65,45 @@
     </div>
   </header>
 
-  <!-- NukeBot タイムラインセクション -->
-  <main class="nukebot-container">
+  <!-- メイン -->
+  <main class="nukebot-container" style="padding: var(--spacing-lg); max-width: 800px; margin: auto;">
     <h2 class="section-title">NukeBot 使い方ガイド</h2>
-    <div class="timeline">
-      <div class="timeline-item" data-step="1">
-        <div class="timeline-content">
-          <h3>導入方法</h3>
-          <p>下のボタンをクリックで導入できます</p>
-          <a href="https://discord.com/oauth2/authorize?client_id=1382165796788375562" target="_blank">Botを追加</a>
-        </div>
-      </div>
-      <div class="timeline-item" data-step="2">
-        <div class="timeline-content">
-          <h3>/通常攻撃（外部アプリコマンド）</h3>
-          <p>3つの攻撃タイプを選択すると、ボタンが送信されます。<br>
-            ボタンを押すことでメッセージが5件送信されます。<br>
-            連打する事で連続送信が可能です。</p>
-        </div>
-      </div>
-      <div class="timeline-item" data-step="3">
-        <div class="timeline-content">
-          <h3>!nuke</h3>
-          <p>サーバー名の変更、チャンネル全削除＆チャンネル大量作成、<br>
-            @everyoneに全権限付与など、一括破壊を自動実行。</p>
-        </div>
-      </div>
-      <div class="timeline-item" data-step="4">
-        <div class="timeline-content">
-          <h3>!allban [Guild ID]</h3>
-          <p>現在のサーバー、またはサーバーIDの指定で、<br>
-            そのサーバーから全メンバーをBANします。</p>
-        </div>
-      </div>
+
+    <!-- トグルボタン -->
+    <div class="toggle-btns">
+      <button class="toggle-btn" data-target="external">外部アプリコマンド</button>
+      <button class="toggle-btn" data-target="server">サーバー内コマンド</button>
     </div>
+
+    <!-- 外部アプリコマンド -->
+    <section id="external" class="command-section">
+      <div class="timeline">
+        <div class="timeline-item" data-step="1">
+          <div class="timeline-content">
+            <h3>/通常攻撃（外部アプリコマンド）</h3>
+            <p>3つの攻撃タイプを選択。<br>ボタン連打で最大5件のメッセージを連続送信可能。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- サーバー内コマンド -->
+    <section id="server" class="command-section">
+      <div class="timeline">
+        <div class="timeline-item" data-step="1">
+          <div class="timeline-content">
+            <h3>!nuke</h3>
+            <p>サーバー名変更、全チャンネル削除＆大量作成、@everyoneに全権限付与など、一括破壊を自動実行。</p>
+          </div>
+        </div>
+        <div class="timeline-item" data-step="2">
+          <div class="timeline-content">
+            <h3>!allban [Guild ID]</h3>
+            <p>現在のサーバーまたは指定サーバーIDの全メンバーをBAN。</p>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- フッター -->
@@ -78,5 +114,26 @@
   </footer>
 
   <script src="assets/js/app.js"></script>
+  <script>
+    // ボタン切替 & 初期表示
+    document.addEventListener('DOMContentLoaded', () => {
+      const hash = location.hash.replace('#', '') || 'external';
+      const buttons = document.querySelectorAll('.toggle-btn');
+      const sections = document.querySelectorAll('.command-section');
+      buttons.forEach(btn => {
+        const target = btn.getAttribute('data-target');
+        if (target === hash) btn.classList.add('active');
+        btn.addEventListener('click', () => {
+          history.replaceState(null, '', `#${target}`);
+          buttons.forEach(b => b.classList.toggle('active', b === btn));
+          sections.forEach(sec => sec.classList.toggle('active', sec.id === target));
+          // メタ情報更新用イベント発火
+          const evt = new Event('DOMContentLoaded');
+          document.dispatchEvent(evt);
+        });
+      });
+      sections.forEach(sec => sec.classList.toggle('active', sec.id === hash));
+    });
+  </script>
 </body>
 </html>
