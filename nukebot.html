@@ -41,7 +41,7 @@
 
     function updateMeta(hash) {
       const cfg = metaConfig[hash] || metaConfig.appcmd;
-      const fullUrl = `${location.origin}${location.pathname}#${hash}`;
+      const fullUrl = `${location.origin}${location.pathname}${hash ? '#' + hash : ''}`;
       const titleText = `Freeze公式サイト - ${cfg.title}`;
 
       // <title> とブラウザタブ
@@ -56,25 +56,27 @@
       document.getElementById('og-image').setAttribute('content', 'https://i.ibb.co/39dXLvV3/Freeze-logo.png');
     }
 
+    // 初回 head 読み込み時にも meta を更新
+    (function(){
+      const initial = location.hash.replace('#', '');
+      updateMeta(initial);
+    })();
+
     function updateUI(hash) {
       const current = Object.keys(metaConfig).includes(hash) ? hash : 'appcmd';
-      // セクション切り替え
       document.querySelectorAll('.toggle-btn').forEach(btn => btn.classList.toggle('active', btn.dataset.target === current));
       document.querySelectorAll('.command-section').forEach(sec => sec.classList.toggle('active', sec.id === current));
-      updateMeta(current);
     }
 
     document.addEventListener('DOMContentLoaded', () => {
-      // 初期表示
       updateUI(location.hash.replace('#', ''));
-      // ハッシュ変更
-      window.addEventListener('hashchange', () => updateUI(location.hash.replace('#', '')));
-      // ボタンでハッシュ更新
+      window.addEventListener('hashchange', () => {
+        const h = location.hash.replace('#', '');
+        updateMeta(h);
+        updateUI(h);
+      });
       document.querySelectorAll('.toggle-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const tgt = btn.dataset.target;
-          location.hash = tgt;
-        });
+        btn.addEventListener('click', () => { location.hash = btn.dataset.target; });
       });
     });
   </script>
