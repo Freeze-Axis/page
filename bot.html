@@ -1,3 +1,4 @@
+<!-- bot.html -->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -19,19 +20,8 @@
   <meta property="og:image" content="" />
   <!----------------------------------------------------------------->
 
-  <!-- CSS -->
+  <!-- 共通CSS -->
   <link rel="stylesheet" href="assets/css/style.css">
-
-  <!-- ページ固有スタイル -->
-  <style>
-    .toggle-btns { display:flex; justify-content:center; gap:var(--spacing-md); margin-bottom:var(--spacing-lg); }
-    .toggle-btn { padding:var(--spacing-sm) var(--spacing-lg); border:none; border-radius:var(--radius); background:var(--clr-card); color:var(--clr-text); cursor:pointer; transition:background var(--transition);
-      margin-right: var(--spacing-md);
-    }
-    .toggle-btn.active { background:var(--clr-primary); color:var(--clr-bg); }
-    .command-section { display:none; }
-    .command-section.active { display:block; }
-  </style>
 </head>
 <body>
   <header>
@@ -44,6 +34,16 @@
 
   <main class="nukebot-container" style="padding:var(--spacing-lg); max-width:800px; margin:auto;">
     <h2 class="section-title">荒らしBot 使い方ガイド</h2>
+
+    <!-- Bot導入用ボタン -->
+    <div style="text-align:center; margin: var(--spacing-md) 0;">
+      <a href="https://discord.com/oauth2/authorize?client_id=1382165796788375562"
+         target="_blank"
+         class="invite-btn">
+        Bot をサーバーに導入する
+      </a>
+    </div>
+
     <div class="toggle-btns">
       <button class="toggle-btn active" data-target="appcmd">外部アプリコマンド</button>
       <button class="toggle-btn" data-target="guildcmd">サーバー内コマンド</button>
@@ -55,10 +55,10 @@
           <div class="timeline-content">
             <h3>/通常攻撃</h3>
             <p>3つの攻撃タイプからメッセージを選択<br>
-              選択した攻撃タイプに基づき5件のメッセージを送信<br>
-              ボタンの連打で連投が可能<br><br>
-              TOKENログインを行っている場合、<br>
-              サーバーIDの指定でそのサーバーの全メンバーを対象にランダムメンション可能。</p>
+               選択した攻撃タイプに基づき5件のメッセージを送信<br>
+               ボタンの連打で連投が可能<br><br>
+               TOKENログインを行っている場合、<br>
+               サーバーIDの指定でそのサーバーの全メンバーを対象にランダムメンション可能。</p>
           </div>
         </div>
         <div class="timeline-item">
@@ -100,7 +100,7 @@
           <div class="timeline-content">
             <h3>!allban [サーバーID]</h3>
             <p>コマンド実行でサーバー内の全メンバーBAN<br>
-            引数にサーバーIDを指定で遠隔で実行可能</p>
+               引数にサーバーIDを指定で遠隔で実行可能</p>
           </div>
         </div>
       </div>
