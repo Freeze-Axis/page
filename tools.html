@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!----------------------------------------------------------------->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#a9ceec" />
+
+  <title>Freeze公式サイト - ツール一覧</title>
+  <meta name="description" content="" />
+
+  <link rel="icon" href="https://i.ibb.co/39dXLvV3/Freeze-logo.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Freeze" />
+  <meta property="og:title" content="荒らしツール/拡張機能" />
+  <meta property="og:description" content="Freeze☭Axis" />
+  <meta property="og:url" content="" />
+  <meta property="og:image" content="https://i.ibb.co/39dXLvV3/Freeze-logo.png" />
+  <!----------------------------------------------------------------->
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- 共通CSS -->
+  <link rel="stylesheet" href="assets/css/base.css">
+  <!-- ツールページ用CSS -->
+  <link rel="stylesheet" href="assets/css/tools.css">
+</head>
+<body>
+
+  <!-- ヘッダー -->
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="https://i.ibb.co/39dXLvV3/Freeze-logo.png" alt="Freeze Logo" class="logo-img">
+        Freeze
+      </a>
+      <button id="nav-toggle" class="nav-toggle" aria-label="メニュー開閉">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="nav"><!-- nav.html #header-menu --></nav>
+    </div>
+  </header>
+
+  <!-- ヒーローセクション -->
+  <section class="tool-hero">
+    <div class="container">
+      <h1>Freeze 公式ツール</h1>
+      <p>Discordコミュニティのための高品質なツールを提供しています</p>
+    </div>
+  </section>
+
+  <!-- メインコンテンツ -->
+  <main class="tool-container">
+    <div class="tools-grid">
+      <!-- 荒らしツールカード -->
+      <div class="tool-card">
+        <div class="tool-icon">
+          <i class="fas fa-bomb"></i>
+        </div>
+        <h3>サーバーRaider</h3>
+        <p>シンプルかつ高品質なサーバー襲撃ツール</p>
+        <a href="https://freeze-axis.github.io/raider" class="tool-btn">
+          アクセス <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+      
+      <!-- DMグループ荒らしツールカード -->
+      <div class="tool-card">
+        <div class="tool-icon">
+          <i class="fas fa-comments"></i>
+        </div>
+        <h3>DMグループスパム</h3>
+        <p>ターゲットをDMグループに追加するスパムツール</p>
+        <a href="https://freeze-axis.github.io/add_group" target="_blank" class="tool-btn">
+          アクセス <i class="fas fa-external-link-alt"></i>
+        </a>
+      </div>
+    </div>
+    
+    <!-- 特徴セクション -->
+    <div class="features-section">
+      <h2 class="section-title">Freeze Toolsの特徴</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-sync-alt"></i>
+          </div>
+          <h3>常に進化し続ける</h3>
+          <p>全てのツールは定期的にアップデートされ、<br>最新のDiscord APIに対応しています。</p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-lock"></i>
+          </div>
+          <h3>安全な利用</h3>
+          <p>当サイトのツールはフリーソースです<br>その為、安心安全にご利用いただけます。</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- フッター -->
+  <footer>
+    <nav id="footer-nav"><!-- nav.html #footer-menu --></nav>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
+  
+  <script>
+    // ツールカードにアニメーション効果を追加
+    document.addEventListener('DOMContentLoaded', function() {
+      const toolCards = document.querySelectorAll('.tool-card');
+      const featureCards = document.querySelectorAll('.feature-card');
+      
+      // ツールカードのアニメーション
+      toolCards.forEach((card, index) => {
+        setTimeout(() => {
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, 300 + (index * 200));
+      });
+      
+      // 特徴カードのアニメーション
+      featureCards.forEach((card, index) => {
+        setTimeout(() => {
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, 600 + (index * 200));
+      });
+    });
+  </script>
+</body>
+</html>

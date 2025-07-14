@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<!----------------------------------------------------------------->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#a9ceec" />
+
+  <title>Freeze公式サイト - 生存確認</title>
+  <meta name="description" content="Discordで活動する多目的グループ“Freeze”の公式サイトです。" />
+
+  <link rel="icon" href="https://i.ibb.co/39dXLvV3/Freeze-logo.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:site_name"   content="Freeze" />
+  <meta property="og:title"       content="生存確認" />
+  <meta property="og:description" content="" />
+  <meta property="og:url"         content="" />
+  <meta property="og:image"       content="" />
+<!----------------------------------------------------------------->
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: url('https://cdn.discordapp.com/attachments/.../background.jpg') no-repeat center/cover fixed;
+        }
+        .container {
+            max-width: 320px;
+            width: 90%;
+            padding: 1.5rem;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            text-align: center;
+            color: #fff;
+        }
+        .status {
+            margin: 1rem 0;
+            font-size: 1rem;
+        }
+        .status.success { color: #00ffd0; }
+        .status.error   { color: #ff4d4d; }
+        .sns-icons {
+            margin-top: 1.5rem;
+        }
+        .sns-icons a {
+            margin: 0 0.5rem;
+            display: inline-block;
+        }
+        .sns-icons img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Freeze Status</h1>
+        <p id="status-message" class="status">取得中...</p>
+        <iframe
+            id="discord-widget"
+            src="https://discord.com/widget?id=1054832544845135934&theme=dark"
+            width="100%" height="400"
+            allowtransparency="true"
+            frameborder="0"
+            sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts">
+        </iframe>
+
+        <div class="sns-icons">
+            <a href="https://discord.gg/reRxqAXSSG" aria-label="Discord Invite" target="_blank">
+                <img src="https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://discord.com/&size=256" alt="Discord">
+            </a>
+            <a href="https://t.me/Freeze_Axis" aria-label="Telegram" target="_blank">
+                <img src="https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://web.telegram.org/&size=256" alt="Telegram">
+            </a>
+            <a href="https://freeze-axis.github.io/page/" aria-label="GitHub" target="_blank">
+                <img src="https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=https://github.com/&size=256" alt="GitHub">
+            </a>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            const statusEl = document.getElementById('status-message');
+            const widget = document.getElementById('discord-widget');
+            const inviteLinks = document.querySelectorAll('.sns-icons a');
+            const fallbackInvite = 'https://discord.gg/X2jYXPETRq';
+            
+            function updateStatus(text, type) {
+                statusEl.textContent = text;
+                statusEl.className = `status ${type}`;
+            }
+
+            async function checkServer() {
+                try {
+                    const res = await fetch('https://discord.com/api/guilds/1054832544845135934/widget.json');
+                    if (!res.ok) throw new Error('Network response was not OK');
+                    updateStatus('🟢 サーバーは正常に動作しています', 'success');
+                } catch (error) {
+                    updateStatus('❌ サーバーが削除されています。避難所へ移動してください', 'error');
+                    widget.src = 'https://discord.com/widget?id=1292205597076230144&theme=dark';
+                    // 更新が必要なInviteリンク
+                    inviteLinks.forEach(a => {
+                        if (a.href.includes('https://discord.gg/JRPRpcaNau')) a.href = fallbackInvite;
+                    });
+                }
+            }
+
+            inviteLinks.forEach(a => {
+                a.addEventListener('click', e => {
+                    e.preventDefault();
+                    window.open(a.href, '_blank');
+                });
+            });
+
+            // 初回チェック & 定期更新
+            checkServer();
+            setInterval(checkServer, 60000);
+        })();
+    </script>
+</body>
+</html>

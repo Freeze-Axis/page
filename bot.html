@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!----------------------------------------------------------------->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#a9ceec" />
+
+  <title>Freeze公式サイト - 荒らしBot使い方</title>
+  <meta name="description" content="" />
+
+  <link rel="icon" href="https://i.ibb.co/39dXLvV3/Freeze-logo.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Freeze" />
+  <meta property="og:title" content="荒らしBot使い方" />
+  <meta property="og:description" content="導入と説明はサイトから" />
+  <meta property="og:url" content="" />
+  <meta property="og:image" content="https://i.ibb.co/39dXLvV3/Freeze-logo.png" />
+  <!----------------------------------------------------------------->
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- 共通CSS -->
+  <link rel="stylesheet" href="assets/css/base.css">
+  <!-- Botページ用CSS -->
+  <link rel="stylesheet" href="assets/css/bot.css">
+  
+  <!-- 追加スタイル -->
+  <style>
+    /* フォントの滑らかさ改善 */
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-family: 'Noto Sans JP', sans-serif; /* より滑らかなフォントに変更 */
+      font-weight: 400; /* 適度なウェイト */
+    }
+    
+    /* 縦線と数字を非表示にするスタイル */
+    .timeline::before {
+      display: none !important;
+    }
+    
+    .timeline-item::before {
+      display: none !important;
+    }
+    
+    .timeline-content {
+      border-left: none !important;
+      padding-left: 1.5rem;
+    }
+    
+    /* ヘッダーフォントの調整 */
+    h1, h2, h3, .section-header h3, .invite-content h2 {
+      font-weight: 700; /* ヘッダーは少し太く */
+      letter-spacing: 0.5px; /* 文字間隔を調整 */
+    }
+    
+    /* コマンドアイコンの位置調整 */
+    .command-icon {
+      top: -15px;
+      right: -15px;
+    }
+    
+    /* タイムラインの左パディング調整 */
+    .timeline {
+      padding-left: 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo">
+        <img src="https://i.ibb.co/39dXLvV3/Freeze-logo.png" alt="Freeze Logo" class="logo-img">
+        Freeze
+      </a>
+      <button id="nav-toggle" class="nav-toggle" aria-label="メニュー開閉">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav id="nav"><!-- nav.html #header-menu --></nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- ヒーローセクション -->
+    <section class="hero-section">
+      <div class="container">
+        <h1><i class="fas fa-robot"></i> 荒らしBot使い方</h1>
+        <p>Botの導入と操作方法を完全ガイド</p>
+        <div class="hero-badge">
+          <span><i class="fas fa-shield-alt"></i> 最終更新日：7/14</span>
+          <span><i class="fas fa-bolt"></i> 高速動作</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="nukebot-container">
+      <!-- Bot導入用ボタン -->
+      <div class="invite-card">
+        <div class="invite-content">
+          <h2><i class="fas fa-download"></i> Botを導入</h2>
+          <p>今すぐDiscordサーバーに追加して機能を体験</p>
+          <a href="https://discord.com/oauth2/authorize?client_id=1393741495902802041"
+             target="_blank"
+             class="invite-btn pulse">
+            <i class="fab fa-discord"></i> Bot導入
+          </a>
+        </div>
+      </div>
+
+      <!-- コマンド比較セクション -->
+      <div class="commands-comparison">
+        <!-- 左側: 外部アプリコマンド -->
+        <section class="command-section external-commands">
+          <div class="section-header">
+            <h3><i class="fas fa-external-link-alt"></i> 外部アプリコマンド</h3>
+            <p>Discord外部から操作する高度な機能</p>
+          </div>
+          
+          <div class="timeline">
+            <div class="timeline-item" data-step="1">
+              <div class="timeline-content">
+                <div class="command-icon">
+                  <i class="fas fa-fighter-jet"></i>
+                </div>
+                <h3>/通常攻撃</h3>
+                <p>3つの攻撃タイプからメッセージを選択<br>
+                   選択した攻撃タイプに基づき5件のメッセージを送信<br>
+                   ボタンの連打で連投が可能</p>
+                <div class="command-tip">
+                  <i class="fas fa-lightbulb"></i> TOKENログイン時はサーバーID指定で全メンバーにランダムメンション可能
+                </div>
+              </div>
+            </div>
+            
+            <div class="timeline-item" data-step="2">
+              <div class="timeline-content">
+                <div class="command-icon">
+                  <i class="fas fa-key"></i>
+                </div>
+                <h3>/TOKEN設定</h3>
+                <p>機能を最大限活用するための必須設定<br>
+                   外部アプリを使用するアカウントのTOKENを設定</p>
+                <div class="command-warning">
+                  <i class="fas fa-exclamation-triangle"></i> TOKENは厳重に管理してください
+                </div>
+              </div>
+            </div>
+            
+            <div class="timeline-item" data-step="3">
+              <div class="timeline-content">
+                <div class="command-icon">
+                  <i class="fas fa-sign-out-alt"></i>
+                </div>
+                <h3>/ログアウト</h3>
+                <p>現在設定されているTOKENからログアウト<br>
+                   再度ログインが必要になります</p>
+              </div>
+            </div>
+            
+            <div class="timeline-item" data-step="4">
+              <div class="timeline-content">
+                <div class="command-icon">
+                  <i class="fas fa-nuclear"></i>
+                </div>
+                <h3>/操作</h3>
+                <p>指定したサーバーの全チャンネルで攻撃を実行<br>
+                   大規模な攻撃に最適なコマンド</p>
+                <div class="command-restriction">
+                  <i class="fas fa-lock"></i> TOKENログイン時のみ利用可能
+                </div>
+              </div>
+            </div>
+            
+            <div class="timeline-item" data-step="5">
+              <div class="timeline-content">
+                <div class="command-icon">
+                  <i class="fas fa-bomb"></i>
+                </div>
+                <h3>/爆撃</h3>
+                <p>実行したチャンネルで5件のメッセージを送信<br>
+                   特定チャンネルを対象とした集中攻撃</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- 右側: サーバーコマンド -->
+        <section class="command-section server-commands">
+          <div class="section-header">
+            <h3><i class="fas fa-server"></i> サーバー内コマンド</h3>
+            <p>Discordサーバー内で直接実行するコマンド</p>
+          </div>
+          
+          <div class="timeline">
+            <div class="timeline-item" data-step="1">
+              <div class="timeline-content">
+                <div class="command-icon">
+                  <i class="fas fa-skull"></i>
+                </div>
+                <h3>!nuke</h3>
+                <p>王道のサーバー破壊コマンド<br>
+                   チャンネル削除・ロール変更・全メンバーキック</p>
+                <div class="command-warning">
+                  <i class="fas fa-radiation"></i> このコマンドは取り返しのつかない操作を含みます
+                </div>
+              </div>
+            </div>
+            
+            <div class="timeline-item" data-step="2">
+              <div class="timeline-content">
+                <div class="command-icon">
+                  <i class="fas fa-ban"></i>
+                </div>
+                <h3>!allban [サーバーID]</h3>
+                <p>サーバー内の全メンバーをBAN</p>
+                <div class="command-tip">
+                  <i class="fas fa-crosshairs"></i> サーバーIDを指定すると遠隔操作が可能
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- フッター -->
+  <footer>
+    <div class="container">
+      <nav id="footer-nav">
+        <!-- JS で nav.html の #footer-menu が挿入されます -->
+      </nav>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // カードホバー効果
+      document.querySelectorAll('.timeline-content').forEach(card => {
+        card.addEventListener('mouseenter', () => {
+          card.style.transform = 'translateY(-5px)';
+          card.style.boxShadow = '0 12px 30px rgba(0, 0, 0, 0.4)';
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = 'translateY(0)';
+          card.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.2)';
+        });
+      });
+      
+      // 初期表示アニメーション
+      setTimeout(() => {
+        document.querySelectorAll('.timeline-item').forEach((item, index) => {
+          setTimeout(() => {
+            item.style.opacity = '1';
+            item.style.transform = 'translateY(0)';
+          }, 100 * index);
+        });
+      }, 300);
+    });
+  </script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
