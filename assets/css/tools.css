@@ -5,8 +5,8 @@
 .tool-hero {
   background: linear-gradient(135deg, #1a2a6c, #2a4d69, #3a7bd5);
   text-align: center;
-  padding: 4rem 1rem;
-  margin-bottom: 3rem;
+  padding: 3rem 1rem; /* パディングを減らしてコンパクトに */
+  margin-bottom: 2rem; /* マージンを減らしてコンパクトに */
   position: relative;
   overflow: hidden;
 }
@@ -23,8 +23,8 @@
 
 .tool-hero h1 {
   font-family: var(--font-heading);
-  font-size: 3rem;
-  margin-bottom: 1rem;
+  font-size: 2.5rem; /* フォントサイズを小さく */
+  margin-bottom: 0.5rem; /* マージンを減らしてコンパクトに */
   color: white;
   text-shadow: 0 0 15px rgba(129, 212, 250, 0.7);
   position: relative;
@@ -32,7 +32,7 @@
 }
 
 .tool-hero p {
-  font-size: 1.25rem;
+  font-size: 1.1rem; /* フォントサイズを小さく */
   color: rgba(255, 255, 255, 0.9);
   max-width: 700px;
   margin: 0 auto;
@@ -41,33 +41,75 @@
 }
 
 .tool-container {
-  max-width: 1200px;
+  max-width: 1000px; /* 幅を狭めてコンパクトに */
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1.5rem; /* パディングを減らしてコンパクトに */
   background: rgba(42, 45, 45, 0.8);
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border-radius: 16px; /* 角丸を小さく */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* 影を小さく */
   border: 1px solid rgba(129, 212, 250, 0.15);
   backdrop-filter: blur(10px);
-  margin-bottom: 3rem;
+  margin-bottom: 2rem; /* マージンを減らしてコンパクトに */
+}
+
+/* タブメニュー */
+.tool-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.tool-tab {
+  padding: 0.7rem 1.8rem;
+  background: rgba(42, 45, 45, 0.5);
+  border: none;
+  border-radius: 50px;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: var(--font-heading);
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(129, 212, 250, 0.1);
+}
+
+.tool-tab:hover {
+  background: rgba(90, 143, 192, 0.2);
+  color: var(--clr-text);
+}
+
+.tool-tab.active {
+  background: linear-gradient(135deg, var(--clr-primary), var(--clr-accent));
+  color: var(--clr-bg);
+  box-shadow: 0 4px 12px rgba(90, 143, 192, 0.4);
+}
+
+/* ツールセクション */
+.tool-section {
+  display: none;
+}
+
+.tool-section.active {
+  display: block;
 }
 
 .tools-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 2.5rem;
-  margin: 2.5rem 0;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* カード幅を小さく */
+  gap: 1.8rem; /* ギャップを小さく */
+  margin: 1.5rem 0; /* マージンを減らしてコンパクトに */
 }
 
 .tool-card {
   background: linear-gradient(145deg, #252929, #1e2222);
-  border-radius: 16px;
-  padding: 2rem;
+  border-radius: 14px; /* 角丸を小さく */
+  padding: 1.5rem; /* パディングを減らしてコンパクトに */
   transition: all 0.3s ease;
   border: 1px solid rgba(129, 212, 250, 0.1);
   position: relative;
   overflow: hidden;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* 影を小さく */
   text-align: center;
   opacity: 0;
   transform: translateY(20px);
@@ -75,8 +117,8 @@
 }
 
 .tool-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  transform: translateY(-8px); /* ホバー時の移動量を小さく */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3); /* 影を小さく */
 }
 
 .tool-card::before {
@@ -91,30 +133,23 @@
 }
 
 .tool-icon {
-  font-size: 3.5rem;
-  margin-bottom: 1.5rem;
+  font-size: 2.8rem; /* アイコンサイズを小さく */
+  margin-bottom: 1rem; /* マージンを減らしてコンパクトに */
   display: inline-block;
   position: relative;
 }
 
-.tool-card:nth-child(1) .tool-icon {
-  color: #ff6384;
-}
-
-.tool-card:nth-child(2) .tool-icon {
-  color: #81d4fa;
-}
-
 .tool-card h3 {
   font-family: var(--font-heading);
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
+  font-size: 1.5rem; /* フォントサイズを小さく */
+  margin-bottom: 0.8rem; /* マージンを減らしてコンパクトに */
 }
 
 .tool-card p {
   color: rgba(255, 255, 255, 0.85);
-  margin-bottom: 1.5rem;
-  min-height: 60px;
+  margin-bottom: 1.2rem; /* マージンを減らしてコンパクトに */
+  min-height: 50px; /* 高さを小さく */
+  font-size: 0.95rem; /* フォントサイズを小さく */
 }
 
 .tool-btn {
@@ -124,40 +159,41 @@
   gap: 0.5rem;
   background: linear-gradient(135deg, var(--clr-primary), var(--clr-accent));
   color: var(--clr-bg);
-  padding: 0.8rem 1.8rem;
+  padding: 0.7rem 1.5rem; /* パディングを減らしてコンパクトに */
   border-radius: 50px;
   text-decoration: none;
   font-family: var(--font-heading);
   font-weight: bold;
+  font-size: 0.95rem; /* フォントサイズを小さく */
   transition: all 0.3s ease;
-  box-shadow: 0 5px 15px rgba(90, 143, 192, 0.4);
+  box-shadow: 0 4px 12px rgba(90, 143, 192, 0.4); /* 影を小さく */
   border: none;
   cursor: pointer;
 }
 
 .tool-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(90, 143, 192, 0.6);
+  transform: translateY(-2px); /* 移動量を小さく */
+  box-shadow: 0 6px 16px rgba(90, 143, 192, 0.6); /* 影を小さく */
   background: linear-gradient(135deg, #678fca, #90d6fa);
 }
 
 .features-section {
-  margin-top: 3rem;
-  padding-top: 3rem;
+  margin-top: 2rem; /* マージンを減らしてコンパクトに */
+  padding-top: 2rem; /* パディングを減らしてコンパクトに */
   border-top: 1px solid rgba(129, 212, 250, 0.2);
 }
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* カード幅を小さく */
+  gap: 1.5rem; /* ギャップを小さく */
+  margin-top: 1.5rem; /* マージンを減らしてコンパクトに */
 }
 
 .feature-card {
   background: linear-gradient(145deg, #252929, #1e2222);
-  border-radius: 16px;
-  padding: 2rem;
+  border-radius: 14px; /* 角丸を小さく */
+  padding: 1.5rem; /* パディングを減らしてコンパクトに */
   transition: all 0.3s ease;
   border: 1px solid rgba(129, 212, 250, 0.1);
   position: relative;
@@ -169,49 +205,50 @@
 }
 
 .feature-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  transform: translateY(-3px); /* 移動量を小さく */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* 影を小さく */
 }
 
 .feature-icon {
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
+  font-size: 2.2rem; /* アイコンサイズを小さく */
+  margin-bottom: 1rem; /* マージンを減らしてコンパクトに */
   display: inline-block;
   color: var(--clr-accent);
 }
 
 .feature-card h3 {
   font-family: var(--font-heading);
-  font-size: 1.5rem;
-  margin-bottom: 1rem;
+  font-size: 1.3rem; /* フォントサイズを小さく */
+  margin-bottom: 0.8rem; /* マージンを減らしてコンパクトに */
   color: var(--clr-accent);
 }
 
 .feature-card p {
   color: rgba(255, 255, 255, 0.85);
+  font-size: 0.95rem; /* フォントサイズを小さく */
 }
 
 /* レスポンシブ調整 */
 @media (max-width: 768px) {
   .tool-hero h1 {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
   
   .tool-hero p {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
   
   .tool-container {
-    padding: 1.5rem;
+    padding: 1rem;
   }
   
   .tools-grid {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
+    gap: 1.2rem;
   }
   
   .tool-card {
-    padding: 1.5rem;
+    padding: 1.2rem;
   }
   
   .features-grid {
@@ -219,37 +256,52 @@
   }
   
   .tool-icon {
-    font-size: 2.8rem;
+    font-size: 2.5rem;
   }
   
   .tool-card h3 {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
   }
   
   .feature-card {
-    padding: 1.5rem;
+    padding: 1.2rem;
+  }
+  
+  .tool-tabs {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .tool-tab {
+    width: 100%;
+    text-align: center;
   }
 }
 
 @media (max-width: 480px) {
   .tool-hero {
-    padding: 3rem 1rem;
+    padding: 2rem 1rem;
   }
   
   .tool-hero h1 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
   
   .tool-btn {
-    padding: 0.7rem 1.5rem;
+    padding: 0.6rem 1.2rem;
     font-size: 0.9rem;
   }
   
   .feature-card h3 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
   
   .feature-card p {
+    font-size: 0.9rem;
+  }
+  
+  .tool-tab {
+    padding: 0.6rem;
     font-size: 0.95rem;
   }
 }
