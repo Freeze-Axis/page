@@ -56,31 +56,81 @@
 
   <!-- メインコンテンツ -->
   <main class="tool-container">
-    <div class="tools-grid">
-      <!-- 荒らしツールカード -->
-      <div class="tool-card">
-        <div class="tool-icon">
-          <i class="fas fa-bomb"></i>
-        </div>
-        <h3>サーバーRaider</h3>
-        <p>シンプルかつ高品質なサーバー襲撃ツール</p>
-        <a href="https://freeze-axis.github.io/raider" class="tool-btn">
-          アクセス <i class="fas fa-arrow-right"></i>
-        </a>
-      </div>
-      
-      <!-- DMグループ荒らしツールカード -->
-      <div class="tool-card">
-        <div class="tool-icon">
-          <i class="fas fa-comments"></i>
-        </div>
-        <h3>DMグループスパム</h3>
-        <p>ターゲットをDMグループに追加するスパムツール</p>
-        <a href="https://freeze-axis.github.io/add_group" target="_blank" class="tool-btn">
-          アクセス <i class="fas fa-external-link-alt"></i>
-        </a>
-      </div>
+    <!-- タブ切り替えボタン -->
+    <div class="tool-tabs">
+      <button class="tool-tab active" data-tab="raiding">荒らしツール</button>
+      <button class="tool-tab" data-tab="other">その他ツール</button>
     </div>
+    
+    <!-- 荒らしツールセクション -->
+    <section id="raiding-tools" class="tool-section active">
+      <div class="tools-grid">
+        <!-- 荒らしツールカード -->
+        <div class="tool-card">
+          <div class="tool-icon">
+            <i class="fas fa-bomb"></i>
+          </div>
+          <h3>サーバーRaider</h3>
+          <p>シンプルかつ高品質なサーバー襲撃ツール</p>
+          <a href="https://freeze-axis.github.io/raider" class="tool-btn">
+            アクセス <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+        
+        <!-- DMグループ荒らしツールカード -->
+        <div class="tool-card">
+          <div class="tool-icon">
+            <i class="fas fa-comments"></i>
+          </div>
+          <h3>DMグループスパム</h3>
+          <p>ターゲットをDMグループに追加するスパムツール</p>
+          <a href="https://freeze-axis.github.io/add_group" target="_blank" class="tool-btn">
+            アクセス <i class="fas fa-external-link-alt"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+    
+    <!-- その他ツールセクション -->
+    <section id="other-tools" class="tool-section">
+      <div class="tools-grid">
+        <!-- 招待URL厳選ツール -->
+        <div class="tool-card">
+          <div class="tool-icon">
+            <i class="fas fa-link"></i>
+          </div>
+          <h3>招待URL厳選ツール</h3>
+          <p>Discordサーバーの招待URLを生成・管理するツール</p>
+          <a href="https://freeze-axis.github.io/invite_gen/" target="_blank" class="tool-btn">
+            アクセス <i class="fas fa-external-link-alt"></i>
+          </a>
+        </div>
+        
+        <!-- DMグループ退出ツール -->
+        <div class="tool-card">
+          <div class="tool-icon">
+            <i class="fas fa-sign-out-alt"></i>
+          </div>
+          <h3>DMグループ退出ツール</h3>
+          <p>不要なDMグループから一括退出するツール</p>
+          <a href="https://freeze-axis.github.io/dm_leave/" target="_blank" class="tool-btn">
+            アクセス <i class="fas fa-external-link-alt"></i>
+          </a>
+        </div>
+        
+        <!-- フォント変換ツール -->
+        <div class="tool-card">
+          <div class="tool-icon">
+            <i class="fas fa-font"></i>
+          </div>
+          <h3>フォント変換ツール</h3>
+          <p>特殊なフォントスタイルにテキストを変換するツール</p>
+          <a href="https://freeze-axis.github.io/font_editor/" target="_blank" class="tool-btn">
+            アクセス <i class="fas fa-external-link-alt"></i>
+          </a>
+        </div>
+      </div>
+    </section>
     
     <!-- 特徴セクション -->
     <div class="features-section">
@@ -132,6 +182,23 @@
           card.style.opacity = '1';
           card.style.transform = 'translateY(0)';
         }, 600 + (index * 200));
+      });
+      
+      // タブ切り替え機能
+      const tabs = document.querySelectorAll('.tool-tab');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          // 全てのタブとセクションからactiveクラスを削除
+          document.querySelectorAll('.tool-tab').forEach(t => t.classList.remove('active'));
+          document.querySelectorAll('.tool-section').forEach(s => s.classList.remove('active'));
+          
+          // クリックされたタブにactiveクラスを追加
+          tab.classList.add('active');
+          
+          // 対応するセクションを表示
+          const tabId = tab.getAttribute('data-tab');
+          document.getElementById(`${tabId}-tools`).classList.add('active');
+        });
       });
     });
   </script>
