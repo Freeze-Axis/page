@@ -123,7 +123,7 @@
 
 .section-header h3 {
   font-family: var(--font-heading);
-  font-size: 1.8rem;
+  font-size: 1.5rem; /* 縮小 */
   margin-bottom: var(--spacing-sm);
   display: flex;
   align-items: center;
@@ -135,6 +135,7 @@
   color: rgba(255, 255, 255, 0.7);
   max-width: 600px;
   margin: 0 auto;
+  font-size: 0.95rem; /* 縮小 */
 }
 
 /* 外部アプリコマンド（左側）*/
@@ -150,10 +151,6 @@
   background: var(--clr-accent);
 }
 
-.external-commands .command-icon {
-  background: var(--clr-accent);
-}
-
 /* サーバーコマンド（右側）*/
 .server-commands .section-header h3 {
   color: #ff6384;
@@ -164,10 +161,6 @@
 }
 
 .server-commands .timeline-item::before {
-  background: #ff6384;
-}
-
-.server-commands .command-icon {
   background: #ff6384;
 }
 
@@ -199,7 +192,7 @@
 
 .timeline-item {
   position: relative;
-  margin-bottom: var(--spacing-lg);
+  margin-bottom: 1rem; /* 縮小 */
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.5s ease, transform 0.5s ease;
@@ -209,29 +202,10 @@
   margin-bottom: 0;
 }
 
-.timeline-item::before {
-  content: attr(data-step);
-  position: absolute;
-  left: -2.25rem;
-  top: 0.25rem;
-  width: 2.5rem;
-  height: 2.5rem;
-  background: var(--clr-primary);
-  color: var(--clr-text);
-  font-family: var(--font-heading);
-  font-size: 1.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  box-shadow: 0 4px 8px var(--clr-shadow);
-  z-index: 2;
-}
-
 .timeline-content {
   background: linear-gradient(145deg, #2d3131, #252929);
   border-radius: var(--radius);
-  padding: var(--spacing-md);
+  padding: 0.8rem; /* 縮小 */
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
@@ -254,64 +228,21 @@
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
 }
 
-.command-icon {
-  position: absolute;
-  top: -20px;
-  right: -20px;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  color: var(--clr-text);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-  transform: rotate(15deg);
-  z-index: 1;
-}
-
 .timeline-content h3 {
   font-family: var(--font-heading);
-  font-size: 1.5rem;
-  margin-bottom: var(--spacing-sm);
+  font-size: 1.3rem; /* 縮小 */
+  margin-bottom: 0.5rem; /* 縮小 */
   position: relative;
   z-index: 2;
 }
 
 .timeline-content p {
-  margin-bottom: var(--spacing-md);
+  margin-bottom: 0.8rem; /* 縮小 */
   line-height: 1.6;
   color: rgba(255, 255, 255, 0.9);
   position: relative;
   z-index: 2;
-}
-
-.command-tip, .command-warning, .command-restriction {
-  padding: var(--spacing-sm);
-  border-radius: var(--radius);
-  margin-top: var(--spacing-sm);
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-sm);
-  position: relative;
-  z-index: 2;
-  font-size: 0.9rem;
-}
-
-.command-tip {
-  background: rgba(80, 250, 123, 0.1);
-  border-left: 3px solid var(--clr-link);
-}
-
-.command-warning {
-  background: rgba(255, 165, 0, 0.1);
-  border-left: 3px solid orange;
-}
-
-.command-restriction {
-  background: rgba(255, 99, 132, 0.1);
-  border-left: 3px solid #ff6384;
+  font-size: 0.9rem; /* 縮小 */
 }
 
 /* Bot導入ボタン */
@@ -396,25 +327,6 @@
   
   .timeline {
     padding-left: 2rem;
-  }
-  
-  .timeline-item::before {
-    left: -1.8rem;
-    width: 2.2rem;
-    height: 2.2rem;
-    font-size: 1rem;
-  }
-  
-  .command-icon {
-    top: -15px;
-    right: -15px;
-    width: 50px;
-    height: 50px;
-    font-size: 1.2rem;
-  }
-  
-  .section-header h3 {
-    font-size: 1.5rem;
   }
   
   .nukebot-container {
