@@ -7,7 +7,7 @@
   <meta name="theme-color" content="#a9ceec" />
 
   <title>Freeze公式サイト - ツール一覧</title>
-  <meta name="description" content="" />
+  <meta name="description" content="Discordコミュニティのための高品質ツール。サーバー管理、スパム対策、自動化ツールなど、あらゆるニーズに対応。" />
 
   <link rel="icon" href="https://i.ibb.co/39dXLvV3/Freeze-logo.png" />
 
@@ -23,10 +23,846 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- 共通CSS -->
-  <link rel="stylesheet" href="assets/css/base.css">
-  <!-- ツールページ用CSS -->
-  <link rel="stylesheet" href="assets/css/tools.css">
+  <style>
+:root {
+  --clr-bg:       #1e1e1e;
+  --clr-card:     #2a2d2d;
+  --clr-text:     #fafafa;
+  --clr-primary:  #4a7cb0;
+  --clr-accent:   #81d4fa;
+  --clr-link:     #45e06f;
+  --clr-shadow:   rgba(0,0,0,0.7);
+  --clr-gradient: linear-gradient(135deg, #1a2a6c, #2a4d69, #3a7bd5);
+
+  --font-heading: 'Orbitron', sans-serif;
+  --font-body:    'Noto Sans JP', 'Roboto', sans-serif;
+
+  --radius:       12px;
+  --transition:   0.3s;
+
+  --spacing-xs:   0.25rem;
+  --spacing-sm:   0.5rem;
+  --spacing-md:   1rem;
+  --spacing-lg:   2rem;
+  --spacing-xl:   4rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+  color-scheme: dark light;
+  forced-color-adjust: none;
+}
+body {
+  font-family: var(--font-body);
+  background: var(--clr-bg);
+  color: var(--clr-text);
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3, h4, h5, h6,
+.section-title,
+.logo {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 15px;
+  }
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--clr-primary);
+  color: white;
+  padding: var(--spacing-sm);
+  z-index: 1000;
+  transition: top 0.3s;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--clr-accent);
+  outline-offset: 2px;
+}
+
+nav#nav a,
+button {
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(42, 45, 45, 0.9);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px var(--clr-shadow);
+  z-index: 100;
+  transition: background 0.3s ease;
+}
+header.scrolled {
+  background: rgba(42, 45, 45, 0.98);
+}
+header .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-md) var(--spacing-lg);
+}
+.logo {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  color: var(--clr-accent);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.logo-img {
+  height: 2rem;
+  width: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 0 5px rgba(129, 212, 250, 0.5));
+}
+
+@media (max-width: 768px) {
+  .logo-img {
+    height: 1.6rem;
+  }
+}
+
+nav#nav ul#header-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+nav#nav li {
+  list-style: none;
+}
+
+nav#nav a {
+  color: var(--clr-text);
+  text-decoration: none;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  position: relative;
+  font-weight: 500;
+}
+nav#nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--clr-accent);
+  transition: width var(--transition), left var(--transition);
+}
+nav#nav a:hover::after,
+nav#nav a:focus::after {
+  width: 100%;
+  left: 0;
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.nav-toggle span {
+  display: block;
+  width: 2rem;
+  height: 0.25rem;
+  background: var(--clr-text);
+  border-radius: 10px;
+  transition: all 0.3s linear;
+  transform-origin: center;
+}
+
+.nav-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(0.35rem, 0.35rem);
+}
+.nav-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(0.35rem, -0.35rem);
+}
+
+@media (max-width: 768px) {
+  nav#nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(42, 45, 45, 0.95);
+    backdrop-filter: blur(10px);
+  }
+  nav#nav.active {
+    display: block;
+  }
+  nav#nav.active ul#header-menu {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+  }
+  .nav-toggle {
+    display: flex;
+  }
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: var(--spacing-xl) var(--spacing-lg);
+  text-align: center;
+  background: var(--clr-gradient);
+  background-size: 200% 200%;
+  animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, transparent 20%, rgba(0, 0, 0, 0.7) 150%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.group-name {
+  font-family: var(--font-heading);
+  font-size: 4.5rem;
+  color: white;
+  text-shadow: 0 0 15px rgba(129, 212, 250, 0.7);
+  margin-bottom: var(--spacing-md);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  animation: textGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow {
+  0% { text-shadow: 0 0 10px rgba(129, 212, 250, 0.5); }
+  100% { text-shadow: 0 0 25px rgba(129, 212, 250, 0.9), 0 0 40px rgba(90, 143, 192, 0.7); }
+}
+
+.group-tagline {
+  font-size: 1.4rem;
+  max-width: 600px;
+  margin: 0 auto var(--spacing-xl);
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.8;
+}
+
+.discord-btn {
+  display: inline-block;
+  background: #5865F2;
+  color: white;
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(88, 101, 242, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.discord-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+}
+
+.discord-btn:hover::before {
+  left: 100%;
+}
+
+.discord-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(88, 101, 242, 0.6);
+  background: #6772f8;
+}
+
+.discord-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 10px rgba(88, 101, 242, 0.4);
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  color: var(--clr-accent);
+  margin: var(--spacing-xl) 0 var(--spacing-lg);
+  position: relative;
+  text-align: center;
+  padding-top: var(--spacing-lg);
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 5px;
+  background: var(--clr-accent);
+  border-radius: 3px;
+}
+
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--spacing-lg) var(--spacing-md);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+footer {
+  width: 100%;
+  background: var(--clr-card);
+  box-shadow: 0 -2px 8px var(--clr-shadow);
+  padding: var(--spacing-lg) 0;
+  text-align: center;
+  margin-top: auto;
+}
+footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+.footer-logo {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--clr-accent);
+}
+footer nav#footer-nav ul#footer-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+footer a {
+  color: var(--clr-accent);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+footer a:hover {
+  color: var(--clr-link);
+}
+.copyright {
+  margin-top: var(--spacing-md);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--clr-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--clr-primary);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--clr-accent);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+
+@media (max-width: 992px) {
+  .group-name {
+    font-size: 3.5rem;
+  }
+  .group-tagline {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 75vh;
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+  .group-name {
+    font-size: 2.5rem;
+  }
+  .group-tagline {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-lg);
+  }
+  .discord-btn {
+    font-size: 1.1rem;
+    padding: 0.8rem 2rem;
+  }
+  .section-title {
+    font-size: 2rem;
+  }
+  header .container {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .group-name {
+    font-size: 2rem;
+  }
+  .group-tagline {
+    font-size: 1rem;
+  }
+  .discord-btn {
+    font-size: 1rem;
+    padding: 0.7rem 1.5rem;
+  }
+  .section-title {
+    font-size: 1.8rem;
+  }
+  footer nav#footer-nav ul#footer-menu {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Orbitron:wght@700&display=swap');
+
+/* tools.css */
+
+/* ページタイトルセクション */
+.page-title-section {
+  padding: 2.5rem 1.5rem 1.5rem;
+  text-align: center;
+  position: relative;
+}
+
+.page-title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--clr-accent);
+  margin: 0;
+  letter-spacing: 0.05em;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 1rem;
+}
+
+.page-title::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--clr-accent), transparent);
+  border-radius: 2px;
+}
+
+.page-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20%;
+  height: 1px;
+  background: rgba(129, 212, 250, 0.3);
+  border-radius: 1px;
+}
+
+/* ツールページ特有のスタイル */
+.tool-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem;
+  background: linear-gradient(135deg, rgba(42, 45, 45, 0.7) 0%, rgba(30, 33, 33, 0.8) 100%);
+  border-radius: 20px;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(129, 212, 250, 0.1);
+  border: 1px solid rgba(129, 212, 250, 0.2);
+  backdrop-filter: blur(10px);
+  margin-bottom: 3rem;
+}
+
+/* タブメニュー */
+.tool-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid rgba(129, 212, 250, 0.1);
+}
+
+.tool-tab {
+  padding: 0.85rem 2rem;
+  background: rgba(42, 45, 45, 0.6);
+  border: 2px solid rgba(129, 212, 250, 0.2);
+  border-radius: 50px;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: var(--font-heading);
+  font-weight: bold;
+  font-size: 1.05rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.tool-tab::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(129, 212, 250, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.tool-tab:hover {
+  background: rgba(90, 143, 192, 0.25);
+  color: var(--clr-text);
+  border-color: rgba(129, 212, 250, 0.4);
+  transform: translateY(-2px);
+}
+
+.tool-tab:hover::before {
+  left: 100%;
+}
+
+.tool-tab.active {
+  background: linear-gradient(135deg, var(--clr-primary), var(--clr-accent));
+  color: var(--clr-bg);
+  border-color: var(--clr-accent);
+  box-shadow: 
+    0 6px 20px rgba(90, 143, 192, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  font-weight: 700;
+}
+
+/* ツールセクション */
+.tool-section {
+  display: none;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.tool-section.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.tool-card {
+  background: var(--clr-card);
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(129, 212, 250, 0.1);
+  display: flex;
+  flex-direction: column;
+}
+
+.tool-card:hover {
+  border-color: rgba(129, 212, 250, 0.5);
+  box-shadow: 0 8px 20px rgba(129, 212, 250, 0.15);
+  transform: translateY(-5px);
+}
+
+.tool-icon {
+  font-size: 3rem;
+  margin-bottom: 1.2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+  width: 70px;
+  height: 70px;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--clr-accent);
+  transition: all 0.3s ease;
+}
+
+.tool-card:hover .tool-icon {
+  transform: scale(1.15);
+}
+
+.tool-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  margin-bottom: 0.8rem;
+  position: relative;
+  z-index: 1;
+  color: var(--clr-accent);
+  letter-spacing: 0.05em;
+}
+
+.tool-card p {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+.tool-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  background: linear-gradient(135deg, var(--clr-primary) 0%, var(--clr-accent) 100%);
+  color: var(--clr-bg);
+  padding: 0.85rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-family: var(--font-heading);
+  font-weight: bold;
+  font-size: 1rem;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  box-shadow: 0 6px 20px rgba(90, 143, 192, 0.4);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.tool-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: left 0.6s ease;
+  z-index: -1;
+}
+
+.tool-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(90, 143, 192, 0.6);
+  background: linear-gradient(135deg, #5a8fd4 0%, #9dd6fa 100%);
+}
+
+.tool-btn:hover::before {
+  left: 100%;
+}
+
+.tool-btn:active {
+  transform: translateY(-1px);
+}
+
+/* レスポンシブ調整 */
+@media (max-width: 1024px) {
+  .tool-container {
+    max-width: 95%;
+    padding: 1.5rem;
+  }
+
+  .tools-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .tool-card {
+    padding: 1.5rem;
+  }
+
+  .features-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .tool-container {
+    padding: 1.2rem;
+    margin-bottom: 2rem;
+    border-radius: 16px;
+  }
+
+  .tool-tabs {
+    gap: 0.8rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 1rem;
+  }
+
+  .tool-tab {
+    padding: 0.65rem 1.4rem;
+    font-size: 0.95rem;
+  }
+
+  .tools-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .tool-card {
+    padding: 1.5rem;
+  }
+
+  .tool-icon {
+    font-size: 2.5rem;
+    width: 60px;
+    height: 60px;
+  }
+
+  .tool-card h3 {
+    font-size: 1.4rem;
+  }
+
+  .tool-card p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .tool-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .features-section {
+    margin-top: 2.5rem;
+    padding: 2rem 1.2rem;
+  }
+
+  .features-section .section-title {
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .feature-card {
+    padding: 1.5rem;
+  }
+
+  .feature-icon {
+    font-size: 2.2rem;
+    width: 70px;
+    height: 70px;
+  }
+
+  .feature-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .feature-card p {
+    font-size: 0.9rem;
+  }
+}
+  </style>
 </head>
 <body>
 
@@ -46,46 +882,47 @@
     </div>
   </header>
 
-  <!-- ヒーローセクション -->
-  <section class="tool-hero">
-    <div class="container">
-      <h1>Freeze 公式ツール</h1>
-      <p>Discordコミュニティのための高品質なツールを提供しています</p>
-    </div>
+  <!-- ツール一覧セクション -->
+  <section class="page-title-section">
+    <h2 class="page-title">利用可能なツール</h2>
   </section>
 
   <!-- メインコンテンツ -->
   <main class="tool-container">
     <!-- タブ切り替えボタン -->
     <div class="tool-tabs">
-      <button class="tool-tab active" data-tab="raiding">荒らしツール</button>
-      <button class="tool-tab" data-tab="other">その他ツール</button>
+      <button class="tool-tab active" data-tab="raiding">
+        <i class="fas fa-bomb"></i> 荒らしツール
+      </button>
+      <button class="tool-tab" data-tab="other">
+        <i class="fas fa-wrench"></i> その他ツール
+      </button>
     </div>
     
     <!-- 荒らしツールセクション -->
     <section id="raiding-tools" class="tool-section active">
       <div class="tools-grid">
-        <!-- 荒らしツールカード -->
+        <!-- サーバーRaider -->
         <div class="tool-card">
           <div class="tool-icon">
             <i class="fas fa-bomb"></i>
           </div>
           <h3>サーバーRaider</h3>
-          <p>シンプルかつ高品質なサーバー襲撃ツール</p>
-          <a href="https://freeze-axis.github.io/raider" class="tool-btn">
-            アクセス <i class="fas fa-arrow-right"></i>
+          <p>高速かつ効率的なサーバー襲撃ツール。複数チャンネルへの同時メッセージ送信に対応。</p>
+          <a href="https://freeze-axis.github.io/raider" class="tool-btn" target="_blank">
+            <i class="fas fa-rocket"></i> ツールを開く
           </a>
         </div>
         
-        <!-- DMグループ荒らしツールカード -->
+        <!-- DMグループスパム -->
         <div class="tool-card">
           <div class="tool-icon">
             <i class="fas fa-comments"></i>
           </div>
           <h3>DMグループスパム</h3>
-          <p>ターゲットをDMグループに追加するスパムツール</p>
-          <a href="https://freeze-axis.github.io/add_group" target="_blank" class="tool-btn">
-            アクセス <i class="fas fa-external-link-alt"></i>
+          <p>ターゲットユーザーをDMグループに強制追加するスパムツール。効率的な迷惑メール配信が可能。</p>
+          <a href="https://freeze-axis.github.io/add_group" class="tool-btn" target="_blank">
+            <i class="fas fa-play"></i> ツールを開く
           </a>
         </div>
       </div>
@@ -100,9 +937,9 @@
             <i class="fas fa-link"></i>
           </div>
           <h3>招待URL厳選ツール</h3>
-          <p>Discordサーバーの招待URLを生成・管理するツール</p>
-          <a href="https://freeze-axis.github.io/invite_gen/" target="_blank" class="tool-btn">
-            アクセス <i class="fas fa-external-link-alt"></i>
+          <p>Discordサーバーの招待URLを簡単に生成・管理できる便利なツール。カスタマイズ可能な招待コード。</p>
+          <a href="https://freeze-axis.github.io/invite_gen/" class="tool-btn" target="_blank">
+            <i class="fas fa-play"></i> ツールを開く
           </a>
         </div>
         
@@ -112,9 +949,9 @@
             <i class="fas fa-sign-out-alt"></i>
           </div>
           <h3>DMグループ退出ツール</h3>
-          <p>不要なDMグループから一括退出するツール</p>
-          <a href="https://freeze-axis.github.io/dm_leave/" target="_blank" class="tool-btn">
-            アクセス <i class="fas fa-external-link-alt"></i>
+          <p>不要なDMグループから素早く一括退出できるツール。迷惑なグループからの脱出にぴったり。</p>
+          <a href="https://freeze-axis.github.io/dm_leave/" class="tool-btn" target="_blank">
+            <i class="fas fa-play"></i> ツールを開く
           </a>
         </div>
         
@@ -124,35 +961,15 @@
             <i class="fas fa-font"></i>
           </div>
           <h3>フォント変換ツール</h3>
-          <p>特殊なフォントスタイルにテキストを変換するツール</p>
-          <a href="https://freeze-axis.github.io/font_editor/" target="_blank" class="tool-btn">
-            アクセス <i class="fas fa-external-link-alt"></i>
+          <p>テキストを特殊なフォントスタイルに変換。Discord上で目立つテキスト表現が実現できます。</p>
+          <a href="https://freeze-axis.github.io/font_editor/" class="tool-btn" target="_blank">
+            <i class="fas fa-play"></i> ツールを開く
           </a>
         </div>
       </div>
     </section>
     
-    <!-- 特徴セクション -->
-    <div class="features-section">
-      <h2 class="section-title">Freeze Toolsの特徴</h2>
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-sync-alt"></i>
-          </div>
-          <h3>常に進化し続ける</h3>
-          <p>全てのツールは定期的にアップデートされ、<br>最新のDiscord APIに対応しています。</p>
-        </div>
-        
-        <div class="feature-card">
-          <div class="feature-icon">
-            <i class="fas fa-lock"></i>
-          </div>
-          <h3>安全な利用</h3>
-          <p>当サイトのツールはフリーソースです<br>その為、安心安全にご利用いただけます。</p>
-        </div>
-      </div>
-    </div>
+
   </main>
 
   <!-- フッター -->
@@ -160,47 +977,89 @@
     <nav id="footer-nav"><!-- nav.html #footer-menu --></nav>
   </footer>
 
-  <script src="assets/js/app.js"></script>
-  
   <script>
-    // ツールカードにアニメーション効果を追加
-    document.addEventListener('DOMContentLoaded', function() {
-      const toolCards = document.querySelectorAll('.tool-card');
-      const featureCards = document.querySelectorAll('.feature-card');
-      
-      // ツールカードのアニメーション
-      toolCards.forEach((card, index) => {
-        setTimeout(() => {
-          card.style.opacity = '1';
-          card.style.transform = 'translateY(0)';
-        }, 300 + (index * 200));
-      });
-      
-      // 特徴カードのアニメーション
-      featureCards.forEach((card, index) => {
-        setTimeout(() => {
-          card.style.opacity = '1';
-          card.style.transform = 'translateY(0)';
-        }, 600 + (index * 200));
-      });
-      
-      // タブ切り替え機能
-      const tabs = document.querySelectorAll('.tool-tab');
-      tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-          // 全てのタブとセクションからactiveクラスを削除
-          document.querySelectorAll('.tool-tab').forEach(t => t.classList.remove('active'));
-          document.querySelectorAll('.tool-section').forEach(s => s.classList.remove('active'));
-          
-          // クリックされたタブにactiveクラスを追加
-          tab.classList.add('active');
-          
-          // 対応するセクションを表示
-          const tabId = tab.getAttribute('data-tab');
-          document.getElementById(`${tabId}-tools`).classList.add('active');
-        });
-      });
+// assets/js/app.js
+document.addEventListener('DOMContentLoaded', () => {
+  const navToggle = document.getElementById('nav-toggle');
+  const headerNav = document.getElementById('nav');
+  const footerNav = document.getElementById('footer-nav');
+
+  // ヘッダー：モバイル時ハンバーガーメニュー開閉
+  if (navToggle && headerNav) {
+    navToggle.addEventListener('click', () => {
+      headerNav.classList.toggle('active');
     });
+  }
+
+  // nav.html を fetch し、一時的に DOM に流し込んで #header-menu / #footer-menu を抽出、挿入
+  if (headerNav || footerNav) {
+    fetch('nav.html')
+      .then(res => {
+        if (!res.ok) throw new Error('nav.html の読み込みに失敗: ' + res.status);
+        return res.text();
+      })
+      .then(htmlText => {
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = htmlText;
+
+        // ヘッダー用メニュー挿入
+        const headerMenu = tempDiv.querySelector('#header-menu');
+        if (headerNav) {
+          if (headerMenu) {
+            headerNav.innerHTML = headerMenu.outerHTML;
+          } else {
+            console.warn('nav.html に #header-menu が見つかりません');
+          }
+        }
+        // フッター用メニュー挿入
+        const footerMenu = tempDiv.querySelector('#footer-menu');
+        if (footerNav) {
+          if (footerMenu) {
+            footerNav.innerHTML = footerMenu.outerHTML;
+          } else {
+            console.warn('nav.html に #footer-menu が見つかりません');
+          }
+        }
+
+        // 年を設定
+        const yearDisplay = document.getElementById('year-display');
+        if (yearDisplay) {
+          const currentYear = new Date().getFullYear();
+          yearDisplay.textContent = `©Freeze ${currentYear}`;
+        }
+      })
+      .catch(err => {
+        console.error('nav.html 読み込みエラー:', err);
+        // 必要であればフォールバックリンクを設定する等の処理をここに
+      });
+  }
+});
+
+// インラインスクリプト
+// タブ切り替え機能
+document.addEventListener('DOMContentLoaded', function() {
+  const tabs = document.querySelectorAll('.tool-tab');
+  const toolSections = document.querySelectorAll('.tool-section');
+  
+  tabs.forEach(tab => {
+    tab.addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // 全てのタブからアクティブクラスを削除
+      tabs.forEach(t => t.classList.remove('active'));
+      
+      // クリックされたタブにアクティブクラスを追加
+      this.classList.add('active');
+      
+      // 対応するセクションを表示
+      const tabId = this.getAttribute('data-tab');
+      toolSections.forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById(`${tabId}-tools`).classList.add('active');
+    });
+  });
+});
   </script>
 </body>
 </html>

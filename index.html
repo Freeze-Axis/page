@@ -22,8 +22,656 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <link rel="stylesheet" href="assets/css/base.css" />
-  <link rel="stylesheet" href="assets/css/index.css" />
+  <style>
+/* assets/css/base.css */
+/*============================================================================
+  ダークモード固定・デザインシステム設定
+============================================================================*/
+:root {
+  --clr-bg:       #1e1e1e;
+  --clr-card:     #2a2d2d;
+  --clr-text:     #fafafa;
+  --clr-primary:  #4a7cb0;
+  --clr-accent:   #81d4fa;
+  --clr-link:     #45e06f;
+  --clr-shadow:   rgba(0,0,0,0.7);
+  --clr-gradient: linear-gradient(135deg, #1a2a6c, #2a4d69, #3a7bd5);
+
+  --font-heading: 'Orbitron', sans-serif;
+  --font-body:    'Noto Sans JP', 'Roboto', sans-serif;
+
+  --radius:       12px;
+  --transition:   0.3s;
+
+  --spacing-xs:   0.25rem;
+  --spacing-sm:   0.5rem;
+  --spacing-md:   1rem;
+  --spacing-lg:   2rem;
+  --spacing-xl:   4rem;
+}
+
+/*============================================================================
+  リセット & ベース
+============================================================================*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+  color-scheme: dark light;
+  forced-color-adjust: none;
+}
+body {
+  font-family: var(--font-body);
+  background: var(--clr-bg);
+  color: var(--clr-text);
+  min-height: 100vh;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 見出しのフォントスムージングとウェイト調整 */
+h1, h2, h3, h4, h5, h6,
+.section-title,
+.logo {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+/* モバイルでのフォントサイズ調整 */
+@media (max-width: 768px) {
+  body {
+    font-size: 15px;
+  }
+}
+
+/*============================================================================
+  アクセシビリティ向上
+============================================================================*/
+/* スキップナビゲーション */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: var(--clr-primary);
+  color: white;
+  padding: var(--spacing-sm);
+  z-index: 1000;
+  transition: top 0.3s;
+}
+.skip-link:focus {
+  top: 0;
+}
+
+/* フォーカスインジケータ */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--clr-accent);
+  outline-offset: 2px;
+}
+
+/* タッチターゲットの最小サイズ */
+nav#nav a,
+button {
+  min-height: 44px;
+  min-width: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/*============================================================================
+  ヘッダー & ナビ
+============================================================================*/
+header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(42, 45, 45, 0.9); /* 半透明化 */
+  backdrop-filter: blur(10px); /* 背景ブラー */
+  box-shadow: 0 2px 8px var(--clr-shadow);
+  z-index: 100;
+  transition: background 0.3s ease;
+}
+header.scrolled {
+  background: rgba(42, 45, 45, 0.98); /* スクロール時に濃く */
+}
+header .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-md) var(--spacing-lg);
+}
+/* base.css の .logo スタイルを修正 */
+.logo {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  color: var(--clr-accent);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+/* 新しいロゴ画像スタイルを追加 */
+.logo-img {
+  height: 2rem; /* ロゴの高さを調整 */
+  width: auto; /* アスペクト比を保持 */
+  object-fit: contain;
+  filter: drop-shadow(0 0 5px rgba(129, 212, 250, 0.5)); /* 発光効果 */
+}
+
+/* モバイル表示の調整 */
+@media (max-width: 768px) {
+  .logo-img {
+    height: 1.6rem; /* モバイルで少し小さく */
+  }
+}
+
+/* ナビゲーションメニュー */
+nav#nav ul#header-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+nav#nav li {
+  list-style: none;
+}
+
+nav#nav a {
+  color: var(--clr-text);
+  text-decoration: none;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  position: relative;
+  font-weight: 500;
+}
+nav#nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--clr-accent);
+  transition: width var(--transition), left var(--transition);
+}
+nav#nav a:hover::after,
+nav#nav a:focus::after {
+  width: 100%;
+  left: 0;
+}
+
+/* ハンバーガーメニューアイコン */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 2rem;
+  height: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+.nav-toggle span {
+  display: block;
+  width: 2rem;
+  height: 0.25rem;
+  background: var(--clr-text);
+  border-radius: 10px;
+  transition: all 0.3s linear;
+  transform-origin: center;
+}
+
+/* メニュー開閉時のアニメーション */
+.nav-toggle.active span:nth-child(1) {
+  transform: rotate(45deg) translate(0.35rem, 0.35rem);
+}
+.nav-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+.nav-toggle.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(0.35rem, -0.35rem);
+}
+
+/* モバイル対応 ヘッダー */
+@media (max-width: 768px) {
+  nav#nav {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: rgba(42, 45, 45, 0.95);
+    backdrop-filter: blur(10px);
+  }
+  nav#nav.active {
+    display: block;
+  }
+  nav#nav.active ul#header-menu {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+  }
+  .nav-toggle {
+    display: flex;
+  }
+}
+
+/*============================================================================
+  ヒーローセクション (新規追加)
+============================================================================*/
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: var(--spacing-xl) var(--spacing-lg);
+  text-align: center;
+  background: var(--clr-gradient);
+  background-size: 200% 200%;
+  animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, transparent 20%, rgba(0, 0, 0, 0.7) 150%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.group-name {
+  font-family: var(--font-heading);
+  font-size: 4.5rem;
+  color: white;
+  text-shadow: 0 0 15px rgba(129, 212, 250, 0.7);
+  margin-bottom: var(--spacing-md);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  animation: textGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow {
+  0% { text-shadow: 0 0 10px rgba(129, 212, 250, 0.5); }
+  100% { text-shadow: 0 0 25px rgba(129, 212, 250, 0.9), 0 0 40px rgba(90, 143, 192, 0.7); }
+}
+
+.group-tagline {
+  font-size: 1.4rem;
+  max-width: 600px;
+  margin: 0 auto var(--spacing-xl);
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.8;
+}
+
+.discord-btn {
+  display: inline-block;
+  background: #5865F2;
+  color: white;
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(88, 101, 242, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.discord-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: 0.5s;
+}
+
+.discord-btn:hover::before {
+  left: 100%;
+}
+
+.discord-btn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(88, 101, 242, 0.6);
+  background: #6772f8;
+}
+
+.discord-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 10px rgba(88, 101, 242, 0.4);
+}
+
+/*============================================================================
+  セクションタイトル (共通コンポーネント)
+============================================================================*/
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  color: var(--clr-accent);
+  margin: var(--spacing-xl) 0 var(--spacing-lg);
+  position: relative;
+  text-align: center;
+  padding-top: var(--spacing-lg);
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 5px;
+  background: var(--clr-accent);
+  border-radius: 3px;
+}
+
+/*============================================================================
+  メインコンテンツエリア
+============================================================================*/
+main {
+  flex: 1;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--spacing-lg);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+/*============================================================================
+  ヒーローセクション（カスタムスタイル）
+============================================================================*/
+.hero-section {
+  background: linear-gradient(120deg, #f7fafd 60%, #f0f6ff 100%);
+  padding: 60px 0 40px 0;
+}
+
+.hero-section .container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-text {
+  flex: 1 1 400px;
+  min-width: 320px;
+  max-width: 600px;
+}
+
+.hero-text h1 {
+  font-size: 2.8em;
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 18px;
+  color: #222;
+}
+
+.hero-text h1 .primary {
+  color: #81d4fa;
+  text-shadow: 0 0 20px rgba(129, 212, 250, 0.6);
+}
+
+.hero-text p {
+  font-size: 1.15em;
+  color: #555;
+  margin-bottom: 28px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 18px;
+}
+
+.hero-btn {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 1.08em;
+  border-radius: 10px;
+  padding: 13px 32px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.hero-btn.primary {
+  background: #2583e6;
+  color: #fff;
+  box-shadow: 0 2px 8px #2583e633;
+}
+
+.hero-btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px #2583e6;
+}
+
+.hero-btn.secondary {
+  background: #fff;
+  color: #222;
+  border: 1px solid #e3eaf3;
+  box-shadow: 0 2px 8px #0001;
+}
+
+.hero-btn.secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.hero-image {
+  flex: 1 1 320px;
+  min-width: 260px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.discord-circle {
+  width: 300px;
+  height: 300px;
+  border-radius: 50px;
+  background: #5A65F2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 40px rgba(90, 101, 242, 0.5);
+}
+
+.discord-circle i {
+  color: #fff;
+  font-size: 10em;
+}
+
+/*============================================================================
+  フッター
+============================================================================*/
+footer {
+  width: 100%;
+  background: var(--clr-card);
+  box-shadow: 0 -2px 8px var(--clr-shadow);
+  padding: var(--spacing-lg) 0;
+  text-align: center;
+  margin-top: auto;
+}
+footer .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+.footer-logo {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--clr-accent);
+}
+footer nav#footer-nav ul#footer-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+footer a {
+  color: var(--clr-accent);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+footer a:hover {
+  color: var(--clr-link);
+}
+.copyright {
+  margin-top: var(--spacing-md);
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+}
+
+/*============================================================================
+  スクロールバーカスタマイズ
+============================================================================*/
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--clr-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--clr-primary);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--clr-accent);
+}
+
+/*============================================================================
+  アニメーション
+============================================================================*/
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+
+/*============================================================================
+  レスポンシブ調整
+============================================================================*/
+@media (max-width: 992px) {
+  .group-name {
+    font-size: 3.5rem;
+  }
+  .group-tagline {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    min-height: 75vh;
+    padding: var(--spacing-lg) var(--spacing-md);
+  }
+  .group-name {
+    font-size: 2.5rem;
+  }
+  .group-tagline {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-lg);
+  }
+  .discord-btn {
+    font-size: 1.1rem;
+    padding: 0.8rem 2rem;
+  }
+  .section-title {
+    font-size: 2rem;
+  }
+  header .container {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .group-name {
+    font-size: 2rem;
+  }
+  .group-tagline {
+    font-size: 1rem;
+  }
+  .discord-btn {
+    font-size: 1rem;
+    padding: 0.7rem 1.5rem;
+  }
+  .section-title {
+    font-size: 1.8rem;
+  }
+  footer nav#footer-nav ul#footer-menu {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+}
+
+/*============================================================================
+  フォントインポート（最下部で読み込み）
+============================================================================*/
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Orbitron:wght@700&display=swap');
+  </style>
 </head>
 <body>
 
@@ -45,97 +693,29 @@
 
 
   <!-- ヒーローセクション -->
-  <section class="hero" style="background:linear-gradient(120deg,#f7fafd 60%,#f0f6ff 100%);padding:60px 0 40px 0;">
-    <div class="container" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:40px;max-width:1200px;margin:0 auto;">
-      <div class="hero-text" style="flex:1 1 400px;min-width:320px;max-width:600px;">
-        <h1 style="font-size:2.8em;font-weight:900;line-height:1.1;margin-bottom:18px;">
-          <span style="color:#2583e6;">Freeze</span><span style="color:#222;">で始める </span><br>
-          <span style="color:#222;">Discord荒らし</span>
+  <section class="hero-section">
+    <div class="container">
+      <div class="hero-text">
+        <h1>
+          <span class="primary">Freeze☭Axis</span></span>
         </h1>
-        <p style="font-size:1.15em;color:#555;margin-bottom:28px;">Freezeは、Discordの荒らし活動を目的とした組織です。</p>
-        <div style="display:flex;gap:18px;">
-          <a href="https://discord.gg/reRxqAXSSG" class="btn" style="background:#2583e6;color:#fff;font-weight:bold;font-size:1.08em;border-radius:10px;padding:13px 32px;text-align:center;text-decoration:none;box-shadow:0 2px 8px #2583e633;display:inline-block;">
+        <p>Freezeは2022年から活動するDiscordの荒らし組織です。</p>
+        <div class="hero-buttons">
+          <a href="https://discord.gg/reRxqAXSSG" class="hero-btn primary">
             Discordに参加
           </a>
-          <a href="#services" class="btn" style="background:#fff;color:#222;font-weight:bold;font-size:1.08em;border-radius:10px;padding:13px 32px;text-align:center;text-decoration:none;box-shadow:0 2px 8px #0001;display:inline-block;border:1px solid #e3eaf3;">
+          <a href="#services" class="hero-btn secondary">
             サービスを見る
           </a>
         </div>
       </div>
-      <div class="hero-image" style="flex:1 1 320px;min-width:260px;display:flex;justify-content:center;align-items:center;">
-        <div style="width:300px;height:300px;border-radius:50%;background:linear-gradient(135deg,#2583e6 0%,#13b0e6 100%);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px #2583e633;">
-          <i class="fab fa-discord" style="color:#fff;font-size:7em;"></i>
+      <div class="hero-image">
+        <div class="discord-circle">
+          <i class="fab fa-discord"></i>
         </div>
       </div>
     </div>
   </section>
-  <!-- メインコンテンツ -->
-  <main class="container">
-    <section id="join" class="join-discord">
-      <div class="container">
-        <div class="section-header">
-          <h2>Freezeに参加</h2>
-          <p>Freezeに参加して、最新情報や技術相談を受けよう</p>
-        </div>
-        <div class="join-content" style="display:flex; flex-wrap:wrap; gap:40px; justify-content:center; align-items:flex-start;">
-          <div class="join-info" style="flex:1 1 340px; min-width:300px; max-width:400px;">
-            <div class="join-features-list">
-              <div class="join-feature-card">
-                <i class="fas fa-check-circle"></i>
-                <span>Botの開発・共有</span>
-              </div>
-              <div class="join-feature-card">
-                <i class="fas fa-check-circle"></i>
-                <span>Discord Bot の技術サポート</span>
-              </div>
-              <div class="join-feature-card">
-                <i class="fas fa-check-circle"></i>
-                <span>コミュニティでの情報交換</span>
-              </div>
-              <div class="join-feature-card">
-                <i class="fas fa-check-circle"></i>
-                <span>最新情報の早期アクセス</span>
-              </div>
-            </div>
-          </div>
-          <div class="join-action" style="flex:1 1 340px; min-width:300px; max-width:400px;">
-            <div class="server-details-card" style="background:#fff; border-radius:16px; box-shadow:0 4px 16px #0002; padding:18px 32px; display:flex; flex-direction:column; align-items:center; max-width:520px; width:100%; margin:0 auto;">
-              <div class="server-header" style="width:100%; display:flex; align-items:center; justify-content:center; gap:16px; margin-bottom:10px;">
-                <img src="https://i.ibb.co/39dXLvV3/Freeze-logo.png" alt="Ozeu Allied Forces Server Icon" class="server-icon" style="width:48px; height:48px; border-radius:50%; box-shadow:0 2px 8px #0001;">
-                <h3 class="server-name" style="font-weight:bold; font-size:1.18em; color:#222; margin:0;">Freeze☭Axis</h3>
-              </div>
-              <div class="server-status" style="margin-bottom:10px; display:flex; align-items:center; justify-content:center; gap:8px;">
-                <span class="status-indicator online" style="display:inline-block; width:10px; height:10px; border-radius:50%; background:#22c55e;"></span>
-                <span class="member-count" style="color:#2583e6; font-size:1em; font-weight:500;">8,000+ メンバー</span>
-              </div>
-              <div class="server-stats" style="width:100%; display:flex; gap:0; justify-content:center; margin-bottom:10px;">
-                <div style="background:#f6f8fa; border-radius:12px 0 0 12px; padding:10px 0 6px 0; flex:1; min-width:140px; display:flex; flex-direction:column; align-items:center; border-right:1px solid #e3eaf3;">
-                  <div style="display:flex; align-items:center; gap:7px;">
-                    <i class="fas fa-users" style="color:#2583e6;"></i>
-                    <span style="font-weight:bold; color:#222; font-size:1.18em;">8,000+</span>
-                  </div>
-                  <span style="color:#888; font-size:0.85em; margin-top:2px;">総メンバー数</span>
-                </div>
-                <div style="background:#f6f8fa; border-radius:0 12px 12px 0; padding:10px 0 6px 0; flex:1; min-width:140px; display:flex; flex-direction:column; align-items:center;">
-                  <div style="display:flex; align-items:center; gap:7px;">
-                    <i class="fas fa-circle online-icon" style="color:#22c55e; font-size:1em;"></i>
-                    <span style="font-weight:bold; color:#22c55e; font-size:1.18em;">活発</span>
-                  </div>
-                  <span style="color:#888; font-size:0.85em; margin-top:2px;">コミュニティ</span>
-                </div>
-              </div>
-              <div class="server-description" style="color:#888; font-size:0.95em; margin-bottom:10px; margin-top:10px; text-align:center; font-weight:400;">
-                日本最大級のDiscordコミュニティ
-              </div>
-              <a href="https://discord.gg/reRxqAXSSG" class="btn btn-discord-join" target="_blank" rel="noopener noreferrer" style="background:#2583e6; color:#fff; font-weight:bold; font-size:1.08em; border-radius:12px; padding:13px 0; width:100%; text-align:center; text-decoration:none; box-shadow:0 2px 8px #2583e633; display:flex; align-items:center; justify-content:center; gap:10px; margin-top:2px;">
-                <i class="fab fa-discord" style="font-size:1.25em;"></i> 今すぐ参加する
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
 
   <!-- フッター -->
   <footer>
@@ -144,6 +724,63 @@
     </nav>
   </footer>
 
-  <script src="assets/js/app.js"></script>
+  <script>
+// assets/js/app.js
+document.addEventListener('DOMContentLoaded', () => {
+  const navToggle = document.getElementById('nav-toggle');
+  const headerNav = document.getElementById('nav');
+  const footerNav = document.getElementById('footer-nav');
+
+  // ヘッダー：モバイル時ハンバーガーメニュー開閉
+  if (navToggle && headerNav) {
+    navToggle.addEventListener('click', () => {
+      headerNav.classList.toggle('active');
+    });
+  }
+
+  // nav.html を fetch し、一時的に DOM に流し込んで #header-menu / #footer-menu を抽出、挿入
+  if (headerNav || footerNav) {
+    fetch('nav.html')
+      .then(res => {
+        if (!res.ok) throw new Error('nav.html の読み込みに失敗: ' + res.status);
+        return res.text();
+      })
+      .then(htmlText => {
+        const tempDiv = document.createElement('div');
+        tempDiv.innerHTML = htmlText;
+
+        // ヘッダー用メニュー挿入
+        const headerMenu = tempDiv.querySelector('#header-menu');
+        if (headerNav) {
+          if (headerMenu) {
+            headerNav.innerHTML = headerMenu.outerHTML;
+          } else {
+            console.warn('nav.html に #header-menu が見つかりません');
+          }
+        }
+        // フッター用メニュー挿入
+        const footerMenu = tempDiv.querySelector('#footer-menu');
+        if (footerNav) {
+          if (footerMenu) {
+            footerNav.innerHTML = footerMenu.outerHTML;
+          } else {
+            console.warn('nav.html に #footer-menu が見つかりません');
+          }
+        }
+
+        // 年を設定
+        const yearDisplay = document.getElementById('year-display');
+        if (yearDisplay) {
+          const currentYear = new Date().getFullYear();
+          yearDisplay.textContent = `©Freeze ${currentYear}`;
+        }
+      })
+      .catch(err => {
+        console.error('nav.html 読み込みエラー:', err);
+        // 必要であればフォールバックリンクを設定する等の処理をここに
+      });
+  }
+});
+  </script>
 </body>
 </html>
