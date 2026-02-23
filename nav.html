@@ -1,13 +1,87 @@
 <!-- nav.html -->
-<!-- ヘッダー用メニュー -->
-<ul id="header-menu">
-  <li><a href="index.html">ホーム</a></li>
-  <li><a href="tools.html">ツール一覧</a></li>
-  <li><a href="bot.html">荒らしBotの使い方</a></li>
-</ul>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    /* ヘッダー・フッターのメニュー一般スタイル */
+    #header-menu,
+    #footer-menu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 1rem;
+    }
 
-<!-- フッター用メニュー -->
-<ul id="footer-menu">
-  <li><a href="LICENSE.html" target="_blank"><span id="year-display"></span></a></li>
-  <li><a href="https://discord.gg/reRxqAXSSG" target="_blank">Discord</a></li>
-</ul>
+    #header-menu li,
+    #footer-menu li {
+      margin: 0;
+      padding: 0;
+    }
+
+    #header-menu a,
+    #footer-menu a {
+      color: inherit;
+      text-decoration: none;
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      transition: all 0.3s ease;
+    }
+
+    #header-menu a:hover,
+    #footer-menu a:hover {
+      opacity: 0.8;
+    }
+
+    /* モバイル対応 */
+    @media (max-width: 768px) {
+      #header-menu,
+      #footer-menu {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+
+      #header-menu li,
+      #footer-menu li {
+        width: 100%;
+      }
+
+      #header-menu a,
+      #footer-menu a {
+        display: block;
+        padding: 0.75rem 1rem;
+      }
+    }
+
+    /* 小型スマートフォン対応 */
+    @media (max-width: 480px) {
+      #header-menu,
+      #footer-menu {
+        gap: 0.25rem;
+      }
+
+      #header-menu a,
+      #footer-menu a {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- ヘッダー用メニュー -->
+  <ul id="header-menu">
+    <li><a href="index.html">ホーム</a></li>
+    <li><a href="tools.html">ツール一覧</a></li>
+    <li><a href="bot.html">荒らしBotの使い方</a></li>
+  </ul>
+
+  <!-- フッター用メニュー -->
+  <ul id="footer-menu">
+    <li><a href="LICENSE.html" target="_blank"><span id="year-display"></span></a></li>
+    <li><a href="https://discord.gg/reRxqAXSSG" target="_blank">Discord</a></li>
+  </ul>
+</body>
+</html>

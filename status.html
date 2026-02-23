@@ -79,6 +79,51 @@
             height: 40px;
             border-radius: 50%;
         }
+
+        /* モバイル対応 */
+        @media (max-width: 768px) {
+            body {
+                height: auto;
+                min-height: 100vh;
+                padding: 1rem 0;
+            }
+            .container {
+                max-width: 100%;
+                width: 95%;
+                margin: 1rem auto;
+            }
+            h1 {
+                font-size: 1.5rem;
+            }
+            #discord-widget {
+                height: 300px;
+            }
+        }
+
+        /* 小型スマートフォン対応 */
+        @media (max-width: 480px) {
+            .container {
+                padding: 1rem;
+                border-radius: 8px;
+            }
+            h1 {
+                font-size: 1.25rem;
+                margin-bottom: 1rem;
+            }
+            .status {
+                font-size: 0.9rem;
+            }
+            .sns-icons {
+                margin-top: 1rem;
+            }
+            .sns-icons img {
+                width: 35px;
+                height: 35px;
+            }
+            #discord-widget {
+                height: 250px;
+            }
+        }
     </style>
 </head>
 <body>
