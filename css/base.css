@@ -92,6 +92,49 @@ h1, h2, h3, h4, h5, h6,
   }
 }
 
+/* shared page title styling for all pages */
+.page-title-section {
+  padding: 2.5rem 1.5rem 1.5rem;
+  text-align: center;
+  position: relative;
+}
+
+.page-title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--clr-accent);
+  margin: 0;
+  letter-spacing: 0.05em;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 1rem;
+}
+
+.page-title::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--clr-accent), transparent);
+  border-radius: 2px;
+}
+
+.page-title::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20%;
+  height: 1px;
+  background: rgba(129, 212, 250, 0.3);
+  border-radius: 1px;
+}
+
+
 .skip-link {
   position: absolute;
   top: -40px;

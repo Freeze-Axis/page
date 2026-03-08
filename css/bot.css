@@ -275,47 +275,6 @@
   font-size: 0.9rem;
 }
 
-/* ページタイトルセクション */
-.page-title-section {
-  padding: 2.5rem 1.5rem 1.5rem;
-  text-align: center;
-  position: relative;
-}
-
-.page-title {
-  font-family: var(--font-heading);
-  font-size: 2rem;
-  color: var(--clr-accent);
-  margin: 0;
-  letter-spacing: 0.05em;
-  position: relative;
-  display: inline-block;
-  padding-bottom: 1rem;
-}
-
-.page-title::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 60%;
-  height: 3px;
-  background: linear-gradient(90deg, transparent, var(--clr-accent), transparent);
-  border-radius: 2px;
-}
-
-.page-title::after {
-  content: '';
-  position: absolute;
-  bottom: -8px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 20%;
-  height: 1px;
-  background: rgba(129, 212, 250, 0.3);
-  border-radius: 1px;
-}
 
 /* ページアクション */
 .page-action {
@@ -410,10 +369,6 @@
   .page-title-section {
     padding: 2rem 1rem 1rem;
   }
-  /* keep page title same size as default/tools */
-  .page-title {
-    font-size: 2rem;
-  }
   .action-btn {
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
@@ -457,13 +412,6 @@
   }
   .page-title-section {
     padding: 1.5rem 1rem 1rem;
-  }
-  /* mobile title same size as tools */
-  .page-title {
-    font-size: 2rem;
-  }
-  .page-title {
-    font-size: 2rem;
   }
   .action-btn {
     padding: 0.4rem 0.8rem;
