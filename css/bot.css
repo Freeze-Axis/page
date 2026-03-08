@@ -225,6 +225,11 @@
   color: #66bb6a;
 }
 
+/* reduce extra top padding on main to mirror tools page */
+main {
+  padding-top: 0;
+}
+
 /* タイムライン */
 .nukebot-container {
   max-width: 1200px;
@@ -278,7 +283,7 @@
 
 /* ページアクション */
 .page-action {
-  margin-top: 1.5rem;
+  margin-top: 0.5rem; /* closer to tools layout */
   opacity: 0.8;
   transition: opacity 0.3s ease;
 }
