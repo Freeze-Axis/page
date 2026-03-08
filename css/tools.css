@@ -243,32 +243,10 @@
 }
 
 /* レスポンシブ調整 */
-@media (max-width: 1024px) {
+@media (max-width: 768px) {
   .tool-container {
     max-width: 95%;
     padding: 1.5rem;
-  }
-
-  .tools-grid {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .tool-card {
-    padding: 1.5rem;
-  }
-
-  .features-grid {
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1.5rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .tool-container {
-    padding: 1.2rem;
-    margin-bottom: 2rem;
-    border-radius: 16px;
   }
 
   .tool-tabs {
@@ -316,11 +294,6 @@
     padding: 2rem 1.2rem;
   }
 
-  .features-section .section-title {
-    font-size: 2.2rem;
-    margin-bottom: 2rem;
-  }
-
   .features-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
@@ -358,9 +331,6 @@
   }
   .section-title {
     font-size: 1.6rem;
-  }
-  .tool-container {
-    padding: 1rem;
   }
   .tool-tabs {
     gap: 0.5rem;
@@ -419,8 +389,5 @@
   }
   .feature-card p {
     font-size: 0.8rem;
-  }
-  header .container {
-    padding: var(--spacing-sm) var(--spacing-md);
   }
 }

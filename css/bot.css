@@ -379,15 +379,6 @@
 }
 
 /* レスポンシブ調整 */
-@media (max-width: 1024px) {
-  .group-name {
-    font-size: 3.5rem;
-  }
-  .group-tagline {
-    font-size: 1.2rem;
-  }
-}
-
 @media (max-width: 768px) {
   .hero {
     min-height: 75vh;
@@ -403,12 +394,6 @@
   .discord-btn {
     font-size: 1.1rem;
     padding: 0.8rem 2rem;
-  }
-  .section-title {
-    font-size: 2rem;
-  }
-  header .container {
-    padding: var(--spacing-sm) var(--spacing-md);
   }
   .command-section {
     margin-bottom: var(--spacing-lg);

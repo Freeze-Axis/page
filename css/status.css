@@ -2,16 +2,17 @@
 
 body {
   margin: 0;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  /* allow base.css to control layout; use min-height so footer sits at bottom */
+  min-height: 100vh;
   font-family: Arial, sans-serif;
   background: url('https://cdn.discordapp.com/attachments/.../background.jpg') no-repeat center/cover fixed;
 }
-.container {
+
+/* status page wrapper separate from global .container */
+.status-container {
   max-width: 320px;
   width: 90%;
+  margin: 4rem auto;
   padding: 1.5rem;
   background: rgba(0, 0, 0, 0.6);
   border-radius: 10px;
@@ -43,22 +44,13 @@ body {
 }
 
 /* モバイル対応 */
-@media (max-width: 1024px) {
-  .container {
-    max-width: 95%;
-  }
-  h1 {
-    font-size: 1.8rem;
-  }
-}
-
 @media (max-width: 768px) {
   body {
     height: auto;
     min-height: 100vh;
     padding: 1rem 0;
   }
-  .container {
+  .status-container {
     max-width: 100%;
     width: 95%;
     margin: 1rem auto;
@@ -73,7 +65,7 @@ body {
 
 /* 小型スマートフォン対応 */
 @media (max-width: 480px) {
-  .container {
+  .status-container {
     padding: 1rem;
     border-radius: 8px;
   }
