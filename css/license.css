@@ -155,6 +155,25 @@
 }
 
 /* レスポンシブ調整 */
+@media (max-width: 1024px) {
+  .license-container {
+    margin: 2.5rem auto;
+    padding: 2.5rem;
+  }
+
+  .freeze-icon h1 {
+    font-size: 3rem;
+  }
+
+  .license-header h2 {
+    font-size: 2rem;
+  }
+
+  .section-header h3 {
+    font-size: 1.8rem;
+  }
+}
+
 @media (max-width: 768px) {
   .license-container {
     margin: 2rem auto;

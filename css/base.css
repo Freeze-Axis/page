@@ -294,6 +294,18 @@ main {
   padding: var(--spacing-lg);
 }
 
+@media (max-width: 768px) {
+  main {
+    padding: var(--spacing-md);
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    padding: var(--spacing-sm);
+  }
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -318,7 +330,7 @@ main {
   background: var(--clr-accent);
 }
 
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
   .section-title {
     font-size: 2rem;
   }

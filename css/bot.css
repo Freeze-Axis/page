@@ -379,7 +379,7 @@
 }
 
 /* レスポンシブ調整 */
-@media (max-width: 992px) {
+@media (max-width: 1024px) {
   .group-name {
     font-size: 3.5rem;
   }
