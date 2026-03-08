@@ -144,52 +144,20 @@
   margin-bottom: var(--spacing-lg);
 }
 
-/* tabs at top of bot page should match tools page sizing */
-  .command-tabs .tab {
-  padding: 0.85rem 2rem;
-  background: rgba(42, 45, 45, 0.6);
-  border: 2px solid rgba(129, 212, 250, 0.2);
-  border-radius: 50px;
-  color: rgba(255,255,255,0.7);
-  font-family: var(--font-heading);
-  font-weight: bold;
-  font-size: 1.05rem;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  overflow: hidden;
-}
-
-.command-tabs .tab::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(129, 212, 250, 0.2), transparent);
-  transition: left 0.5s ease;
-}
-
-.command-tabs .tab:hover {
-  background: rgba(90, 143, 192, 0.25);
+.command-tabs .tab {
+  padding: 0.6rem 1.2rem;
+  background: var(--clr-card);
+  border: none;
+  border-radius: var(--radius);
   color: var(--clr-text);
-  border-color: rgba(129, 212, 250, 0.4);
-  transform: translateY(-2px);
-}
-
-.command-tabs .tab:hover::before {
-  left: 100%;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
 .command-tabs .tab.active {
-  background: linear-gradient(135deg, var(--clr-primary), var(--clr-accent));
-  color: var(--clr-bg);
-  border-color: var(--clr-accent);
-  box-shadow:
-    0 6px 20px rgba(90, 143, 192, 0.5),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  font-weight: 700;
+  background: var(--clr-accent);
+  color: #000;
 }
 
 @media (max-width: 768px) {
@@ -443,10 +411,78 @@
     padding: 2rem 1rem 1rem;
   }
   .page-title {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
   .action-btn {
     padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .tool-tabs {
+    gap: 0.8rem;
+    margin-bottom: 1.8rem;
+    padding-bottom: 1rem;
+  }
+
+  .tool-tab {
+    padding: 0.65rem 1.4rem;
+    font-size: 0.95rem;
+  }
+
+  .tools-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .tool-card {
+    padding: 1.5rem;
+  }
+
+  .tool-icon {
+    font-size: 2.5rem;
+    width: 60px;
+    height: 60px;
+  }
+
+  .tool-card h3 {
+    font-size: 1.4rem;
+  }
+
+  .tool-card p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  .tool-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .features-section {
+    margin-top: 2.5rem;
+    padding: 2rem 1.2rem;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .feature-card {
+    padding: 1.5rem;
+  }
+
+  .feature-icon {
+    font-size: 2.2rem;
+    width: 70px;
+    height: 70px;
+  }
+
+  .feature-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .feature-card p {
     font-size: 0.9rem;
   }
 }
@@ -490,7 +526,7 @@
     padding: 1.5rem 1rem 1rem;
   }
   .page-title {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
   }
   .action-btn {
     padding: 0.4rem 0.8rem;
@@ -500,5 +536,64 @@
   .invite-btn {
     padding: var(--spacing-md) var(--spacing-lg);
     font-size: 1rem;
+  }
+
+  .tool-tabs {
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.8rem;
+  }
+  .tool-tab {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    border-radius: 6px;
+  }
+  .tools-grid {
+    gap: 1rem;
+  }
+  .tool-card {
+    padding: 1.2rem;
+  }
+  .tool-icon {
+    font-size: 2rem;
+    width: 50px;
+    height: 50px;
+  }
+  .tool-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+  }
+  .tool-card p {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  .tool-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.8rem;
+  }
+  .features-section {
+    margin-top: 2rem;
+    padding: 1.5rem 1rem;
+  }
+  .features-section .section-title {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+  }
+  .features-grid {
+    gap: 1rem;
+  }
+  .feature-card {
+    padding: 1.2rem;
+  }
+  .feature-icon {
+    font-size: 1.8rem;
+    width: 50px;
+    height: 50px;
+  }
+  .feature-card h3 {
+    font-size: 1.1rem;
+  }
+  .feature-card p {
+    font-size: 0.8rem;
   }
 }
