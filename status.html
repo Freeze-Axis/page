@@ -19,117 +19,15 @@
   <meta property="og:url"         content="" />
   <meta property="og:image"       content="" />
 <!----------------------------------------------------------------->
-    <style>
-:root {
-  --clr-bg:       #1e1e1e;
-  --clr-card:     #2a2d2d;
-  --clr-text:     #fafafa;
-  --clr-primary:  #4a7cb0;
-  --clr-accent:   #81d4fa;
-  --clr-link:     #45e06f;
-  --clr-shadow:   rgba(0,0,0,0.7);
-  --clr-gradient: linear-gradient(135deg, #1a2a6c, #2a4d69, #3a7bd5);
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  --font-heading: 'Orbitron', sans-serif;
-  --font-body:    'Noto Sans JP', 'Roboto', sans-serif;
+  <!-- 外部CSS -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/status.css">
 
-  --radius:       12px;
-  --transition:   0.3s;
 
-  --spacing-xs:   0.25rem;
-  --spacing-sm:   0.5rem;
-  --spacing-md:   1rem;
-  --spacing-lg:   2rem;
-  --spacing-xl:   4rem;
-}
 
-        body {
-            margin: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-family: Arial, sans-serif;
-            background: url('https://cdn.discordapp.com/attachments/.../background.jpg') no-repeat center/cover fixed;
-        }
-        .container {
-            max-width: 320px;
-            width: 90%;
-            padding: 1.5rem;
-            background: rgba(0, 0, 0, 0.6);
-            border-radius: 10px;
-            text-align: center;
-            color: #fff;
-        }
-        .status {
-            margin: 1rem 0;
-            font-size: 1rem;
-        }
-        .status.success { color: #00ffd0; }
-        .status.error   { color: #ff4d4d; }
-        .sns-icons {
-            margin-top: 1.5rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: nowrap;
-            overflow-x: auto;
-        }
-        .sns-icons a {
-            margin: 0 0.5rem;
-            display: inline-block;
-        }
-        .sns-icons img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-        }
-
-        /* モバイル対応 */
-        @media (max-width: 768px) {
-            body {
-                height: auto;
-                min-height: 100vh;
-                padding: 1rem 0;
-            }
-            .container {
-                max-width: 100%;
-                width: 95%;
-                margin: 1rem auto;
-            }
-            h1 {
-                font-size: 1.5rem;
-            }
-            #discord-widget {
-                height: 300px;
-            }
-        }
-
-        /* 小型スマートフォン対応 */
-        @media (max-width: 480px) {
-            .container {
-                padding: 1rem;
-                border-radius: 8px;
-            }
-            h1 {
-                font-size: 1.25rem;
-                margin-bottom: 1rem;
-            }
-            .status {
-                font-size: 0.9rem;
-            }
-            .sns-icons {
-                margin-top: 1rem;
-            }
-            .sns-icons img {
-                width: 35px;
-                height: 35px;
-            }
-            #discord-widget {
-                height: 250px;
-            }
-        }
-    </style>
 </head>
 <body>
     <div class="container">
@@ -157,44 +55,7 @@
         </div>
     </div>
 
-    <script>
-        (function() {
-            const statusEl = document.getElementById('status-message');
-            const widget = document.getElementById('discord-widget');
-            const inviteLinks = document.querySelectorAll('.sns-icons a');
-            const fallbackInvite = 'https://discord.gg/X2jYXPETRq';
-            
-            function updateStatus(text, type) {
-                statusEl.textContent = text;
-                statusEl.className = `status ${type}`;
-            }
-
-            async function checkServer() {
-                try {
-                    const res = await fetch('https://discord.com/api/guilds/1054832544845135934/widget.json');
-                    if (!res.ok) throw new Error('Network response was not OK');
-                    updateStatus('🟢 サーバーは正常に動作しています', 'success');
-                } catch (error) {
-                    updateStatus('❌ サーバーが削除されています。避難所へ移動してください', 'error');
-                    widget.src = 'https://discord.com/widget?id=1292205597076230144&theme=dark';
-                    // 更新が必要なInviteリンク
-                    inviteLinks.forEach(a => {
-                        if (a.href.includes('https://discord.gg/JRPRpcaNau')) a.href = fallbackInvite;
-                    });
-                }
-            }
-
-            inviteLinks.forEach(a => {
-                a.addEventListener('click', e => {
-                    e.preventDefault();
-                    window.open(a.href, '_blank');
-                });
-            });
-
-            // 初回チェック & 定期更新
-            checkServer();
-            setInterval(checkServer, 60000);
-        })();
-    </script>
+  <script src="js/status.js"></script>
+</body>
 </body>
 </html>
