@@ -225,14 +225,8 @@
   color: #66bb6a;
 }
 
-/* reduce extra top padding on main to mirror tools page */
-main {
-  padding-top: 0;
-}
-
 /* タイムライン */
 main {
-  /* override global main padding to match tools page layout */
   padding: 0;
 }
 
