@@ -229,9 +229,8 @@
 main.nukebot-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 1.5rem;
+  padding: 0.5rem 1.5rem 2rem;  /* even tighter gap under the title */
   position: relative;
-  padding-bottom: 2rem;
 }
 
 .timeline {
@@ -276,11 +275,23 @@ main.nukebot-container {
 }
 
 
-/* ページアクション */
+/* ページアクション （ボタン） */
 .page-action {
-  margin-top: 0.5rem; /* closer to tools layout */
+  /* switch from absolute to normal flow so it stays close toタイトル
+     and can wrap on smaller screens */
+  position: relative;
   opacity: 0.8;
   transition: opacity 0.3s ease;
+  margin: 0;
+}
+
+/* セクション全体をフレックスコンテナにしてタイトルとボタンを並べる */
+.page-title-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem; /* space between heading and action */
+  padding-bottom: 1rem; /* tighten gap below title */
 }
 
 .page-title-section:hover .page-action {
@@ -368,6 +379,12 @@ main.nukebot-container {
   }
   .page-title-section {
     padding: 2rem 1rem 1rem;
+    flex-direction: column; /* mobile: vertical layout */
+    gap: 0.5rem;
+  }
+  /* mobile: add a little breathing room when stacked */
+  .page-action {
+    margin-top: 0.5rem;
   }
   .action-btn {
     padding: 0.5rem 1rem;
