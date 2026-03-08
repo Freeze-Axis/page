@@ -562,7 +562,11 @@ footer nav#footer-nav ul#footer-menu {
   display: flex;
   gap: var(--spacing-md);
   justify-content: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+footer nav#footer-nav ul#footer-menu li {
+  white-space: nowrap;
 }
 footer a {
   color: var(--clr-accent);
@@ -712,8 +716,9 @@ footer a:hover {
     font-size: 1.8rem;
   }
   footer nav#footer-nav ul#footer-menu {
-    flex-direction: column;
-    gap: var(--spacing-sm);
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: var(--spacing-md);
   }
   .hero-section .container {
     padding: 30px 15px;
