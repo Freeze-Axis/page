@@ -37,21 +37,28 @@
 
     /* モバイル対応 */
     @media (max-width: 768px) {
-      #header-menu,
-      #footer-menu {
+      /* only stack header menu on mobile; keep footer horizontal */
+      #header-menu {
         flex-direction: column;
         gap: 0.5rem;
       }
 
-      #header-menu li,
-      #footer-menu li {
+      #header-menu li {
         width: 100%;
       }
 
-      #header-menu a,
-      #footer-menu a {
+      #header-menu a {
         display: block;
         padding: 0.75rem 1rem;
+      }
+
+      /* override footer so icons/text stay side-by-side */
+      #footer-menu {
+        flex-direction: row; /* keep horizontal layout */
+        justify-content: center;
+      }
+      #footer-menu li {
+        width: auto;
       }
     }
 

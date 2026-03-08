@@ -513,11 +513,45 @@ footer a:hover {
   margin-top: var(--spacing-lg);
 }
 
+/* タブ切り替えボタン（モバイル時のみ表示） */
+.command-tabs {
+  display: none;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-lg);
+}
+.command-tabs .tab {
+  padding: 0.6rem 1.2rem;
+  background: var(--clr-card);
+  border: none;
+  border-radius: var(--radius);
+  color: var(--clr-text);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+.command-tabs .tab.active {
+  background: var(--clr-accent);
+  color: #000;
+}
+
 @media (max-width: 768px) {
+  .command-tabs {
+    display: flex;
+  }
   .commands-comparison {
-    grid-template-columns: 1fr;
+    display: block; /* 各セクションを縦に並べる */
+    gap: var(--spacing-md);
+  }
+  .command-section {
+    display: none;
+    margin-bottom: var(--spacing-lg);
+  }
+  .command-section.active {
+    display: block;
   }
 }
+
 
 /* セクションのスタイリング */
 .command-section {
@@ -829,10 +863,15 @@ footer a:hover {
   <main>
 
     <div class="nukebot-container">
+      <!-- モバイル用タブ切り替え -->
+      <div class="command-tabs">
+        <button class="tab active" data-target="external-commands">外部アプリ</button>
+        <button class="tab" data-target="server-commands">サーバー</button>
+      </div>
       <!-- コマンド比較セクション -->
       <div class="commands-comparison">
         <!-- 左側: 外部アプリコマンド -->
-        <section class="command-section external-commands">
+        <section class="command-section external-commands active">
           <div class="section-header">
             <h3><i class="fas fa-external-link-alt"></i> 外部アプリコマンド</h3>
             <p>マイアプリに追加で機能するコマンド</p>
@@ -842,29 +881,30 @@ footer a:hover {
             <div class="timeline-item" data-step="1">
               <div class="timeline-content">
                 <h3>/通常攻撃</h3>
-                <p>実行したチャンネルで荒らし文書を連投<br>
-                  ※TOKENログインで機能拡張</p>
+                <p>実行したチャンネルにスパムを開始</p>
               </div>
-
+            </div>
             <div class="timeline-item" data-step="4">
               <div class="timeline-content">
                 <h3>/操作</h3>
-                <p>対象のサーバーの全チャンネルに荒らし文書を連投<br>
-                  ※TOKEN設定必須</p>
+                <p>対象のサーバーの全チャンネルにスパムを開始<br>
+                  ※TOKENログイン必須</p>
               </div>
-            
+            </div>
             <div class="timeline-item" data-step="2">
               <div class="timeline-content">
-                <h3>/TOKEN設定</h3>
-                <p>登録・ログインを行うことで、ランダムメンションや全チャンネルへの自動送信が可能となります。</p>
+                <h3>/TOKEN設定（登録,ログイン）</h3>
+                <p>TOKENログインを行うことで機能が拡張されます。</p>
               </div>
-            
+            </div>
             <div class="timeline-item" data-step="3">
               <div class="timeline-content">
                 <h3>/ログアウト</h3>
                 <p>ログイン中のTOKENからログアウト</p>
               </div>
-              </section>
+            </div>
+          </div>
+        </section>
 
         <!-- 右側: サーバーコマンド -->
         <section class="command-section server-commands">
@@ -877,7 +917,7 @@ footer a:hover {
             <div class="timeline-item" data-step="1">
               <div class="timeline-content">
                 <h3>!nuke</h3>
-                <p>王道のサーバー破壊コマンド</p>
+                <p>サーバー破壊コマンド</p>
               </div>
             </div>
             
@@ -974,13 +1014,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
   
-  // 初期表示アニメーション
+  // モバイル向け：外部アプリ / サーバーコマンドをタブで切り替え
+  document.querySelectorAll('.command-tabs .tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.command-tabs .tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const target = tab.getAttribute('data-target');
+      document.querySelectorAll('.command-section').forEach(section => {
+        section.classList.toggle('active', section.classList.contains(target));
+      });
+    });
+  });
+  
+  // 初期表示アニメーション（スマホでも項目ごとに順番に表示）
   setTimeout(() => {
-    document.querySelectorAll('.timeline-item').forEach((item, index) => {
-      setTimeout(() => {
-        item.style.opacity = '1';
-        item.style.transform = 'translateY(0)';
-      }, 100 * index);
+    const sections = document.querySelectorAll('.commands-comparison .timeline');
+    let totalDelay = 0;
+    sections.forEach(section => {
+      const items = section.querySelectorAll('.timeline-item');
+      items.forEach((item, idx) => {
+        setTimeout(() => {
+          item.style.opacity = '1';
+          item.style.transform = 'translateY(0)';
+        }, totalDelay + 100 * idx);
+      });
+      // セクション間に少し余裕を入れる
+      totalDelay += 100 * items.length + 200;
     });
   }, 300);
 });
