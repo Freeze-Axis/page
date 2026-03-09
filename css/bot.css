@@ -193,7 +193,7 @@
     font-size: 0.95rem;
   }
   
-  .page-action {
+  .tool-container .page-action {
     display: flex;
     justify-content: center;
     margin-bottom: 0.8rem !important;
