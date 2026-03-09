@@ -428,18 +428,18 @@ main.nukebot-container {
   
   /* カードサイズをツールページと同じに合わせる */
   .command-section {
-    margin-bottom: 1.5rem;
-    padding: 1.5rem;
-    background: var(--clr-card);
-    border: 1px solid rgba(129, 212, 250, 0.1);
-    border-radius: var(--radius);
-    transition: all 0.3s ease;
+    margin-bottom: 1.5rem !important;
+    padding: 1.5rem !important;
+    background: var(--clr-card) !important;
+    border: 1px solid rgba(129, 212, 250, 0.1) !important;
+    border-radius: var(--radius) !important;
+    transition: all 0.3s ease !important;
   }
   
   .command-section:hover {
-    border-color: rgba(129, 212, 250, 0.5);
-    box-shadow: 0 8px 20px rgba(129, 212, 250, 0.15);
-    transform: translateY(-5px);
+    border-color: rgba(129, 212, 250, 0.5) !important;
+    box-shadow: 0 8px 20px rgba(129, 212, 250, 0.15) !important;
+    transform: translateY(-5px) !important;
   }
   
   .commands-comparison {
