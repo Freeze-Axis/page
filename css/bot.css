@@ -195,10 +195,6 @@
 }
 
 @media (max-width: 768px) {
-  main.nukebot-container {
-    padding: 0;
-  }
-
   .command-tabs {
     display: flex;
     justify-content: center;
@@ -224,20 +220,7 @@
     font-size: 1rem;
   }
   
-  .tool-container {
-    max-width: 95%;
-    margin: 0 auto;
-    padding: 1.5rem;
-    background: linear-gradient(135deg, rgba(42, 45, 45, 0.7) 0%, rgba(30, 33, 33, 0.8) 100%);
-    border-radius: 20px;
-    box-shadow:
-      0 8px 32px rgba(0, 0, 0, 0.3),
-      inset 0 1px 0 rgba(129, 212, 250, 0.1);
-    border: 1px solid rgba(129, 212, 250, 0.2);
-    backdrop-filter: blur(10px);
-    margin-bottom: 3rem;
-  }
-
+  .tool-container,
   main.nukebot-container {
     max-width: 95%;
     margin: 0 auto;
