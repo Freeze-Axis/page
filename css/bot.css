@@ -197,52 +197,37 @@
 @media (max-width: 768px) {
   .command-tabs {
     display: flex;
-    gap: 0.75rem;
-    margin-bottom: 1.5rem;
-    padding-bottom: 1rem;
-    justify-content: center;
-  }
-  
-  .command-tabs .tab {
-    padding: 0.6rem 1.2rem;
-    font-size: 0.9rem;
-    border-radius: 25px;
-  }
-  
-  .page-title-section {
-    padding: 1.5rem 1rem;
-    flex-direction: column;
-    gap: 0.75rem;
   }
   
   .page-action {
-    margin-top: 0.5rem;
+    margin-top: 1rem;
   }
   
   .action-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.6rem 1.2rem;
-    font-size: 0.9rem;
-    border-radius: 20px;
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
   }
   
   .commands-comparison {
     display: block;
-    gap: var(--spacing-md);
+    gap: 2rem;
   }
   .command-section {
     display: none;
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background: var(--clr-card);
+    border-radius: var(--radius);
+    border: 1px solid rgba(129, 212, 250, 0.1);
+  }
+  .command-section:hover {
+    border-color: rgba(129, 212, 250, 0.5);
+    box-shadow: 0 8px 20px rgba(129, 212, 250, 0.15);
+    transform: translateY(-5px);
   }
   .command-section.active {
     display: block;
-  }
-  
-  main.nukebot-container {
-    padding: 1.5rem 1.25rem;
-    margin: 1rem auto;
   }
 }
 
@@ -305,14 +290,15 @@ main.nukebot-container {
 /* モバイル版のみツールページのようなスタイルを適用 */
 @media (max-width: 768px) {
   main.nukebot-container {
+    padding: 2rem 1.5rem;
     background: linear-gradient(135deg, rgba(42, 45, 45, 0.7) 0%, rgba(30, 33, 33, 0.8) 100%);
-    border-radius: 15px;
+    border-radius: 20px;
     box-shadow:
       0 8px 32px rgba(0, 0, 0, 0.3),
       inset 0 1px 0 rgba(129, 212, 250, 0.1);
     border: 1px solid rgba(129, 212, 250, 0.2);
     backdrop-filter: blur(10px);
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
   }
 }
 
