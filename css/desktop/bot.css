@@ -1,115 +1,6 @@
 /* bot-desktop.css - bot.html デスクトップ版スタイル */
 
-/* ヒーロー・グラデーション */
-.hero {
-  position: relative;
-  width: 100%;
-  min-height: 85vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  padding: var(--spacing-xl) var(--spacing-lg);
-  text-align: center;
-  background: var(--clr-gradient);
-  background-size: 200% 200%;
-  animation: gradientAnimation 15s ease infinite;
-}
-
-@keyframes gradientAnimation {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, transparent 20%, rgba(0, 0, 0, 0.7) 150%);
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.group-name {
-  font-family: var(--font-heading);
-  font-size: 4.5rem;
-  color: white;
-  text-shadow: 0 0 15px rgba(129, 212, 250, 0.7);
-  margin-bottom: var(--spacing-md);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  animation: textGlow 3s ease-in-out infinite alternate;
-}
-
-@keyframes textGlow {
-  0% { text-shadow: 0 0 10px rgba(129, 212, 250, 0.5); }
-  100% { text-shadow: 0 0 25px rgba(129, 212, 250, 0.9), 0 0 40px rgba(90, 143, 192, 0.7); }
-}
-
-.group-tagline {
-  font-size: 1.4rem;
-  max-width: 600px;
-  margin: 0 auto var(--spacing-xl);
-  color: rgba(255, 255, 255, 0.9);
-  line-height: 1.8;
-}
-
-.discord-btn {
-  display: inline-block;
-  background: #5865F2;
-  color: white;
-  font-family: var(--font-heading);
-  font-size: 1.3rem;
-  font-weight: 700;
-  text-decoration: none;
-  padding: 1rem 2.5rem;
-  border-radius: 50px;
-  transition: all 0.3s ease;
-  box-shadow: 0 5px 15px rgba(88, 101, 242, 0.4);
-  border: 2px solid rgba(255, 255, 255, 0.2);
-}
-
-.discord-btn:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(88, 101, 242, 0.6);
-  background: #6772f8;
-}
-
-.discord-btn:active {
-  transform: translateY(0);
-  box-shadow: 0 3px 10px rgba(88, 101, 242, 0.4);
-}
-
-.section-title {
-  font-family: var(--font-heading);
-  font-size: 2.5rem;
-  color: var(--clr-accent);
-  margin: var(--spacing-xl) 0 var(--spacing-lg);
-  position: relative;
-  text-align: center;
-  padding-top: var(--spacing-lg);
-}
-
-.section-title::after {
-  content: '';
-  position: absolute;
-  bottom: -0.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80px;
-  height: 5px;
-  background: var(--clr-accent);
-  border-radius: 3px;
-}
+/* ページタイトルセクション */
 
 /* コマンド比較セクション */
 .commands-comparison {
@@ -271,20 +162,7 @@
   transition: opacity 0.3s ease;
   margin: 0;
 }
-/* ---------------------------------------------------------------------------
-   ボットページ固有のフォント調整 (デスクトップ) --
-   元の f_bot.html から "max-width: 992px" ルールを移植
-   画面が 769px 以上でこの CSS が読み込まれるため、768px 以下のルール
-   はモバイルファイル内に存在する
-----------------------------------------------------------------------------*/
-@media (max-width: 992px) {
-  .group-name {
-    font-size: 3.5rem;
-  }
-  .group-tagline {
-    font-size: 1.2rem;
-  }
-}
+
 /* セクション全体をフレックスコンテナにしてタイトルとボタンを並べる */
 
 .action-btn {

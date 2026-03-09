@@ -1,110 +1,6 @@
 /* bot-mobile.css - bot.html モバイル版スタイル (max-width: 768px) */
 
-/* ヒーロー・グラデーション */
-.hero {
-  position: relative;
-  width: 100%;
-  min-height: 50vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  padding: var(--spacing-lg) var(--spacing-md);
-  text-align: center;
-  background: var(--clr-gradient);
-  background-size: 200% 200%;
-  animation: gradientAnimation 15s ease infinite;
-}
-
-@keyframes gradientAnimation {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, transparent 20%, rgba(0, 0, 0, 0.7) 150%);
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 100%;
-  margin: 0 auto;
-}
-
-.group-name {
-  font-family: var(--font-heading);
-  font-size: 2.5rem;
-  color: white;
-  text-shadow: 0 0 15px rgba(129, 212, 250, 0.7);
-  margin-bottom: var(--spacing-md);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  animation: textGlow 3s ease-in-out infinite alternate;
-  /* allow wrapping if the name is long */
-  white-space: normal;
-  word-break: break-word;
-  overflow-wrap: break-word;
-}
-
-@keyframes textGlow {
-  0% { text-shadow: 0 0 10px rgba(129, 212, 250, 0.5); }
-  100% { text-shadow: 0 0 25px rgba(129, 212, 250, 0.9), 0 0 40px rgba(90, 143, 192, 0.7); }
-}
-
-.group-tagline {
-  font-size: 1.1rem;
-  max-width: 100%;
-  margin: 0 auto var(--spacing-md);
-  color: rgba(255, 255, 255, 0.9);
-  line-height: 1.6;
-  white-space: normal;
-  word-break: break-word;
-  overflow-wrap: break-word;
-}
-
-.discord-btn {
-  display: inline-block;
-  background: #5865F2;
-  color: white;
-  font-family: var(--font-heading);
-  font-size: 1.1rem;
-  font-weight: 700;
-  text-decoration: none;
-  padding: 0.8rem 2rem;
-  border-radius: 50px;
-  transition: all 0.3s ease;
-  box-shadow: 0 5px 15px rgba(88, 101, 242, 0.4);
-  border: 2px solid rgba(255, 255, 255, 0.2);
-}
-
-.discord-btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(88, 101, 242, 0.6);
-  background: #6772f8;
-}
-
-.discord-btn:active {
-  transform: translateY(0);
-  box-shadow: 0 3px 10px rgba(88, 101, 242, 0.4);
-}
-
-.section-title {
-  font-family: var(--font-heading);
-  font-size: 2rem;
-  color: var(--clr-accent);
-  margin: var(--spacing-lg) 0 var(--spacing-md);
-  position: relative;
-  text-align: center;
-  padding-top: var(--spacing-md);
-}
+/* ページタイトルセクション */
 
 .section-title::after {
   content: '';
@@ -185,7 +81,7 @@
 .command-section {
   display: none;
   margin-bottom: var(--spacing-lg);
-  padding: 1.5rem;
+  padding: 1rem;
   border: 1px solid rgba(129, 212, 250, 0.2);
   background: linear-gradient(135deg, rgba(42, 45, 45, 0.7) 0%, rgba(30, 33, 33, 0.8) 100%);
   border-radius: 20px;
@@ -205,29 +101,6 @@
 .section-header {
   text-align: center;
   margin-bottom: var(--spacing-md);
-}
-
-/* ---------------------------------------------------------------------------
-   480px以下でさらに縮小するテキストや格子表示
-----------------------------------------------------------------------------*/
-@media (max-width: 480px) {
-  .group-name {
-    font-size: 2rem;
-  }
-  .group-tagline {
-    font-size: 1rem;
-  }
-  .discord-btn {
-    font-size: 1rem;
-    padding: 0.7rem 1.5rem;
-  }
-  .section-title {
-    font-size: 1.8rem;
-  }
-  footer nav#footer-nav ul#footer-menu {
-    flex-direction: column;
-    gap: var(--spacing-md);
-  }
 }
 
 .section-header h3 {
@@ -326,9 +199,9 @@
 }
 
 main.tool-container {
-  max-width: 95%;
+  max-width: 100%;
   margin: 0 auto;
-  padding: 1.5rem;
+  padding: 1rem 0.8rem;
   background: linear-gradient(135deg, rgba(42, 45, 45, 0.7) 0%, rgba(30, 33, 33, 0.8) 100%);
   border-radius: 20px;
   box-shadow:
