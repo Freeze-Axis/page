@@ -196,17 +196,24 @@
   .page-action {
     display: flex;
     justify-content: center;
-    margin-bottom: 4rem;
+    margin-bottom: 1.5rem;
   }
   
   .action-btn {
-    display: inline-block !important;
-    padding: 1rem 2rem !important;
-    font-size: 1.2rem !important;
-    background: var(--clr-primary) !important;
-    color: white !important;
-    border-radius: 50px !important;
-    border: none !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: transparent;
+    border: 1px solid rgba(129, 212, 250, 0.3);
+    color: var(--clr-accent);
+    padding: 0.6rem 1.5rem;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
   }
   
   .tool-container {
