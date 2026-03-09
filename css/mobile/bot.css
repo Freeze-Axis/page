@@ -48,6 +48,10 @@
   letter-spacing: 0.1em;
   text-transform: uppercase;
   animation: textGlow 3s ease-in-out infinite alternate;
+  /* allow wrapping if the name is long */
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 @keyframes textGlow {
@@ -56,11 +60,14 @@
 }
 
 .group-tagline {
-  font-size: 1rem;
+  font-size: 1.1rem;
   max-width: 100%;
-  margin: 0 auto var(--spacing-lg);
+  margin: 0 auto var(--spacing-md);
   color: rgba(255, 255, 255, 0.9);
   line-height: 1.6;
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 
 .discord-btn {
@@ -68,7 +75,7 @@
   background: #5865F2;
   color: white;
   font-family: var(--font-heading);
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 700;
   text-decoration: none;
   padding: 0.8rem 2rem;
@@ -91,7 +98,7 @@
 
 .section-title {
   font-family: var(--font-heading);
-  font-size: 1.5rem;
+  font-size: 2rem;
   color: var(--clr-accent);
   margin: var(--spacing-lg) 0 var(--spacing-md);
   position: relative;
@@ -198,6 +205,29 @@
 .section-header {
   text-align: center;
   margin-bottom: var(--spacing-md);
+}
+
+/* ---------------------------------------------------------------------------
+   480px以下でさらに縮小するテキストや格子表示
+----------------------------------------------------------------------------*/
+@media (max-width: 480px) {
+  .group-name {
+    font-size: 2rem;
+  }
+  .group-tagline {
+    font-size: 1rem;
+  }
+  .discord-btn {
+    font-size: 1rem;
+    padding: 0.7rem 1.5rem;
+  }
+  .section-title {
+    font-size: 1.8rem;
+  }
+  footer nav#footer-nav ul#footer-menu {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
 }
 
 .section-header h3 {
