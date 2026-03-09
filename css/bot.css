@@ -289,7 +289,8 @@ main.nukebot-container {
       inset 0 1px 0 rgba(129, 212, 250, 0.1);
     border: 1px solid rgba(129, 212, 250, 0.2);
     backdrop-filter: blur(10px);
-    margin: 0 auto 3rem auto !important;
+    margin: 0 auto;
+    margin-bottom: 3rem;
   }
 }
 
