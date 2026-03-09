@@ -204,8 +204,9 @@
   }
   
   .tool-container {
-    max-width: 95%;
-    padding: 1.5rem;
+    max-width: 95% !important;
+    margin: 0 auto !important;
+    padding: 1.5rem !important;
   }
   
   .commands-comparison {
