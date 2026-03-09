@@ -1,50 +1,132 @@
 /* index-mobile.css - index.html モバイル版スタイル (max-width: 768px) */
 
+/*============================================================================
+  ヒーローセクション（カスタムスタイル）
+============================================================================*/
 .hero-section {
+  background: linear-gradient(120deg, #f7fafd 60%, #f0f6ff 100%);
   padding: 40px 0 30px 0;
 }
 
 .hero-section .container {
-  flex-direction: column;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
   gap: 20px;
+  max-width: 100%;
+  margin: 0 auto;
   padding: 20px;
 }
 
-.hero-text,
-.hero-image {
+.hero-text {
   flex: 1 1 100%;
+  min-width: 100%;
   max-width: 100%;
 }
 
 .hero-text h1 {
   font-size: 1.75em;
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 18px;
+  color: #222;
+}
+
+.hero-text h1 .primary {
+  color: #81d4fa;
+  text-shadow: 0 0 20px rgba(129, 212, 250, 0.6);
 }
 
 .hero-text p {
   font-size: 1em;
+  color: #555;
   margin-bottom: 20px;
 }
 
 .hero-buttons {
-  flex-wrap: wrap;
+  display: flex;
   gap: 12px;
+  flex-wrap: wrap;
 }
 
 .hero-btn {
+  display: inline-block;
+  font-weight: bold;
+  font-size: 0.95em;
+  border-radius: 10px;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
   flex: 1;
   min-width: 150px;
-  padding: 10px 20px;
-  font-size: 0.95em;
+}
+
+.hero-btn.primary {
+  background: #2583e6;
+  color: #fff;
+  box-shadow: 0 2px 8px #2583e633;
+}
+
+.hero-btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px #2583e6;
+}
+
+.hero-btn.secondary {
+  background: #fff;
+  color: #222;
+  border: 1px solid #e3eaf3;
+  box-shadow: 0 2px 8px #0001;
+}
+
+.hero-btn.secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.hero-image {
+  flex: 1 1 100%;
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .discord-circle {
   width: 200px;
   height: 200px;
+  border-radius: 50px;
+  background: #5A65F2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 12px 40px rgba(90, 101, 242, 0.5);
 }
 
 .discord-circle i {
+  color: #fff;
   font-size: 6em;
 }
+
+/*============================================================================
+  アニメーション
+============================================================================*/
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
 
 @media (max-width: 480px) {
   .hero-section {

@@ -1,15 +1,57 @@
 /* status-mobile.css - status.html モバイル版スタイル (max-width: 768px) */
 
 body {
+  margin: 0;
   height: auto;
   min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: url('https://cdn.discordapp.com/attachments/.../background.jpg') no-repeat center/cover fixed;
   padding: 0;
 }
 
+/* status page wrapper separate from global .container */
 .status-container {
   max-width: 100%;
   width: 95%;
   margin: 1rem auto;
+  padding: 1.5rem;
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
+  text-align: center;
+  color: #fff;
+}
+
+.status {
+  margin: 1rem 0;
+  font-size: 1rem;
+}
+
+.status.success {
+  color: #00ffd0;
+}
+
+.status.error {
+  color: #ff4d4d;
+}
+
+.sns-icons {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.sns-icons a {
+  margin: 0 0.5rem;
+  display: inline-block;
+}
+
+.sns-icons img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
 }
 
 #discord-widget {

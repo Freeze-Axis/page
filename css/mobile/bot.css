@@ -1,5 +1,123 @@
 /* bot-mobile.css - bot.html モバイル版スタイル (max-width: 768px) */
 
+/* ヒーロー・グラデーション */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: var(--spacing-lg) var(--spacing-md);
+  text-align: center;
+  background: var(--clr-gradient);
+  background-size: 200% 200%;
+  animation: gradientAnimation 15s ease infinite;
+}
+
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, transparent 20%, rgba(0, 0, 0, 0.7) 150%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.group-name {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  color: white;
+  text-shadow: 0 0 15px rgba(129, 212, 250, 0.7);
+  margin-bottom: var(--spacing-md);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  animation: textGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes textGlow {
+  0% { text-shadow: 0 0 10px rgba(129, 212, 250, 0.5); }
+  100% { text-shadow: 0 0 25px rgba(129, 212, 250, 0.9), 0 0 40px rgba(90, 143, 192, 0.7); }
+}
+
+.group-tagline {
+  font-size: 1rem;
+  max-width: 100%;
+  margin: 0 auto var(--spacing-lg);
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+}
+
+.discord-btn {
+  display: inline-block;
+  background: #5865F2;
+  color: white;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  padding: 0.8rem 2rem;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(88, 101, 242, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.discord-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(88, 101, 242, 0.6);
+  background: #6772f8;
+}
+
+.discord-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 10px rgba(88, 101, 242, 0.4);
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  color: var(--clr-accent);
+  margin: var(--spacing-lg) 0 var(--spacing-md);
+  position: relative;
+  text-align: center;
+  padding-top: var(--spacing-md);
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: var(--clr-accent);
+  border-radius: 2px;
+}
+
+/* コマンド比較セクション */
+.commands-comparison {
+  display: block;
+  margin-top: var(--spacing-md);
+}
+
+/* タブ切り替えボタン（モバイル時のみ表示） */
 .command-tabs {
   display: flex;
   justify-content: center;
@@ -12,7 +130,140 @@
 
 .command-tabs .tab {
   padding: 0.65rem 1.4rem;
+  background: rgba(42, 45, 45, 0.6);
+  border: 2px solid rgba(129, 212, 250, 0.2);
+  border-radius: 50px;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: var(--font-heading);
+  font-weight: bold;
   font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.command-tabs .tab::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(129, 212, 250, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.command-tabs .tab:hover {
+  background: rgba(90, 143, 192, 0.25);
+  color: var(--clr-text);
+  border-color: rgba(129, 212, 250, 0.4);
+  transform: translateY(-2px);
+}
+
+.command-tabs .tab:hover::before {
+  left: 100%;
+}
+
+.command-tabs .tab.active {
+  background: linear-gradient(135deg, var(--clr-primary), var(--clr-accent));
+  color: var(--clr-bg);
+  border-color: var(--clr-accent);
+  box-shadow:
+    0 6px 20px rgba(90, 143, 192, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  font-weight: 700;
+}
+
+.command-section {
+  display: none;
+  margin-bottom: var(--spacing-lg);
+  padding: 1.5rem;
+  border: 1px solid rgba(129, 212, 250, 0.2);
+  background: linear-gradient(135deg, rgba(42, 45, 45, 0.7) 0%, rgba(30, 33, 33, 0.8) 100%);
+  border-radius: 20px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.command-section.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* セクションヘッダー */
+.section-header {
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+}
+
+.section-header h3 {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  margin-bottom: var(--spacing-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  letter-spacing: 0.05em;
+}
+
+.section-header p {
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 100%;
+  margin: 0 auto;
+  font-size: 0.9rem;
+}
+
+/* 外部アプリコマンド */
+.external-commands .section-header h3 {
+  color: var(--clr-accent);
+}
+
+/* サーバーコマンド */
+.server-commands .section-header h3 {
+  color: #66bb6a;
+}
+
+.timeline {
+  margin: 0;
+}
+
+.timeline-item {
+  margin-bottom: 1rem;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-content {
+  background: linear-gradient(135deg, rgba(42, 45, 45, 0.6), rgba(42, 45, 45, 0.4));
+  border: 1px solid rgba(129, 212, 250, 0.1);
+  border-radius: var(--radius);
+  padding: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+  border-color: rgba(129, 212, 250, 0.3);
+  background: linear-gradient(135deg, rgba(42, 45, 45, 0.8), rgba(42, 45, 45, 0.6));
+  transform: translateY(-2px);
+}
+
+.timeline-content h3 {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-content p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.85rem;
+  line-height: 1.5;
 }
 
 .tool-container .page-action {
@@ -38,6 +289,12 @@
   cursor: pointer;
 }
 
+.action-btn:hover {
+  border-color: rgba(129, 212, 250, 0.8);
+  background: rgba(129, 212, 250, 0.1);
+  color: var(--clr-accent);
+}
+
 main.tool-container {
   max-width: 95%;
   margin: 0 auto;
@@ -50,42 +307,4 @@ main.tool-container {
   border: 1px solid rgba(129, 212, 250, 0.2);
   backdrop-filter: blur(10px);
   margin-bottom: 3rem;
-}
-
-.commands-comparison {
-  display: block;
-  gap: var(--spacing-md);
-}
-
-.command-section {
-  display: none;
-  margin-bottom: var(--spacing-lg);
-  padding: 1.5rem;
-  border: 1px solid rgba(129, 212, 250, 0.2);
-  background: linear-gradient(135deg, rgba(42, 45, 45, 0.7) 0%, rgba(30, 33, 33, 0.8) 100%);
-  border-radius: 20px;
-}
-
-.command-section.active {
-  display: block;
-}
-
-.section-header h3 {
-  font-size: 1.3rem;
-}
-
-.section-header p {
-  font-size: 0.9rem;
-}
-
-.timeline-content {
-  padding: 0.75rem;
-}
-
-.timeline-content h3 {
-  font-size: 1.1rem;
-}
-
-.timeline-content p {
-  font-size: 0.85rem;
 }
