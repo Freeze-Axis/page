@@ -216,6 +216,11 @@
     backdrop-filter: blur(10px);
     margin-bottom: 3rem;
   }
+
+  .tool-container {
+    max-width: 95%;
+    padding: 1.5rem;
+  }
   
   .commands-comparison {
     display: block;
@@ -307,7 +312,7 @@
 main.nukebot-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 1.5rem;
+  padding: 0.5rem 1.5rem 2rem;
   position: relative;
 }
 
