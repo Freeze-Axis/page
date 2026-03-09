@@ -196,7 +196,9 @@
   .page-action {
     display: flex;
     justify-content: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid rgba(129, 212, 250, 0.1);
   }
   
   .action-btn {
@@ -206,8 +208,8 @@
   }
   
   .tool-container {
-    max-width: 95% !important;
-    margin: 0 auto !important;
+    width: calc(100% - 2rem) !important;
+    margin: 0 1rem !important;
     padding: 1.5rem !important;
     background: linear-gradient(135deg, rgba(42, 45, 45, 0.7) 0%, rgba(30, 33, 33, 0.8) 100%);
     border-radius: 20px;
@@ -217,6 +219,7 @@
     border: 1px solid rgba(129, 212, 250, 0.2);
     backdrop-filter: blur(10px);
     margin-bottom: 3rem;
+    overflow: hidden;
   }
   
   .commands-comparison {
