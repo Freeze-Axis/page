@@ -383,6 +383,20 @@ main {
   padding: var(--spacing-lg);
 }
 
+@media (max-width: 768px) {
+  main {
+    max-width: 95%;
+    padding: var(--spacing-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  main {
+    max-width: 95%;
+    padding: var(--spacing-md);
+  }
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
