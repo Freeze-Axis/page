@@ -204,9 +204,9 @@
   }
   
   main.nukebot-container {
-    max-width: calc(100% - 2rem);
-    margin: 2rem 1rem;
-    padding: 2rem 1.5rem;
+    max-width: 95%;
+    margin: 0 auto;
+    padding: 1.5rem;
     background: linear-gradient(135deg, rgba(42, 45, 45, 0.7) 0%, rgba(30, 33, 33, 0.8) 100%);
     border-radius: 20px;
     box-shadow:
