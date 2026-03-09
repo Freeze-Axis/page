@@ -194,7 +194,11 @@
   }
   
   .page-action {
-    margin-top: 1rem;
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(129, 212, 250, 0.2);
   }
   
   .action-btn {
