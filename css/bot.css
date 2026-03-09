@@ -200,9 +200,13 @@
   }
   
   .action-btn {
-    display: inline-block;
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
+    display: inline-block !important;
+    padding: 1rem 2rem !important;
+    font-size: 1.2rem !important;
+    background: var(--clr-primary) !important;
+    color: white !important;
+    border-radius: 50px !important;
+    border: none !important;
   }
   
   .tool-container {
