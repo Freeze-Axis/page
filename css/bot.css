@@ -211,20 +211,11 @@
   
   .commands-comparison {
     display: block;
-    gap: 2rem;
+    gap: var(--spacing-md);
   }
   .command-section {
     display: none;
-    margin-bottom: 2rem;
-    padding: 2rem;
-    background: var(--clr-card);
-    border-radius: var(--radius);
-    border: 1px solid rgba(129, 212, 250, 0.1);
-  }
-  .command-section:hover {
-    border-color: rgba(129, 212, 250, 0.5);
-    box-shadow: 0 8px 20px rgba(129, 212, 250, 0.15);
-    transform: translateY(-5px);
+    margin-bottom: var(--spacing-lg);
   }
   .command-section.active {
     display: block;
@@ -434,27 +425,58 @@ main.nukebot-container {
     font-size: 1.1rem;
     padding: 0.8rem 2rem;
   }
+  
+  /* カードサイズをツールページと同じに合わせる */
   .command-section {
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
   }
+  
   .commands-comparison {
-    gap: var(--spacing-md);
+    gap: 1.5rem;
   }
+  
+  .section-header {
+    margin-bottom: 1rem;
+  }
+  
   .section-header h3 {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
   }
+  
   .section-header p {
     font-size: 0.9rem;
   }
+  
+  .timeline-item {
+    margin-bottom: 1rem;
+  }
+  
+  .timeline-content {
+    padding: 1.5rem;
+  }
+  
+  .timeline-content h3 {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .timeline-content p {
+    font-size: 0.9rem;
+  }
+  
   .page-title-section {
     padding: 2rem 1rem 1rem;
     flex-direction: column; /* mobile: vertical layout */
     gap: 0.5rem;
   }
+  
   /* mobile: add a little breathing room when stacked */
   .page-action {
     margin-top: 0.5rem;
   }
+  
   .action-btn {
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
