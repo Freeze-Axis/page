@@ -494,13 +494,4 @@
     flex-direction: column;
     gap: 0.5rem;
   }
-
-  .page-action {
-    margin-top: 0.5rem;
-  }
-
-  .action-btn {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-  }
 }
