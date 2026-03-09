@@ -220,6 +220,7 @@
     font-size: 1rem;
   }
   
+  .tool-container,
   main.nukebot-container {
     max-width: 95%;
     margin: 0 auto;
@@ -317,6 +318,7 @@
 }
 
 /* タイムライン */
+.tool-container,
 main.nukebot-container {
   max-width: 1200px;
   margin: 0 auto;
