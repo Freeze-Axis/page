@@ -281,7 +281,8 @@ main.nukebot-container {
 /* モバイル版のみツールページのようなスタイルを適用 */
 @media (max-width: 768px) {
   main.nukebot-container {
-    max-width: 1200px;
+    width: calc(100% - 3rem);
+    max-width: 100%;
     margin: 0 auto 3rem;
     padding: 2rem 1.5rem;
     background: linear-gradient(135deg, rgba(42, 45, 45, 0.7) 0%, rgba(30, 33, 33, 0.8) 100%);
@@ -294,8 +295,9 @@ main.nukebot-container {
   }
   
   .command-tabs {
-    flex-direction: row;
-    justify-content: center;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: center !important;
   }
 }
 
