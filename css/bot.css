@@ -274,16 +274,14 @@
 main.nukebot-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0.5rem 1.5rem 2rem;  /* even tighter gap under the title */
+  padding: 0.5rem 1.5rem 2rem;  /* desktop style */
   position: relative;
 }
 
 /* モバイル版のみツールページのようなスタイルを適用 */
 @media (max-width: 768px) {
   main.nukebot-container {
-    max-width: 95% !important;
-    margin: 0 auto !important;
-    padding: 1.5rem !important;
+    padding: 2rem 1.5rem;
     background: linear-gradient(135deg, rgba(42, 45, 45, 0.7) 0%, rgba(30, 33, 33, 0.8) 100%);
     border-radius: 20px;
     box-shadow:
@@ -291,7 +289,7 @@ main.nukebot-container {
       inset 0 1px 0 rgba(129, 212, 250, 0.1);
     border: 1px solid rgba(129, 212, 250, 0.2);
     backdrop-filter: blur(10px);
-    margin-bottom: 3rem;
+    margin: 2rem 1.5rem;
   }
 }
 
@@ -427,68 +425,27 @@ main.nukebot-container {
     font-size: 1.1rem;
     padding: 0.8rem 2rem;
   }
-  
-  /* カードサイズをツールページと同じに合わせる */
   .command-section {
-    margin-bottom: 1.5rem !important;
-    padding: 1.5rem !important;
-    background: var(--clr-card) !important;
-    border: 1px solid rgba(129, 212, 250, 0.1) !important;
-    border-radius: var(--radius) !important;
-    transition: all 0.3s ease !important;
+    margin-bottom: var(--spacing-lg);
   }
-  
-  .command-section:hover {
-    border-color: rgba(129, 212, 250, 0.5) !important;
-    box-shadow: 0 8px 20px rgba(129, 212, 250, 0.15) !important;
-    transform: translateY(-5px) !important;
-  }
-  
   .commands-comparison {
-    gap: 1.5rem;
+    gap: var(--spacing-md);
   }
-  
-  .section-header {
-    margin-bottom: 1rem;
-  }
-  
   .section-header h3 {
-    font-size: 1.4rem;
-    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
   }
-  
   .section-header p {
     font-size: 0.9rem;
   }
-  
-  .timeline-item {
-    margin-bottom: 1rem;
-  }
-  
-  .timeline-content {
-    padding: 1.5rem;
-  }
-  
-  .timeline-content h3 {
-    font-size: 1.4rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .timeline-content p {
-    font-size: 0.9rem;
-  }
-  
   .page-title-section {
     padding: 2rem 1rem 1rem;
     flex-direction: column; /* mobile: vertical layout */
     gap: 0.5rem;
   }
-  
   /* mobile: add a little breathing room when stacked */
   .page-action {
     margin-top: 0.5rem;
   }
-  
   .action-btn {
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
