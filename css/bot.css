@@ -195,6 +195,10 @@
 }
 
 @media (max-width: 768px) {
+  main.nukebot-container {
+    padding: 0;
+  }
+
   .command-tabs {
     display: flex;
     justify-content: center;
@@ -324,6 +328,10 @@ main.nukebot-container {
   margin: 0 auto;
   padding: 0.5rem 1.5rem 2rem;  /* desktop style */
   position: relative;
+}
+
+main.nukebot-container {
+  padding: 0.5rem 1.5rem 2rem;
 }
 
 

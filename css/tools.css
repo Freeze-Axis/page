@@ -16,6 +16,10 @@
   margin-bottom: 3rem;
 }
 
+main.tool-container {
+  padding: 2rem 1.5rem;
+}
+
 /* タブメニュー */
 .tool-tabs {
   display: flex;
@@ -203,6 +207,10 @@
 
 /* レスポンシブ調整 */
 @media (max-width: 768px) {
+  main.tool-container {
+    padding: 0;
+  }
+
   .tool-container {
     max-width: 95%;
     padding: 1.5rem;
