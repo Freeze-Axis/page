@@ -1,0 +1,47 @@
+/* status-mobile.css - status.html モバイル版スタイル (max-width: 768px) */
+
+body {
+  height: auto;
+  min-height: 100vh;
+  padding: 0;
+}
+
+.status-container {
+  max-width: 100%;
+  width: 95%;
+  margin: 1rem auto;
+}
+
+#discord-widget {
+  height: 300px;
+}
+
+/* 小型スマートフォン対応 */
+@media (max-width: 480px) {
+  .status-container {
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  h1 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .status {
+    font-size: 0.9rem;
+  }
+
+  .sns-icons {
+    margin-top: 1rem;
+  }
+
+  .sns-icons img {
+    width: 35px;
+    height: 35px;
+  }
+
+  #discord-widget {
+    height: 250px;
+  }
+}

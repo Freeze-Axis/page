@@ -1,0 +1,91 @@
+/* bot-mobile.css - bot.html モバイル版スタイル (max-width: 768px) */
+
+.command-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-bottom: 1.8rem;
+  flex-wrap: wrap;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(129, 212, 250, 0.1);
+}
+
+.command-tabs .tab {
+  padding: 0.65rem 1.4rem;
+  font-size: 0.95rem;
+}
+
+.tool-container .page-action {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.8rem;
+}
+
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: transparent;
+  border: 1px solid rgba(129, 212, 250, 0.3);
+  color: var(--clr-accent);
+  padding: 0.6rem 1.5rem;
+  border-radius: 20px;
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+main.tool-container {
+  max-width: 95%;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(42, 45, 45, 0.7) 0%, rgba(30, 33, 33, 0.8) 100%);
+  border-radius: 20px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(129, 212, 250, 0.1);
+  border: 1px solid rgba(129, 212, 250, 0.2);
+  backdrop-filter: blur(10px);
+  margin-bottom: 3rem;
+}
+
+.commands-comparison {
+  display: block;
+  gap: var(--spacing-md);
+}
+
+.command-section {
+  display: none;
+  margin-bottom: var(--spacing-lg);
+  padding: 1.5rem;
+  border: 1px solid rgba(129, 212, 250, 0.2);
+  background: linear-gradient(135deg, rgba(42, 45, 45, 0.7) 0%, rgba(30, 33, 33, 0.8) 100%);
+  border-radius: 20px;
+}
+
+.command-section.active {
+  display: block;
+}
+
+.section-header h3 {
+  font-size: 1.3rem;
+}
+
+.section-header p {
+  font-size: 0.9rem;
+}
+
+.timeline-content {
+  padding: 0.75rem;
+}
+
+.timeline-content h3 {
+  font-size: 1.1rem;
+}
+
+.timeline-content p {
+  font-size: 0.85rem;
+}

@@ -1,0 +1,162 @@
+/* tools-mobile.css - tools.html モバイル版スタイル (max-width: 768px) */
+
+main.tool-container {
+  max-width: 95%;
+  margin: 0 auto;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(42, 45, 45, 0.7) 0%, rgba(30, 33, 33, 0.8) 100%);
+  border-radius: 20px;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(129, 212, 250, 0.1);
+  border: 1px solid rgba(129, 212, 250, 0.2);
+  backdrop-filter: blur(10px);
+  margin-bottom: 3rem;
+}
+
+.tool-container {
+  max-width: 95%;
+  padding: 1.5rem;
+}
+
+.tool-tabs {
+  gap: 0.8rem;
+  margin-bottom: 1.8rem;
+  padding-bottom: 1rem;
+}
+
+.tool-tab {
+  padding: 0.65rem 1.4rem;
+  font-size: 0.95rem;
+}
+
+.tools-grid {
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.tool-card {
+  padding: 1.5rem;
+}
+
+.tool-icon {
+  font-size: 2.5rem;
+  width: 60px;
+  height: 60px;
+}
+
+.tool-card h3 {
+  font-size: 1.4rem;
+}
+
+.tool-card p {
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.tool-btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 0.9rem;
+}
+
+.features-section {
+  margin-top: 2.5rem;
+  padding: 2rem 1.2rem;
+}
+
+.features-grid {
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+.feature-card {
+  padding: 1.5rem;
+}
+
+.feature-icon {
+  font-size: 2.2rem;
+  width: 70px;
+  height: 70px;
+}
+
+.feature-card h3 {
+  font-size: 1.3rem;
+}
+
+.feature-card p {
+  font-size: 0.9rem;
+}
+
+@media (max-width: 480px) {
+  .group-name {
+    font-size: 2rem;
+  }
+  .group-tagline {
+    font-size: 1rem;
+  }
+  .discord-btn {
+    font-size: 1rem;
+    padding: 0.7rem 1.5rem;
+  }
+  .section-title {
+    font-size: 1.6rem;
+  }
+  .tool-tabs {
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.8rem;
+  }
+  .tool-tab {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+    border-radius: 6px;
+  }
+  .tools-grid {
+    gap: 1rem;
+  }
+  .tool-card {
+    padding: 1.2rem;
+  }
+  .tool-icon {
+    font-size: 2rem;
+    width: 50px;
+    height: 50px;
+  }
+  .tool-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+  }
+  .tool-card p {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  .tool-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.8rem;
+  }
+  .features-section {
+    margin-top: 2rem;
+    padding: 1.5rem 1rem;
+  }
+  .features-section .section-title {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+  }
+  .features-grid {
+    gap: 1rem;
+  }
+  .feature-card {
+    padding: 1.2rem;
+  }
+  .feature-icon {
+    font-size: 1.8rem;
+    width: 50px;
+    height: 50px;
+  }
+  .feature-card h3 {
+    font-size: 1.1rem;
+  }
+  .feature-card p {
+    font-size: 0.8rem;
+  }
+}
