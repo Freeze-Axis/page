@@ -4,11 +4,12 @@
 
 /* メインコンテナ */
 .license-container {
-  max-width: 95%;
+  max-width: 100%;
   margin: 1rem auto;
   padding: 0;
   background: transparent;
   border-radius: 0;
+  box-shadow: none;
   border: none;
   position: relative;
   overflow: visible;
@@ -22,7 +23,8 @@
 .license-header {
   text-align: center;
   margin-bottom: 2rem;
-  padding: 0 1rem 1.5rem 1rem;
+  padding: 1.5rem;
+  padding-bottom: 1.5rem;
   border-bottom: 2px solid rgba(129, 212, 250, 0.3);
 }
 
@@ -48,7 +50,7 @@
 
 /* セクションスタイル */
 .license-section {
-  margin: 0 1rem 1.5rem 1rem;
+  margin-bottom: 1.5rem;
   padding: 1.5rem;
   background: rgba(30, 33, 33, 0.6);
   border-radius: 8px;
@@ -140,11 +142,6 @@
   height: 1px;
   background: rgba(129, 212, 250, 0.15);
   margin: 0;
-}
-.divider {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(129, 212, 250, 0.3), transparent);
-  margin: 2.5rem 0;
 }
 
 .license-section.warning p {
