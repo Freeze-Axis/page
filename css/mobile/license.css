@@ -1,96 +1,79 @@
 /* license-mobile.css - LICENSE.html モバイル版スタイル (max-width: 768px) */
 
-/* シンプルでモダンなライセンスページスタイル */
+/* ドキュメント風ライセンスページ */
 
 /* メインコンテナ */
 .license-container {
   max-width: 100%;
-  margin: 2rem auto;
-  padding: 2rem;
-  background: rgba(42, 45, 45, 0.9);
-  border-radius: 16px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(129, 212, 250, 0.1);
+  margin: 1rem auto;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
   position: relative;
-  overflow: hidden;
+  overflow: visible;
 }
 
 .license-container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at 20% 20%, rgba(90, 143, 192, 0.1), transparent 80%);
-  pointer-events: none;
-  z-index: -1;
+  display: none;
 }
 
 /* ヘッダースタイル */
 .license-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid rgba(129, 212, 250, 0.3);
 }
 
 .freeze-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+  display: none;
 }
 
 .freeze-icon svg {
-  width: 48px;
-  height: 48px;
-  fill: none;
-  stroke: var(--clr-accent);
-  stroke-width: 2;
+  display: none;
 }
 
 .freeze-icon h1 {
-  font-family: var(--font-heading);
-  font-size: 2.5rem;
-  color: var(--clr-accent);
-  margin: 0;
-  letter-spacing: 2px;
+  display: none;
 }
 
 .license-header h2 {
   font-size: 1.8rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--clr-accent);
   font-weight: 400;
   margin: 0;
+  letter-spacing: 0.5px;
 }
 
 /* セクションスタイル */
 .license-section {
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  background: rgba(30, 33, 33, 0.6);
+  border-radius: 8px;
+  border: 1px solid rgba(129, 212, 250, 0.15);
 }
 
 .section-header {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
 }
 
 .section-header i {
-  font-size: 1.8rem;
-  color: var(--clr-accent);
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: none;
 }
 
 .section-header h3 {
   font-family: var(--font-heading);
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   color: var(--clr-accent);
   margin: 0;
+  letter-spacing: 0.3px;
 }
 
 /* リストスタイル */
@@ -101,53 +84,65 @@
 }
 
 .license-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  margin-bottom: 1rem;
-  padding: 1rem;
-  background: rgba(40, 43, 43, 0.7);
-  border-radius: 8px;
-  transition: background 0.3s ease;
+  display: block;
+  margin-bottom: 0.8rem;
+  padding: 0;
+  background: transparent;
+  border-left: none;
+  border-radius: 0;
+  transition: none;
 }
 
 .license-list li:hover {
-  background: rgba(45, 48, 48, 0.9);
+  background: transparent;
+  border-left-color: transparent;
+  transform: none;
 }
 
 .license-list li i {
-  color: #ff6384;
-  font-size: 1.2rem;
-  margin-top: 0.2rem;
-  flex-shrink: 0;
+  display: none;
 }
 
 .license-list li span {
   color: rgba(255, 255, 255, 0.9);
-  font-size: 1rem;
-  line-height: 1.6;
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.license-section p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 0.8rem 0;
 }
 
 /* 警告セクション */
 .license-section.warning {
-  background: rgba(40, 20, 20, 0.4);
+  background: rgba(40, 20, 20, 0.3);
   border-left: 4px solid #ff6384;
   border-radius: 8px;
   padding: 1.5rem;
+  margin-top: 1.5rem;
+  border: 1px solid rgba(255, 99, 132, 0.2);
 }
 
 .license-section.warning .section-header i {
-  color: #ff6384;
+  display: none;
 }
 
 .license-section.warning p {
   color: rgba(255, 255, 255, 0.9);
-  font-size: 1.1rem;
-  line-height: 1.6;
-  margin: 1rem 0 0 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 0;
 }
 
 /* 区切り線 */
+.divider {
+  height: 1px;
+  background: rgba(129, 212, 250, 0.15);
+  margin: 0;
+}
 .divider {
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(129, 212, 250, 0.3), transparent);
@@ -222,5 +217,4 @@
   body {
     font-size: 14px;
   }
-}
 }
