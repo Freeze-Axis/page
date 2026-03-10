@@ -1,4 +1,4 @@
-/* license-mobile.css - LICENSE.html モバイル版スタイル (max-width: 768px) */
+/* license.css - LICENSE.html スタイル */
 
 /* ドキュメント風ライセンスページ */
 
@@ -144,72 +144,60 @@
   margin: 0;
 }
 
-.license-section.warning p {
-  margin-left: 0;
-}
-
-@media (max-width: 480px) {
+/* デスクトップ版 (769px以上) */
+@media screen and (min-width: 769px) {
   .license-container {
-    padding: 1.5rem;
-    margin: 1.5rem;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0;
   }
 
-  .freeze-icon {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .freeze-icon h1 {
-    font-size: 2rem;
-  }
-
-  .freeze-icon svg {
-    width: 50px;
-    height: 50px;
+  .license-header {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    padding: 0;
   }
 
   .license-header h2 {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
+  }
+
+  .license-section {
+    margin-bottom: 3rem;
+    padding: 2rem;
   }
 
   .section-header {
-    flex-direction: column;
-    text-align: center;
-    gap: 0.5rem;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
   }
 
   .section-header h3 {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 
   .license-list li {
-    padding: 0.8rem;
-    gap: 0.8rem;
-    margin-bottom: 0.8rem;
-  }
-
-  .license-list li i {
-    font-size: 1rem;
+    margin-bottom: 1rem;
   }
 
   .license-list li span {
-    font-size: 0.9rem;
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .license-section p {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin: 1rem 0;
   }
 
   .license-section.warning {
-    padding: 1.2rem;
+    margin-top: 3rem;
+    padding: 2rem;
   }
 
   .license-section.warning p {
-    font-size: 0.95rem;
-    margin: 0.8rem 0 0 0;
-  }
-
-  .divider {
-    margin: 1.5rem 0;
-  }
-
-  body {
-    font-size: 14px;
+    font-size: 1rem;
+    line-height: 1.8;
   }
 }
