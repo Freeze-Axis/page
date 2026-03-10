@@ -6,10 +6,10 @@
 .license-container {
   max-width: 95%;
   margin: 1rem auto;
-  padding: 1.5rem;
-  background: rgba(30, 33, 33, 0.6);
-  border-radius: 8px;
-  border: 1px solid rgba(129, 212, 250, 0.15);
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  border: none;
   position: relative;
   overflow: visible;
 }
@@ -22,8 +22,7 @@
 .license-header {
   text-align: center;
   margin-bottom: 2rem;
-  padding: 1.5rem;
-  padding-bottom: 1.5rem;
+  padding: 0 1rem 1.5rem 1rem;
   border-bottom: 2px solid rgba(129, 212, 250, 0.3);
 }
 
@@ -49,7 +48,7 @@
 
 /* セクションスタイル */
 .license-section {
-  margin-bottom: 1.5rem;
+  margin: 0 1rem 1.5rem 1rem;
   padding: 1.5rem;
   background: rgba(30, 33, 33, 0.6);
   border-radius: 8px;
