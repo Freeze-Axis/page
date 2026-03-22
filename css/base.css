@@ -218,20 +218,7 @@ header .container {
   text-decoration: none;
   display: flex;
   align-items: center;
-  gap: var(--spacing-sm);
-}
-
-.logo-img {
-  height: 2rem;
-  width: auto;
-  object-fit: contain;
-  filter: drop-shadow(0 0 5px rgba(129, 212, 250, 0.5));
-}
-
-@media (max-width: 768px) {
-  .logo-img {
-    height: 1.6rem;
-  }
+  gap: 0;
 }
 
 nav#nav ul#header-menu {

@@ -1,0 +1,142 @@
+/* dm-mobile.css - dm.html モバイル版スタイル (max-width: 768px) */
+
+/* ページタイトルセクション */
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 4px;
+  background: var(--clr-accent);
+  border-radius: 2px;
+}
+
+/* コマンドセクション */
+.command-section {
+  margin-bottom: var(--spacing-lg);
+  padding: 1rem;
+  border: 1px solid rgba(129, 212, 250, 0.2);
+  background: linear-gradient(135deg, rgba(42, 45, 45, 0.7) 0%, rgba(30, 33, 33, 0.8) 100%);
+  border-radius: 20px;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* セクションヘッダー */
+.section-header {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.section-header h3 {
+  font-family: var(--font-heading);
+  font-size: 1.3rem;
+  margin-bottom: var(--spacing-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  letter-spacing: 0.05em;
+}
+
+.section-header p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+  margin-top: var(--spacing-xs);
+}
+
+/* 概要説明セクション */
+.overview-section {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+  padding: var(--spacing-sm);
+  background: rgba(42, 45, 45, 0.3);
+  border: 1px solid rgba(129, 212, 250, 0.1);
+  border-radius: var(--radius);
+}
+
+.overview-section p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* tool-container 共通 */
+.tool-container {
+  max-width: 100%;
+  margin: 0 auto 2.5rem;
+  padding: 1.2rem 1rem;
+  background: linear-gradient(135deg, rgba(42, 45, 45, 0.75), rgba(30, 33, 33, 0.9));
+  border-radius: 1rem;
+  border: 1px solid rgba(129, 212, 250, 0.2);
+}
+
+.command-card {
+  background: var(--clr-card);
+  border: 1px solid rgba(129, 212, 250, 0.2);
+  border-radius: var(--radius);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.command-card-header {
+  border-bottom: 1px solid rgba(129, 212, 250, 0.2);
+  margin-bottom: 0.75rem;
+  padding-bottom: 0.5rem;
+}
+
+.command-card-header h3 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--clr-accent);
+}
+
+.command-card p,
+.command-card ul,
+.command-card dl {
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.6;
+}
+
+.command-card ul,
+.command-card dl {
+  margin-top: 0.65rem;
+  padding-left: 1rem;
+}
+
+.command-card dt {
+  font-weight: bold;
+  margin-top: 0.6rem;
+}
+
+.command-card dd {
+  margin-left: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.page-action {
+  text-align: center;
+  margin-top: 1.25rem;
+}
+
+.page-action .action-btn {
+  background: linear-gradient(135deg, var(--clr-primary), var(--clr-accent));
+  color: var(--clr-bg);
+  padding: 0.8rem 1.4rem;
+  border-radius: 50px;
+  font-weight: bold;
+  transition: transform 0.2s ease;
+}
+
+.page-action .action-btn:hover {
+  transform: translateY(-1px);
+}

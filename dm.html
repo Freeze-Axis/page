@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!----------------------------------------------------------------->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#a9ceec" />
+
+  <title>Freeze公式サイト - DM爆撃BOT使い方</title>
+  <meta name="description" content="" />
+
+  <link rel="icon" href="https://i.ibb.co/MknjZBVr/Freeze-logo.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Freeze" />
+  <meta property="og:title" content="DM爆撃BOT使い方" />
+  <meta property="og:description" content="DM爆撃BOTの使い方ガイド" />
+  <meta property="og:url" content="" />
+  <meta property="og:image" content="" />
+  <!----------------------------------------------------------------->
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- 外部CSS -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <!-- デスクトップ版 (769px以上) -->
+  <link rel="stylesheet" href="css/desktop/dm.css" media="screen and (min-width: 769px)">
+  <!-- モバイル版 (768px以下) -->
+  <link rel="stylesheet" href="css/mobile/dm.css" media="screen and (max-width: 768px)">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo">
+        Freeze
+      </a>
+      <button id="nav-toggle" class="nav-toggle" aria-label="メニュー開閉">
+        <i class="fas fa-bars"></i>
+      </button>
+      <nav id="nav"><!-- nav.html #header-menu --></nav>
+    </div>
+  </header>
+
+  <!-- 導入と使い方セクション -->
+  <section class="page-title-section">
+    <h2 class="page-title">DM爆撃Botサーバー使い方</h2>
+  </section>
+
+  <!-- 概要説明セクション -->
+  <main class="tool-container">
+    <div class="command-card">
+      <div class="command-card-header">
+        <h3><i class="fas fa-bolt"></i> DM爆撃Botサーバーの機能概要</h3>
+      </div>
+      <p>サーバー内に配置された50体のBotでターゲットに対してDMを大量送信します。<br>
+        高負荷の攻撃を短時間で仕掛ける用途を想定しています。</p>
+      <ul>
+        <li>REST APIの並列処理を採用しているため非常に高速です</li>
+      </ul>
+    </div>
+
+    <div class="command-card">
+      <div class="command-card-header">
+        <h3><i class="fas fa-list"></i> コマンド一覧</h3>
+      </div>
+      <dl>
+        <dt>/dm_user [ターゲットのユーザーID]</dt>
+        <dd>指定したユーザーにDM爆撃が開始されます</dd>
+      </dl>
+      <p>送信可能回数（上限値）：500</p>
+      <p>利用制限）Freezeのブーストを行っているユーザーのみ使用可能</p>
+    </div>
+
+    <div class="page-action">
+      <a href="https://discord.gg/cyvqWKSKn5" target="_blank" class="action-btn">
+        <i class="fab fa-discord"></i> DM爆撃用サーバーに参加
+      </a>
+    </div>
+  </main>
+
+  <!-- フッター -->
+  <footer>
+    <div class="container">
+      <nav id="footer-nav">
+        <!-- JS で nav.html の #footer-menu が挿入されます -->
+      </nav>
+    </div>
+  </footer>
+
+  <!-- 外部JS -->
+  <script src="js/app.js"></script>
+  <script src="js/dm.js"></script>
+</body>
+</html>
