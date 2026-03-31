@@ -1,84 +1,28 @@
 // bot.js - bot.html ページ専用スクリプト
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1ファイル内で mode を切り替え（external / nuke）
-  const params = new URLSearchParams(window.location.search);
-  const mode = (params.get('mode') || '').toLowerCase();
-
-  const context = {
-    external: {
-      pageTitle: '外部アプリBot解説',
-      description: 'マイアプリ経由で動作する外部アプリ版コマンドだけを表示します。',
-      ogTitle: '外部アプリBot解説',
-      ogDescription: '外部アプリ（/通常攻撃, /操作, /TOKEN設定, /ログアウト）に特化した説明ページ。',
-      ogImage: 'https://i.ibb.co/MknjZBVr/Freeze-logo.png'
-    },
-    nuke: {
-      pageTitle: 'NukeBot解説',
-      description: 'Nuke系のサーバー内コマンド（!nuke, !allban など）だけを表示します。',
-      ogTitle: 'NukeBot解説',
-      ogDescription: 'サーバー破壊系コマンドに特化した説明ページ。',
-      ogImage: 'https://i.ibb.co/MknjZBVr/Freeze-logo.png'
-    }
-  };
-
-  const cfg = context[mode] || {
+  // フロントエンド静的ホスト運用のため、モード別 og メタ埋め込みは廃止
+  const cfg = {
     pageTitle: '荒らしBot導入ガイド',
-    description: '外部アプリ版またはNuke版を選択してください。',
-    ogTitle: '荒らしBot使い方',
-    ogDescription: '外部アプリ版とNuke版のどちらかを選択して詳細情報を表示します。'
+    description: '外部アプリ版とNuke版のコマンド説明をまとめて表示しています。'
   };
 
   // body にモードクラスを付与（CSSでモード別スタイル設定できるように）
-  document.body.classList.add('bot-page');
-  document.body.classList.remove('external', 'nuke');
-  if (mode === 'external' || mode === 'nuke') {
-    document.body.classList.add(mode);
+  if (!document.body.classList.contains('bot-external') && !document.body.classList.contains('bot-nuke')) {
+    document.body.classList.add('bot-page');
   }
+  document.body.classList.remove('external', 'nuke');
 
   // mode-list のアクティブ表示制御
   document.querySelectorAll('.mode-card').forEach(card => {
-    const link = card.querySelector('.mode-link');
-    if (link) {
-      const href = link.getAttribute('href');
-      const isActive = href && href.includes(mode);
-      card.classList.toggle('active', !!isActive);
-    }
+    card.classList.remove('active');
   });
 
-  document.title = `Freeze公式サイト - ${cfg.pageTitle}`;
-  document.querySelector('.page-title').textContent = cfg.pageTitle;
-
-  // ============================================
-  // メタタグの動的更新（OGP用）
-  // ============================================
-  const updateMetaTags = () => {
-    // og:title
-    const ogTitleMeta = document.getElementById('og-title');
-    if (ogTitleMeta) {
-      ogTitleMeta.setAttribute('content', cfg.ogTitle);
-    }
-
-    // og:description
-    const ogDescMeta = document.getElementById('og-description');
-    if (ogDescMeta) {
-      ogDescMeta.setAttribute('content', cfg.ogDescription);
-    }
-
-    // og:url（現在のページのURLにmode パラメータを含める）
-    const ogUrlMeta = document.getElementById('og-url');
-    if (ogUrlMeta) {
-      ogUrlMeta.setAttribute('content', window.location.href);
-    }
-
-    // og:image
-    const ogImageMeta = document.getElementById('og-image');
-    if (ogImageMeta && cfg.ogImage) {
-      ogImageMeta.setAttribute('content', cfg.ogImage);
-    }
-  };
-
-  updateMetaTags();
+  // bot.html（モード選択ページ）のみタイトルを動的に設定
+  if (document.body.classList.contains('bot-page')) {
+    document.title = `Freeze公式サイト - ${cfg.pageTitle}`;
+    document.querySelector('.page-title').textContent = cfg.pageTitle;
+  }
 
   const modeList = document.getElementById('mode-list');
   const backNav = document.getElementById('back-nav');
@@ -86,29 +30,25 @@ document.addEventListener('DOMContentLoaded', () => {
   const nukeSection = document.querySelector('.nuke-commands');
   const tabs = document.querySelector('.command-tabs');
 
-  const applyMode = () => {
-    if (mode === 'external') {
-      if (modeList) modeList.style.display = 'none';
-      if (backNav) backNav.style.display = 'block';
-      if (tabs) tabs.style.display = 'none';
-      if (externalSection) externalSection.classList.add('active');
-      if (nukeSection) nukeSection.classList.remove('active');
-    } else if (mode === 'nuke') {
-      if (modeList) modeList.style.display = 'none';
-      if (backNav) backNav.style.display = 'block';
-      if (tabs) tabs.style.display = 'none';
-      if (externalSection) externalSection.classList.remove('active');
-      if (nukeSection) nukeSection.classList.add('active');
-    } else {
-      if (modeList) modeList.style.display = 'flex';
-      if (backNav) backNav.style.display = 'none';
-      if (tabs) tabs.style.display = 'none';
-      if (externalSection) externalSection.classList.remove('active');
-      if (nukeSection) nukeSection.classList.remove('active');
-    }
-  };
-
-  applyMode();
+  if (document.body.classList.contains('bot-external')) {
+    if (modeList) modeList.style.display = 'none';
+    if (backNav) backNav.style.display = 'block';
+    if (tabs) tabs.style.display = 'none';
+    if (externalSection) externalSection.classList.add('active');
+    if (nukeSection) nukeSection.classList.remove('active');
+  } else if (document.body.classList.contains('bot-nuke')) {
+    if (modeList) modeList.style.display = 'none';
+    if (backNav) backNav.style.display = 'block';
+    if (tabs) tabs.style.display = 'none';
+    if (externalSection) externalSection.classList.remove('active');
+    if (nukeSection) nukeSection.classList.add('active');
+  } else {
+    if (modeList) modeList.style.display = 'flex';
+    if (backNav) backNav.style.display = 'none';
+    if (tabs) tabs.style.display = 'none';
+    if (externalSection) externalSection.classList.remove('active');
+    if (nukeSection) nukeSection.classList.remove('active');
+  }
 
   // モバイル向け：外部アプリ / サーバーコマンドをタブで切り替え
   document.querySelectorAll('.command-tabs .tab').forEach(tab => {

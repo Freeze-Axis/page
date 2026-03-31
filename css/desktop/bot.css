@@ -466,18 +466,18 @@
 }
 
 /* ページモード別表示 */
-.bot-page.external .nuke-commands,
-.bot-page.nuke .external-commands {
+.bot-external .nuke-commands,
+.bot-nuke .external-commands {
   display: none;
 }
 
-.bot-page.external .command-tabs,
-.bot-page.nuke .command-tabs {
+.bot-external .command-tabs,
+.bot-nuke .command-tabs {
   display: none !important;
 }
 
-.bot-page.external .commands-comparison,
-.bot-page.nuke .commands-comparison {
+.bot-external .commands-comparison,
+.bot-nuke .commands-comparison {
   grid-template-columns: 1fr;
   gap: var(--spacing-lg);
 }

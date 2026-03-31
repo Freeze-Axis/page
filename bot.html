@@ -7,17 +7,17 @@
   <meta name="theme-color" content="#a9ceec" />
 
   <title>Freeze公式サイト - 荒らしBot使い方</title>
-  <meta name="description" content="" />
+  <meta name="description" content="Freeze公式サイトの荒らしBot導入ガイド。外部アプリ版とNuke版から選択できます。" />
 
   <link rel="icon" href="https://i.ibb.co/MknjZBVr/Freeze-logo.png" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Freeze" />
-  <meta property="og:title" content="荒らしBot使い方" id="og-title" />
-  <meta property="og:description" content="Nukeと外部アプリを両立。詳細はサイトをご確認下さい。" id="og-description" />
-  <meta property="og:url" content="" id="og-url" />
-  <meta property="og:image" content="" id="og-image" />
+  <meta property="og:title" content="荒らしBot使い方" />
+  <meta property="og:description" content="Freeze公式サイトの荒らしBot導入ガイド。外部アプリ版とNuke版を1ページで確認できます。" />
+  <meta property="og:url" content="" />
+  <meta property="og:image" content="" />
   <!----------------------------------------------------------------->
 
   <!-- Font Awesome -->
@@ -53,7 +53,7 @@
     <!-- モード選択リスト（ツール/拡張タイプ） -->
     <div class="mode-selection" id="mode-list">
       <div class="mode-card external-card">
-        <a href="?mode=external" class="mode-link">
+        <a href="bot-external.html" class="mode-link">
           <div class="mode-icon">
             <i class="fas fa-mobile-alt"></i>
           </div>
@@ -73,7 +73,7 @@
       </div>
 
       <div class="mode-card nuke-card">
-        <a href="?mode=nuke" class="mode-link">
+        <a href="bot-nuke.html" class="mode-link">
           <div class="mode-icon">
             <i class="fas fa-skull-crossbones"></i>
           </div>
@@ -92,113 +92,6 @@
         </a>
       </div>
     </div>
-
-    <!-- 戻るボタン -->
-    <div class="back-nav" id="back-nav" style="display:none;">
-      <a href="bot.html" class="back-btn"><i class="fas fa-arrow-left"></i> 選択に戻る</a>
-    </div>
-
-    <!-- モバイル用タブ切り替え -->
-    <div class="command-tabs">
-      <button class="tab active" data-target="external-commands">外部アプリ</button>
-      <button class="tab" data-target="nuke-commands">Nuke</button>
-    </div>
-    <!-- コマンド比較セクション -->
-    <div class="commands-comparison">
-      <!-- 外部アプリ版 -->
-      <section class="command-section external-commands">
-        <div class="command-card">
-          <div class="command-card-header">
-            <h3><i class="fas fa-download"></i> 外部アプリ荒らし使い方</h3>
-          </div>
-          <div class="command-overview">
-            <p>特に説明がない。猿でも分かるレベルの内容だ。</p>
-            <ul>
-            </ul>
-          </div>
-          <div class="command-list-wrap">
-            <h4>コマンド一覧</h4>
-            <ul class="command-list">
-              <li class="command-item">
-                <strong>/通常攻撃</strong>
-                <span class="detail-toggle"><i class="fas fa-plus"></i></span>
-                <div class="command-detail" style="display:none;">
-                  <p>実行したチャンネルに対してスパムを開始します。</p>
-                </div>
-              </li>
-              <li class="command-item">
-                <strong>/操作</strong>
-                <span class="detail-toggle"><i class="fas fa-plus"></i></span>
-                <div class="command-detail" style="display:none;">
-                  <p>対象サーバーの全チャンネルに対してスパムを実行します。<br>
-                  /TOKEN設定必須</p>
-                </div>
-              </li>
-              <li class="command-item">
-                <strong>/TOKEN設定</strong>
-                <span class="detail-toggle"><i class="fas fa-plus"></i></span>
-                <div class="command-detail" style="display:none;">
-                  <p>機能を最大限発揮する為に必須な拡張コマンドです。<br>
-                  BotTOKENでは出来ない事を可能にします。<br>
-                例：スラッシュコマンドを全てのチャンネルに自動実行（/操作）</p>
-                </div>
-              </li>
-              <li class="command-item">
-                <strong>/ログアウト</strong>
-                <span class="detail-toggle"><i class="fas fa-plus"></i></span>
-                <div class="command-detail" style="display:none;">
-                  <p>ログイン済みのTOKENからログアウトします。</p>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div class="install-guide">
-            <h4>インストール方法</h4>
-            <p>導入URLは公式Discordサーバーに記載されています。</p>
-            <p class="install-note">Discord参加はこちら： <a href="https://discord.gg/cyvqWKSKn5" target="_blank" class="install-link">公式Discordへ参加</a></p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Nuke版 -->
-      <section class="command-section nuke-commands">
-        <div class="command-card">
-          <div class="command-card-header">
-            <h3><i class="fas fa-skull-crossbones"></i> NukeBot使い方</h3>
-          </div>
-          <div class="command-overview">
-            <p>特に説明がない。</p>
-            <ul>
-            </ul>
-          </div>
-          <div class="command-list-wrap">
-            <h4>コマンド一覧</h4>
-            <ul class="command-list">
-              <li class="command-item">
-                <strong>!nuke</strong>
-                <span class="detail-toggle"><i class="fas fa-plus"></i></span>
-                <div class="command-detail" style="display:none;">
-                  <p>サーバーを完全に破壊します。</p>
-                </div>
-              </li>
-              <li class="command-item">
-                <strong>!allban [サーバーID]</strong>
-                <span class="detail-toggle"><i class="fas fa-plus"></i></span>
-                <div class="command-detail" style="display:none;">
-                  <p>指定したサーバーIDの全メンバーを一括BANします。</p>
-                </div>
-              </li>
-            </ul>
-          </div>
-          <div class="install-guide">
-            <h4>導入方法</h4>
-            <p>導入URLは公式Discordサーバーに記載されています。</p>
-            <p class="install-note">Discord参加はこちら： <a href="https://discord.gg/cyvqWKSKn5" target="_blank" class="install-link">公式Discordへ参加</a></p>
-          </div>
-        </div>
-      </section>
-    </div>
-  </main>
   </main>
 
   <!-- フッター -->

@@ -466,26 +466,26 @@
 }
 
 /* ページモード別表示 */
-.bot-page.external .nuke-commands,
-.bot-page.nuke .external-commands {
+.bot-external .nuke-commands,
+.bot-nuke .external-commands {
   display: none !important;
 }
 
-.bot-page.external .command-tabs,
-.bot-page.nuke .command-tabs {
+.bot-external .command-tabs,
+.bot-nuke .command-tabs {
   display: none !important;
 }
 
-.bot-page.external .commands-comparison,
-.bot-page.nuke .commands-comparison {
+.bot-external .commands-comparison,
+.bot-nuke .commands-comparison {
   display: block;
 }
 
 /* モード選択後は見出し非表示 */
-.bot-page.external .page-title-section,
-.bot-page.nuke .page-title-section,
-.bot-page.external .section-header,
-.bot-page.nuke .section-header {
+.bot-external .page-title-section,
+.bot-nuke .page-title-section,
+.bot-external .section-header,
+.bot-nuke .section-header {
   display: none;
 }
 

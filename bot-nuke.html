@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!----------------------------------------------------------------->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#a9ceec" />
+
+  <title>Freeze公式サイト - NukeBot解説</title>
+  <meta name="description" content="Nuke版の荒らしBot使い方" />
+
+  <link rel="icon" href="https://i.ibb.co/MknjZBVr/Freeze-logo.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Freeze" />
+  <meta property="og:title" content="NukeBot使い方" />
+  <meta property="og:description" content="サーバー破壊系コマンドに特化したNuke版Botの説明ページです。" />
+  <meta property="og:url" content="" />
+  <meta property="og:image" content="" />
+  <!----------------------------------------------------------------->
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- 外部CSS -->
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <!-- デスクトップ版 (769px以上) -->
+  <link rel="stylesheet" href="css/desktop/bot.css" media="screen and (min-width: 769px)">
+  <!-- モバイル版 (768px以下) -->
+  <link rel="stylesheet" href="css/mobile/bot.css" media="screen and (max-width: 768px)">
+</head>
+<body class="bot-nuke">
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo">Freeze</a>
+      <button id="nav-toggle" class="nav-toggle" aria-label="メニュー開閉"><i class="fas fa-bars"></i></button>
+      <nav id="nav"><!-- nav.html #header-menu --></nav>
+    </div>
+  </header>
+
+  <section class="page-title-section"><h2 class="page-title">NukeBot使い方</h2></section>
+
+  <main class="tool-container">
+    <div class="back-nav" id="back-nav" style="display:block; margin-bottom:16px;"><a href="bot.html" class="back-btn"><i class="fas fa-arrow-left"></i> モード選択に戻る</a></div>
+    <div class="commands-comparison">
+      <section class="command-section nuke-commands active">
+        <div class="command-card">
+          <div class="command-card-header"><h3><i class="fas fa-skull-crossbones"></i> NukeBot使い方</h3></div>
+          <div class="command-overview"><p>特に説明がない。</p><ul></ul></div>
+          <div class="command-list-wrap">
+            <h4>コマンド一覧</h4>
+            <ul class="command-list">
+              <li class="command-item"><strong>!nuke</strong><span class="detail-toggle"><i class="fas fa-plus"></i></span><div class="command-detail" style="display:none;"><p>サーバーを完全に破壊します。</p></div></li>
+              <li class="command-item"><strong>!allban [サーバーID]</strong><span class="detail-toggle"><i class="fas fa-plus"></i></span><div class="command-detail" style="display:none;"><p>指定したサーバーIDの全メンバーを一括BANします。</p></div></li>
+            </ul>
+          </div>
+          <div class="install-guide"><h4>導入方法</h4><p>導入URLは公式Discordサーバーに記載されています。</p><p class="install-note">Discord参加はこちら： <a href="https://discord.gg/cyvqWKSKn5" target="_blank" class="install-link">公式Discordへ参加</a></p></div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer><div class="container"><nav id="footer-nav"><!-- JS で nav.html の #footer-menu が挿入されます --></nav></div></footer>
+
+  <script src="js/app.js"></script>
+  <script src="js/bot.js"></script>
+</body>
+</html>
