@@ -92,6 +92,24 @@
   padding-left: 1.2rem;
 }
 
+.feature-list {
+  list-style: none;
+  padding: 0;
+}
+
+.feature-list li {
+  padding: 0.6rem 0 0.6rem 1.8rem;
+  position: relative;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.feature-list li:before {
+  content: '⚡';
+  position: absolute;
+  left: 0;
+  color: var(--clr-accent);
+}
+
 .command-card dt {
   font-weight: bold;
   margin-top: 0.75rem;
@@ -102,27 +120,169 @@
   margin-bottom: 0.5rem;
 }
 
+/* 新しいコマンドセクションスタイル */
+.command-details {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(129, 212, 250, 0.15);
+}
+
+.command-item {
+  background: linear-gradient(135deg, rgba(74, 124, 176, 0.1), rgba(129, 212, 250, 0.05));
+  border-left: 4px solid var(--clr-accent);
+  padding: 1.2rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.command-code {
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.4);
+  color: var(--clr-accent);
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.95rem;
+  font-weight: 600;
+  word-break: break-all;
+  margin-bottom: 0.8rem;
+}
+
+.command-item p {
+  margin: 0.5rem 0 0 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+}
+
+.license-info {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background: rgba(81, 212, 250, 0.08);
+  border-radius: 8px;
+  border-left: 4px solid var(--clr-primary);
+}
+
+.license-info h4 {
+  margin: 0 0 0.8rem 0;
+  color: var(--clr-accent);
+  font-size: 1.1rem;
+}
+
+.license-info ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.license-info li {
+  padding: 0.5rem 0 0.5rem 1.5rem;
+  position: relative;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.license-info li:before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--clr-accent);
+  font-weight: bold;
+}
+
+.restriction-info {
+  padding: 1rem;
+  background: rgba(255, 152, 0, 0.08);
+  border-radius: 8px;
+  border-left: 4px solid rgba(255, 152, 0, 0.6);
+}
+
+.restriction-info p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.85);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.restriction-info i {
+  color: rgba(255, 152, 0, 0.8);
+  font-size: 1.2rem;
+}
+
+.license-acquisition-info {
+  padding: 1rem;
+  background: rgba(69, 230, 111, 0.08);
+  border-radius: 8px;
+  border-left: 4px solid rgba(69, 230, 111, 0.6);
+}
+
+.license-acquisition-info h4 {
+  margin: 0 0 1rem 0;
+  color: var(--clr-link);
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.license-acquisition-info h4:before {
+  content: '📋';
+  font-size: 1.2rem;
+}
+
+.license-type {
+  margin-bottom: 1rem;
+}
+
+.license-type:last-child {
+  margin-bottom: 0;
+}
+
+.license-type h5 {
+  margin: 0 0 0.5rem 0;
+  color: var(--clr-accent);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.license-type p {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+  padding-left: 0.5rem;
+  border-left: 2px solid rgba(129, 212, 250, 0.3);
+}
+
 .page-action {
   text-align: center;
   margin-top: 1.5rem;
 }
 
 .page-action .action-btn {
-  background: linear-gradient(135deg, var(--clr-primary), var(--clr-accent));
-  color: var(--clr-bg);
-  padding: 0.9rem 1.6rem;
-  border-radius: 50px;
-  border: none;
+  background: linear-gradient(90deg, #2b7bbf 0%, #4f90d1 40%, #81d4fa 100%);
+  color: #ffffff;
+  padding: 0.95rem 1.8rem;
+  border-radius: 8px;
+  border: 1px solid rgba(130, 212, 250, 0.75);
   text-decoration: none;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  font-weight: bold;
-  box-shadow: 0 6px 20px rgba(90, 143, 192, 0.4);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  justify-content: center;
+  gap: 0.6rem;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.03em;
+  box-shadow: 0 8px 24px rgba(10, 38, 75, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
 }
 
 .page-action .action-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 26px rgba(90, 143, 192, 0.5);
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(10, 38, 75, 0.45);
+  filter: brightness(1.05);
 }
+
+.page-action .action-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 18px rgba(10, 38, 75, 0.35);
+}
+

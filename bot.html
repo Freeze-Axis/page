@@ -51,83 +51,155 @@
   </section>
 
   <main class="tool-container">
-    <!-- Bot導入ボタン -->
-    <div class="page-action">
-      <a href="https://discord.com/oauth2/authorize?client_id=1475629291310940342"
-         target="_blank"
-         class="action-btn">
-        <i class="fab fa-discord"></i> Bot導入
-      </a>
+    <!-- モード選択リスト（ツール/拡張タイプ） -->
+    <div class="mode-selection" id="mode-list">
+      <div class="mode-card external-card">
+        <a href="?mode=external" class="mode-link">
+          <div class="mode-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <div class="mode-content">
+            <h3 class="mode-title">外部アプリ版</h3>
+            <p class="mode-description">Discordクライアントから直接操作できる外部アプリ型Bot。TOKEN設定で全チャンネル攻撃が可能。</p>
+            <div class="mode-features">
+              <span class="feature-tag">簡単操作</span>
+              <span class="feature-tag">高速攻撃</span>
+              <span class="feature-tag">安全ログアウト</span>
+            </div>
+          </div>
+          <div class="mode-arrow">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+        </a>
+      </div>
+
+      <div class="mode-card nuke-card">
+        <a href="?mode=nuke" class="mode-link">
+          <div class="mode-icon">
+            <i class="fas fa-skull-crossbones"></i>
+          </div>
+          <div class="mode-content">
+            <h3 class="mode-title">Nuke版</h3>
+            <p class="mode-description">サーバー完全破壊特化型Bot。一括BANやチャンネル削除など、強力な破壊コマンドを搭載。</p>
+            <div class="mode-features">
+              <span class="feature-tag">完全破壊</span>
+              <span class="feature-tag">一括処理</span>
+              <span class="feature-tag">復旧不可</span>
+            </div>
+          </div>
+          <div class="mode-arrow">
+            <i class="fas fa-chevron-right"></i>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- 戻るボタン -->
+    <div class="back-nav" id="back-nav" style="display:none;">
+      <a href="bot.html" class="back-btn"><i class="fas fa-arrow-left"></i> 選択に戻る</a>
     </div>
 
     <!-- モバイル用タブ切り替え -->
     <div class="command-tabs">
       <button class="tab active" data-target="external-commands">外部アプリ</button>
-      <button class="tab" data-target="server-commands">サーバー</button>
+      <button class="tab" data-target="nuke-commands">Nuke</button>
     </div>
     <!-- コマンド比較セクション -->
     <div class="commands-comparison">
-        <!-- 左側: 外部アプリコマンド -->
-        <section class="command-section external-commands active">
-          <div class="section-header">
-            <h3><i class="fas fa-external-link-alt"></i> 外部アプリコマンド</h3>
-            <p>マイアプリに追加で機能するコマンド</p>
+      <!-- 外部アプリ版 -->
+      <section class="command-section external-commands">
+        <div class="command-card">
+          <div class="command-card-header">
+            <h3><i class="fas fa-download"></i> 外部アプリ荒らし使い方</h3>
           </div>
-          
-          <div class="timeline">
-            <div class="timeline-item" data-step="1">
-              <div class="timeline-content">
-                <h3>/通常攻撃</h3>
-                <p>実行したチャンネルにスパムを開始</p>
-              </div>
-            </div>
-            <div class="timeline-item" data-step="4">
-              <div class="timeline-content">
-                <h3>/操作</h3>
-                <p>対象のサーバーの全チャンネルにスパムを開始<br>
-                  ※TOKENログイン必須</p>
-              </div>
-            </div>
-            <div class="timeline-item" data-step="2">
-              <div class="timeline-content">
-                <h3>/TOKEN設定（登録,ログイン）</h3>
-                <p>TOKENログインを行うことで機能が拡張されます。</p>
-              </div>
-            </div>
-            <div class="timeline-item" data-step="3">
-              <div class="timeline-content">
-                <h3>/ログアウト</h3>
-                <p>ログイン中のTOKENからログアウト</p>
-              </div>
-            </div>
+          <div class="command-overview">
+            <p>特に説明がない。猿でも分かるレベルの内容だ。</p>
+            <ul>
+            </ul>
           </div>
-        </section>
+          <div class="command-list-wrap">
+            <h4>コマンド一覧</h4>
+            <ul class="command-list">
+              <li class="command-item">
+                <strong>/通常攻撃</strong>
+                <span class="detail-toggle"><i class="fas fa-plus"></i></span>
+                <div class="command-detail" style="display:none;">
+                  <p>実行したチャンネルに対してスパムを開始します。</p>
+                </div>
+              </li>
+              <li class="command-item">
+                <strong>/操作</strong>
+                <span class="detail-toggle"><i class="fas fa-plus"></i></span>
+                <div class="command-detail" style="display:none;">
+                  <p>対象サーバーの全チャンネルに対してスパムを実行します。<br>
+                  /TOKEN設定必須</p>
+                </div>
+              </li>
+              <li class="command-item">
+                <strong>/TOKEN設定</strong>
+                <span class="detail-toggle"><i class="fas fa-plus"></i></span>
+                <div class="command-detail" style="display:none;">
+                  <p>機能を最大限発揮する為に必須な拡張コマンドです。<br>
+                  BotTOKENでは出来ない事を可能にします。<br>
+                例：スラッシュコマンドを全てのチャンネルに自動実行（/操作）</p>
+                </div>
+              </li>
+              <li class="command-item">
+                <strong>/ログアウト</strong>
+                <span class="detail-toggle"><i class="fas fa-plus"></i></span>
+                <div class="command-detail" style="display:none;">
+                  <p>ログイン済みのTOKENからログアウトします。</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="install-guide">
+            <h4>インストール方法</h4>
+            <p>導入URLは公式Discordサーバーに記載されています。</p>
+            <p class="install-note">Discord参加はこちら： <a href="https://discord.gg/cyvqWKSKn5" target="_blank" class="install-link">公式Discordへ参加</a></p>
+          </div>
+        </div>
+      </section>
 
-        <!-- 右側: サーバーコマンド -->
-        <section class="command-section server-commands">
-          <div class="section-header">
-            <h3><i class="fas fa-server"></i> サーバー内コマンド</h3>
-            <p>Bot導入時に機能するコマンド</p>
+      <!-- Nuke版 -->
+      <section class="command-section nuke-commands">
+        <div class="command-card">
+          <div class="command-card-header">
+            <h3><i class="fas fa-skull-crossbones"></i> NukeBot使い方</h3>
           </div>
-          
-          <div class="timeline">
-            <div class="timeline-item" data-step="1">
-              <div class="timeline-content">
-                <h3>!nuke</h3>
-                <p>サーバー破壊コマンド</p>
-              </div>
-            </div>
-            
-            <div class="timeline-item" data-step="2">
-              <div class="timeline-content">
-                <h3>!allban [サーバーID]</h3>
-                <p>全員BAN</p>
-              </div>
-            </div>
+          <div class="command-overview">
+            <p>特に説明がない。</p>
+            <ul>
+            </ul>
           </div>
-        </section>
-      </div>
+          <div class="command-list-wrap">
+            <h4>コマンド一覧</h4>
+            <ul class="command-list">
+              <li class="command-item">
+                <strong>!nuke</strong>
+                <span class="detail-toggle"><i class="fas fa-plus"></i></span>
+                <div class="command-detail" style="display:none;">
+                  <p>サーバーを完全に破壊します。</p>
+                </div>
+              </li>
+              <li class="command-item">
+                <strong>!allban [サーバーID]</strong>
+                <span class="detail-toggle"><i class="fas fa-plus"></i></span>
+                <div class="command-detail" style="display:none;">
+                  <p>指定したサーバーIDの全メンバーを一括BANします。</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="install-guide">
+            <h4>導入方法</h4>
+            <p>導入URLは公式Discordサーバーに記載されています。</p>
+            <p class="install-note">Discord参加はこちら： <a href="https://discord.gg/cyvqWKSKn5" target="_blank" class="install-link">公式Discordへ参加</a></p>
+          </div>
+        </div>
+      </section>
     </div>
+  </main>
   </main>
 
   <!-- フッター -->

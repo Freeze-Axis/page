@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#a9ceec" />
+  <title>Freeze公式サイト - 拡張機能</title>
+  <meta name="description" content="Discord拡張機能一覧" />
+  <link rel="icon" href="https://i.ibb.co/MknjZBVr/Freeze-logo.png" />
+
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/nav.css">
+  <link rel="stylesheet" href="css/desktop/extensions.css" media="screen and (min-width: 769px)">
+  <link rel="stylesheet" href="css/mobile/extensions.css" media="screen and (max-width: 768px)">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <a href="index.html" class="logo">Freeze</a>
+      <button id="nav-toggle" class="nav-toggle" aria-label="メニュー開閉">メニュー</button>
+      <nav id="nav"></nav>
+    </div>
+  </header>
+
+  <section class="page-title-section">
+    <h2 class="page-title">拡張機能一覧</h2>
+  </section>
+
+  <main class="tool-container">
+    <div class="extensions-intro">
+      <h3>便利なDiscord拡張機能</h3>
+      <p>Bot操作をより快適にするための拡張機能を紹介します。Greasyforkからインストールしてご利用ください。</p>
+    </div>
+
+    <div class="extensions-grid">
+      <!-- Discord複数アカウント管理 -->
+      <div class="extension-card">
+          <div class="extension-content">
+          <h4 class="extension-title">Discord複数アカウント管理</h4>
+          <p class="extension-description">複数のDiscordアカウントを効率的に管理できる拡張機能。クイック切り替えでBot操作がスムーズに。</p>
+        </div>
+        <div class="extension-actions">
+          <a href="https://greasyfork.org/ja/scripts/537944-discord%E8%A4%87%E6%95%B0%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E7%AE%A1%E7%90%86" class="extension-btn primary" target="_blank">Greasyforkで開く</a>
+        </div>
+      </div>
+
+      <!-- DiscordTOKEN取得 -->
+      <div class="extension-card">
+          <div class="extension-content">
+          <h4 class="extension-title">Discord TOKEN取得</h4>
+          <p class="extension-description">Discordの認証TOKENを簡単に取得できる拡張機能。BotのTOKEN設定に必須です。</p>
+        </div>
+        <div class="extension-actions">
+          <a href="https://greasyfork.org/ja/scripts/538421-token%E5%8F%96%E5%BE%97" class="extension-btn primary" target="_blank">Greasyforkで開く</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="extensions-note">
+      <div class="note-content">
+        <h4>インストール方法</h4>
+        <p>各拡張機能のリンクからGreasyforkページを開き、「インストール」ボタンをクリックしてください。ブラウザ拡張機能（Tampermonkey/Greasemonkey）が必要です。</p>
+
+        <div class="install-panels">
+          <section class="install-panel">
+            <h5>通常の手順（PC/デスクトップ）</h5>
+            <ol>
+              <li><a href="https://www.tampermonkey.net/" target="_blank">Tampermonkey</a>をブラウザにインストールします。</li>
+              <li>Greasyforkの拡張機能ページで「インストール」ボタンをクリックし、スクリプトを追加します。</li>
+              <li>ブラウザをリロードし、拡張機能が有効になっていることを確認します。</li>
+            </ol>
+          </section>
+
+          <section class="install-panel">
+            <h5>スマホ版の手順</h5>
+            <ol>
+              <li><a href="https://play.google.com/store/apps/details?id=com.lemurbrowser.exts&hl=en-US" target="_blank">Lemurブラウザ</a>をインストールします。</li>
+              <li>Lemurブラウザ上で<a href="https://www.tampermonkey.net/index.php?browser=chrome" target="_blank">Tampermonkey</a>をインストールします。</li>
+              <li>Lemurブラウザで「Developer mode」を有効にします。</li>
+              <li>必要な拡張機能を<a href="https://greasyfork.org/ja/users/1424681-freeze-axis" target="_blank">Greasy Fork</a>からインストールします。</li>
+            </ol>
+          </section>
+
+          <section class="install-panel">
+            <h6>スクリプトがインストールできない場合</h6>
+            <ol>
+              <li>Greasy Forkのコードをコピーします。</li>
+              <li>Tampermonkeyを開きます。</li>
+              <li>設定 → 新しいスクリプトを追加を選択します。</li>
+              <li>初期コードを削除します。</li>
+              <li>コピーしたコードを貼り付けて保存します。</li>
+            </ol>
+          </section>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <nav id="footer-nav"></nav>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

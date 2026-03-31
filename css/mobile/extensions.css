@@ -1,0 +1,375 @@
+/* extensions-mobile.css - extensions.html モバイル版スタイル (max-width: 768px) */
+
+/* 拡張機能ページ特有のスタイル */
+.tool-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  backdrop-filter: none;
+  margin-bottom: 3rem;
+}
+
+main.tool-container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  border: none;
+  backdrop-filter: none;
+  margin-bottom: 3rem;
+}
+
+/* 拡張機能紹介セクション */
+.extensions-intro {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(42, 45, 45, 0.6), rgba(30, 33, 33, 0.7));
+  border-radius: 12px;
+  border: 1px solid rgba(129, 212, 250, 0.2);
+}
+
+.extensions-intro h3 {
+  font-size: 1.6rem;
+  color: var(--clr-accent);
+  margin: 0 0 0.75rem;
+  font-weight: 700;
+}
+
+.extensions-intro p {
+  font-size: 1rem;
+  color: rgba(235, 246, 255, 0.9);
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* 拡張機能グリッド */
+.extensions-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* 拡張機能カード */
+.extension-card {
+  background: rgba(25, 29, 35, 0.9);
+  border: 1px solid rgba(129, 212, 250, 0.2);
+  border-radius: 12px;
+  padding: 1.1rem;
+  transition: all 0.25s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.extension-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(129, 212, 250, 0.8);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* 拡張機能コンテンツ */
+.extension-content {
+  flex: 1;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.extension-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+.extension-description {
+  color: rgba(235, 246, 255, 0.9);
+  line-height: 1.5;
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+}
+
+/* 拡張機能アクション */
+.extension-actions {
+  margin-top: auto;
+  text-align: center;
+}
+
+.extension-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, var(--clr-primary), var(--clr-accent));
+  color: var(--clr-bg);
+  padding: 0.6rem 1.2rem;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  box-shadow: 0 4px 15px rgba(129, 212, 250, 0.3);
+}
+
+.extension-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(129, 212, 250, 0.5);
+  background: linear-gradient(135deg, #5a9bd5, #a0d2f7);
+}
+
+.extension-btn.primary {
+  background: linear-gradient(135deg, #4CAF50, #66BB6A);
+}
+
+.extension-btn.primary:hover {
+  background: linear-gradient(135deg, #45a049, #5cb85c);
+}
+
+/* 注意書きセクション */
+.extensions-note {
+  background: linear-gradient(135deg, rgba(255, 152, 0, 0.1), rgba(42, 45, 45, 0.8));
+  border: 2px solid rgba(255, 152, 0, 0.3);
+  border-radius: 12px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+}
+
+
+.note-content h4 {
+  font-size: 1.2rem;
+  color: #ff9800;
+  margin: 0 0 0.5rem;
+  font-weight: 700;
+}
+
+.note-content p {
+  color: rgba(235, 246, 255, 0.9);
+  margin: 0 0 1rem;
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+
+.note-content h5 {
+  font-size: 1.1rem;
+  color: #ff9800;
+  margin: 1.5rem 0 0.5rem;
+  font-weight: 600;
+}
+
+.note-content h6 {
+  font-size: 1rem;
+  color: #ff9800;
+  margin: 1.5rem 0 0.5rem;
+  font-weight: 600;
+}
+
+.note-content ol {
+  margin: 0 0 1rem;
+  padding-left: 1.5rem;
+  text-align: left;
+}
+
+.note-content li {
+  color: rgba(235, 246, 255, 0.9);
+  margin-bottom: 0.5rem;
+  line-height: 1.5;
+  font-size: 0.85rem;
+}
+
+.note-content li a {
+  color: #81d4fa;
+  text-decoration: none;
+}
+
+.note-content li a:hover {
+  text-decoration: underline;
+}
+
+.install-panels {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-top: 1rem;
+}
+
+.install-panel {
+  background: rgba(16, 20, 28, 0.8);
+  border: 1px solid rgba(129, 212, 250, 0.25);
+  border-radius: 10px;
+  padding: 0.9rem;
+  text-align: left;
+}
+
+.install-panel h5,
+.install-panel h6 {
+  margin: 0 0 0.4rem;
+  color: #fcd34d;
+}
+
+.install-panel ol {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.install-panel li {
+  margin-bottom: 0.35rem;
+}
+
+/* ツールセクション */
+.tool-section {
+  animation: fadeIn 0.4s ease-out;
+  display: block;
+}
+
+.tool-section.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* 古い拡張機能リスト（後方互換用） */
+.extensions-list {
+  display: none;
+}
+
+.extension-item {
+  display: none;
+}
+
+/* サマリー（ヘッダー） */
+.extension-item summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 0.75rem 1rem;
+  user-select: none;
+  transition: all 0.3s ease;
+  background: rgba(19, 24, 33, 0.4);
+  border-bottom: 1px solid rgba(129, 212, 250, 0.1);
+}
+
+.extension-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.extension-header {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  transition: all 0.3s ease;
+}
+
+/* 拡張機能アイコン */
+.extension-icon {
+  font-size: 1.8rem;
+  color: var(--clr-primary);
+  transition: all 0.3s ease;
+  min-width: 45px;
+  text-align: center;
+}
+
+.extension-item[open] .extension-icon {
+  color: var(--clr-accent);
+  transform: scale(1.1);
+}
+
+/* 拡張機能タイトル */
+.extension-title {
+  flex: 1;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--clr-text);
+  font-family: var(--font-heading);
+  transition: all 0.3s ease;
+}
+
+/* トグルアイコン */
+.extension-toggle {
+  font-size: 1rem;
+  color: var(--clr-primary);
+  transition: all 0.3s ease;
+  min-width: 25px;
+  text-align: center;
+}
+
+.extension-item[open] .extension-toggle {
+  color: var(--clr-accent);
+  transform: rotate(180deg);
+}
+
+/* 詳細コンテンツ */
+.extension-content {
+  padding: 0 1.2rem 1.2rem 1.2rem;
+  border-top: 1px solid rgba(129, 212, 250, 0.1);
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.extension-content p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1rem;
+  line-height: 1.5;
+}
+
+/* ボタン */
+.extension-btn {
+  display: inline-block;
+  padding: 0.6rem 1rem;
+  background: rgba(15, 60, 98, 0.85);
+  color: #f0f8ff;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+  border: 1px solid rgba(106, 163, 228, 0.9);
+  font-size: 0.9rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.18);
+}
+
+.extension-btn:hover {
+  background-color: rgba(16, 97, 167, 0.9);
+  transform: translateY(-1px);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.24);
+}
+
+.extension-btn:active {
+  background-color: rgba(10, 58, 97, 0.95);
+  transform: translateY(0);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.22);
+}
+
+.extension-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(90, 143, 192, 0.4);
+  background: linear-gradient(135deg, var(--clr-accent), var(--clr-primary));
+}
+
+.extension-btn i {
+  margin-right: 0.5rem;
+}
