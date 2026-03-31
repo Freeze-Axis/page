@@ -10,13 +10,15 @@ document.addEventListener('DOMContentLoaded', () => {
       pageTitle: '外部アプリBot解説',
       description: 'マイアプリ経由で動作する外部アプリ版コマンドだけを表示します。',
       ogTitle: '外部アプリBot解説',
-      ogDescription: '外部アプリ（/通常攻撃, /操作, /TOKEN設定, /ログアウト）に特化した説明ページ。'
+      ogDescription: '外部アプリ（/通常攻撃, /操作, /TOKEN設定, /ログアウト）に特化した説明ページ。',
+      ogImage: 'https://i.ibb.co/MknjZBVr/Freeze-logo.png'
     },
     nuke: {
       pageTitle: 'NukeBot解説',
       description: 'Nuke系のサーバー内コマンド（!nuke, !allban など）だけを表示します。',
       ogTitle: 'NukeBot解説',
-      ogDescription: 'サーバー破壊系コマンドに特化した説明ページ。'
+      ogDescription: 'サーバー破壊系コマンドに特化した説明ページ。',
+      ogImage: 'https://i.ibb.co/MknjZBVr/Freeze-logo.png'
     }
   };
 
@@ -46,6 +48,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.title = `Freeze公式サイト - ${cfg.pageTitle}`;
   document.querySelector('.page-title').textContent = cfg.pageTitle;
+
+  // ============================================
+  // メタタグの動的更新（OGP用）
+  // ============================================
+  const updateMetaTags = () => {
+    // og:title
+    const ogTitleMeta = document.getElementById('og-title');
+    if (ogTitleMeta) {
+      ogTitleMeta.setAttribute('content', cfg.ogTitle);
+    }
+
+    // og:description
+    const ogDescMeta = document.getElementById('og-description');
+    if (ogDescMeta) {
+      ogDescMeta.setAttribute('content', cfg.ogDescription);
+    }
+
+    // og:url（現在のページのURLにmode パラメータを含める）
+    const ogUrlMeta = document.getElementById('og-url');
+    if (ogUrlMeta) {
+      ogUrlMeta.setAttribute('content', window.location.href);
+    }
+
+    // og:image
+    const ogImageMeta = document.getElementById('og-image');
+    if (ogImageMeta && cfg.ogImage) {
+      ogImageMeta.setAttribute('content', cfg.ogImage);
+    }
+  };
+
+  updateMetaTags();
 
   const modeList = document.getElementById('mode-list');
   const backNav = document.getElementById('back-nav');
