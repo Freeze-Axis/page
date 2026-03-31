@@ -73,10 +73,10 @@
 .tool-container {
   max-width: 100%;
   margin: 0 auto 2.5rem;
-  padding: 1.2rem 1rem;
-  background: linear-gradient(135deg, rgba(42, 45, 45, 0.75), rgba(30, 33, 33, 0.9));
-  border-radius: 1rem;
-  border: 1px solid rgba(129, 212, 250, 0.2);
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+  border: none;
 }
 
 .command-card {

@@ -6,13 +6,19 @@
 .mode-selection {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-  padding: 0 1rem;
+  gap: 1rem;
+  margin-bottom: 1.4rem;
+  padding: 0.75rem 0.75rem 0.5rem;
 }
 
 .mode-card {
   background: linear-gradient(135deg, rgba(42, 45, 45, 0.8), rgba(30, 33, 33, 0.9));
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  min-height: auto;
+  padding: 0;
+
   border: 2px solid rgba(129, 212, 250, 0.3);
   border-radius: 16px;
   overflow: hidden;
@@ -46,7 +52,9 @@
 .mode-link {
   display: flex;
   align-items: center;
-  padding: 1.5rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding: 1rem;
   text-decoration: none;
   color: inherit;
   position: relative;
@@ -54,9 +62,9 @@
 
 .mode-icon {
   flex-shrink: 0;
-  width: 60px;
-  height: 60px;
-  background: rgba(129, 212, 250, 0.1);
+  width: 50px;
+  height: 50px;
+  background: rgba(129, 212, 250, 0.14);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -86,18 +94,42 @@
 }
 
 .mode-title {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   font-weight: 700;
-  margin: 0 0 0.5rem;
+  margin: 0 0 0.35rem;
   color: #ffffff;
   letter-spacing: 0.02em;
 }
 
 .mode-description {
-  margin: 0 0 1rem;
-  color: rgba(235, 246, 255, 0.9);
-  line-height: 1.5;
-  font-size: 0.9rem;
+  margin: 0 0 0.8rem;
+  color: rgba(235, 246, 255, 0.95);
+  line-height: 1.4;
+  font-size: 0.88rem;
+  word-break: break-word;
+}
+
+.mode-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  align-items: flex-start;
+}
+
+.feature-tag {
+  padding: 0.2rem 0.55rem;
+  font-size: 0.72rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mode-arrow {
+  flex-shrink: 0;
+  margin-left: auto;
+  color: rgba(129, 212, 250, 0.6);
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
 }
 
 .mode-features {
@@ -133,6 +165,82 @@
 .mode-card:hover .mode-arrow {
   color: var(--clr-accent);
   transform: translateX(3px);
+}
+
+/* モバイルではホバーエフェクトを抑制して安定表示 */
+@media (hover: none), (pointer: coarse) {
+  .mode-card:hover {
+    transform: none;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+    border-color: rgba(129, 212, 250, 0.35);
+  }
+
+  .mode-card:hover .mode-icon,
+  .mode-card:hover .feature-tag,
+  .mode-card:hover .mode-arrow {
+    transform: none;
+    background: none;
+    color: inherit;
+  }
+}
+
+/* スマホ超小型画面の微調整 */
+@media (max-width: 520px) {
+  .mode-selection {
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+    padding: 0.6rem;
+  }
+
+  .mode-card {
+    border-radius: 14px;
+    padding: 0.1rem;
+  }
+
+  .mode-link {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.85rem;
+  }
+
+  .mode-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 1.4rem;
+    margin-right: 0;
+  }
+
+  .mode-title {
+    font-size: 1.18rem;
+    line-height: 1.2;
+    margin-bottom: 0.35rem;
+  }
+
+  .mode-description {
+    font-size: 0.84rem;
+    line-height: 1.4;
+  }
+
+  .mode-arrow {
+    margin-left: 0;
+    position: relative;
+    top: 0;
+    right: 0;
+    transform: none;
+    font-size: 1.05rem;
+  }
+
+  .mode-features {
+    gap: 0.3rem;
+    margin-top: 0.35rem;
+  }
+
+  .feature-tag {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+  }
 }
 
 /* 古いモードリストスタイル（後方互換用） */
@@ -183,10 +291,12 @@
 
 .command-card {
   background: var(--clr-card);
-  border: 1px solid rgba(129, 212, 250, 0.2);
+  border: 1px solid rgba(129, 212, 250, 0.4); /* 元の太さに戻す */
   border-radius: var(--radius);
-  padding: 1rem;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  margin: 0.75rem -0.75rem;
+  padding: 1.35rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  width: calc(100% + 1.5rem);
 }
 
 .command-card-header {
@@ -235,8 +345,10 @@
   transition: color 0.3s ease;
 }
 
-.detail-toggle:hover {
-  color: #ffffff;
+.detail-toggle:hover,
+.detail-toggle:focus,
+.detail-toggle:active {
+  color: #81d4fa; /* 和久く保つ */
 }
 
 .detail-toggle i {
@@ -416,6 +528,92 @@
   background: none;
   border-radius: 20px;
   animation: fadeIn 0.3s ease-out;
+}
+
+/* Nuke版専用スタイル（赤系統） */
+.bot-nuke .command-card {
+  border-color: rgba(211, 47, 47, 0.6);
+}
+
+.bot-nuke .command-card-header {
+  border-bottom-color: rgba(211, 47, 47, 0.4);
+}
+
+.bot-nuke .command-card-header h3 {
+  color: #ef5350;
+}
+
+.bot-nuke .detail-toggle {
+  color: #ef5350;
+}
+
+.bot-nuke .detail-toggle:hover,
+.bot-nuke .detail-toggle:focus,
+.bot-nuke .detail-toggle:active {
+  color: #ef5350;
+}
+
+.bot-nuke .command-detail {
+  border-left-color: #ef5350;
+}
+
+.bot-nuke .command-list-wrap {
+  border-color: rgba(211, 47, 47, 0.4);
+}
+
+.bot-nuke .command-list-wrap h4 {
+  color: #ef5350;
+  border-bottom-color: rgba(211, 47, 47, 0.3);
+}
+
+.bot-nuke .install-guide {
+  border-color: rgba(211, 47, 47, 0.4);
+}
+
+.bot-nuke .install-guide h4 {
+  color: #ef5350;
+}
+
+.bot-nuke .install-link {
+  color: #ef5350;
+}
+
+.bot-nuke .install-link:hover {
+  color: #ffffff;
+}
+
+@media (max-width: 420px) {
+  .mode-selection {
+    padding: 0.6rem 0.6rem 0.5rem;
+  }
+
+  .mode-link {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0.9rem;
+  }
+
+  .mode-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 1.1rem;
+    margin-right: 0;
+  }
+
+  .mode-arrow {
+    position: absolute;
+    top: 50%;
+    right: 0.8rem;
+    transform: translateY(-50%);
+  }
+
+  .mode-title {
+    font-size: 1.15rem;
+  }
+
+  .mode-description {
+    font-size: 0.84rem;
+  }
 }
 
 .command-section.active {

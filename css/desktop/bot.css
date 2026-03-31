@@ -188,10 +188,12 @@
 
 .command-card {
   background: var(--clr-card);
-  border: 1px solid rgba(129, 212, 250, 0.2);
+  border: 1px solid rgba(129, 212, 250, 0.4); /* 元の太さに戻す */
   border-radius: var(--radius);
-  padding: 1rem;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  margin: 0.75rem -0.75rem;
+  padding: 1.35rem;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  width: calc(100% + 1.5rem);
 }
 
 .command-card-header {
@@ -505,4 +507,54 @@
 .back-btn:hover {
   background: rgba(30, 45, 60, 0.85);
   border-color: rgba(129, 212, 250, 0.8);
+}
+
+/* Nuke版専用スタイル（赤系統） */
+.bot-nuke .command-card {
+  border-color: rgba(211, 47, 47, 0.6);
+}
+
+.bot-nuke .command-card-header {
+  border-bottom-color: rgba(211, 47, 47, 0.4);
+}
+
+.bot-nuke .command-card-header h3 {
+  color: #ef5350;
+}
+
+.bot-nuke .detail-toggle {
+  color: #ef5350;
+}
+
+.bot-nuke .detail-toggle:hover {
+  color: #ef5350;
+}
+
+.bot-nuke .command-detail {
+  border-left-color: #ef5350;
+}
+
+.bot-nuke .command-list-wrap {
+  border-color: rgba(211, 47, 47, 0.4);
+}
+
+.bot-nuke .command-list-wrap h4 {
+  color: #ef5350;
+  border-bottom-color: rgba(211, 47, 47, 0.3);
+}
+
+.bot-nuke .install-guide {
+  border-color: rgba(211, 47, 47, 0.4);
+}
+
+.bot-nuke .install-guide h4 {
+  color: #ef5350;
+}
+
+.bot-nuke .install-link {
+  color: #ef5350;
+}
+
+.bot-nuke .install-link:hover {
+  color: #ffffff;
 }

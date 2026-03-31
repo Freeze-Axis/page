@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+  <!----------------------------------------------------------------->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#a9ceec" />
+
   <title>Freeze公式サイト - 拡張機能</title>
-  <meta name="description" content="Discord拡張機能一覧" />
+  <meta name="description" content="Discordの拡張機能リスト" />
+
   <link rel="icon" href="https://i.ibb.co/MknjZBVr/Freeze-logo.png" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Freeze" />
+  <meta property="og:title" content="拡張機能" />
+  <meta property="og:description" content="Discordの拡張機能リスト" />
+  <meta property="og:url" content="" />
+  <meta property="og:image" content="" />
+  <!----------------------------------------------------------------->
 
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/nav.css">
@@ -29,15 +41,15 @@
   <main class="tool-container">
     <div class="extensions-intro">
       <h3>便利なDiscord拡張機能</h3>
-      <p>Bot操作をより快適にするための拡張機能を紹介します。Greasyforkからインストールしてご利用ください。</p>
+      <p>Greasyforkからインストールしてご利用ください。</p>
     </div>
 
     <div class="extensions-grid">
       <!-- Discord複数アカウント管理 -->
       <div class="extension-card">
-          <div class="extension-content">
+        <div class="extension-content">
           <h4 class="extension-title">Discord複数アカウント管理</h4>
-          <p class="extension-description">複数のDiscordアカウントを効率的に管理できる拡張機能。クイック切り替えでBot操作がスムーズに。</p>
+          <p class="extension-description">複数のDiscordアカウントを効率的に管理できる拡張機能</p>
         </div>
         <div class="extension-actions">
           <a href="https://greasyfork.org/ja/scripts/537944-discord%E8%A4%87%E6%95%B0%E3%82%A2%E3%82%AB%E3%82%A6%E3%83%B3%E3%83%88%E7%AE%A1%E7%90%86" class="extension-btn primary" target="_blank">Greasyforkで開く</a>
@@ -46,9 +58,9 @@
 
       <!-- DiscordTOKEN取得 -->
       <div class="extension-card">
-          <div class="extension-content">
+        <div class="extension-content">
           <h4 class="extension-title">Discord TOKEN取得</h4>
-          <p class="extension-description">Discordの認証TOKENを簡単に取得できる拡張機能。BotのTOKEN設定に必須です。</p>
+          <p class="extension-description">Discordの認証TOKENを簡単に取得できる拡張機能</p>
         </div>
         <div class="extension-actions">
           <a href="https://greasyfork.org/ja/scripts/538421-token%E5%8F%96%E5%BE%97" class="extension-btn primary" target="_blank">Greasyforkで開く</a>
@@ -61,36 +73,44 @@
         <h4>インストール方法</h4>
         <p>各拡張機能のリンクからGreasyforkページを開き、「インストール」ボタンをクリックしてください。ブラウザ拡張機能（Tampermonkey/Greasemonkey）が必要です。</p>
 
-        <div class="install-panels">
-          <section class="install-panel">
-            <h5>通常の手順（PC/デスクトップ）</h5>
-            <ol>
-              <li><a href="https://www.tampermonkey.net/" target="_blank">Tampermonkey</a>をブラウザにインストールします。</li>
-              <li>Greasyforkの拡張機能ページで「インストール」ボタンをクリックし、スクリプトを追加します。</li>
-              <li>ブラウザをリロードし、拡張機能が有効になっていることを確認します。</li>
-            </ol>
-          </section>
+        <div class="install-tabs">
+          <div class="tab-buttons">
+            <button class="tab-btn active" data-tab="pc">PC/デスクトップ</button>
+            <button class="tab-btn" data-tab="mobile">スマホ版</button>
+            <button class="tab-btn" data-tab="manual">手動インストール</button>
+          </div>
 
-          <section class="install-panel">
-            <h5>スマホ版の手順</h5>
-            <ol>
-              <li><a href="https://play.google.com/store/apps/details?id=com.lemurbrowser.exts&hl=en-US" target="_blank">Lemurブラウザ</a>をインストールします。</li>
-              <li>Lemurブラウザ上で<a href="https://www.tampermonkey.net/index.php?browser=chrome" target="_blank">Tampermonkey</a>をインストールします。</li>
-              <li>Lemurブラウザで「Developer mode」を有効にします。</li>
-              <li>必要な拡張機能を<a href="https://greasyfork.org/ja/users/1424681-freeze-axis" target="_blank">Greasy Fork</a>からインストールします。</li>
-            </ol>
-          </section>
+          <div class="tab-content">
+            <div class="tab-panel active" id="pc">
+              <h5>通常の手順（PC/デスクトップ）</h5>
+              <ol>
+                <li><a href="https://www.tampermonkey.net/" target="_blank">Tampermonkey</a>をブラウザにインストールします。</li>
+                <li>Greasyforkの拡張機能ページで「インストール」ボタンをクリックし、スクリプトを追加します。</li>
+                <li>ブラウザをリロードし、拡張機能が有効になっていることを確認します。</li>
+              </ol>
+            </div>
 
-          <section class="install-panel">
-            <h6>スクリプトがインストールできない場合</h6>
-            <ol>
-              <li>Greasy Forkのコードをコピーします。</li>
-              <li>Tampermonkeyを開きます。</li>
-              <li>設定 → 新しいスクリプトを追加を選択します。</li>
-              <li>初期コードを削除します。</li>
-              <li>コピーしたコードを貼り付けて保存します。</li>
-            </ol>
-          </section>
+            <div class="tab-panel" id="mobile">
+              <h5>スマホ版の手順</h5>
+              <ol>
+                <li><a href="https://play.google.com/store/apps/details?id=com.lemurbrowser.exts&hl=en-US" target="_blank">Lemurブラウザ</a>をインストールします。</li>
+                <li>Lemurブラウザ上で<a href="https://www.tampermonkey.net/index.php?browser=chrome" target="_blank">Tampermonkey</a>をインストールします。</li>
+                <li>Lemurブラウザで「Developer mode」を有効にします。</li>
+                <li>必要な拡張機能を<a href="https://greasyfork.org/ja/users/1424681-freeze-axis" target="_blank">Greasy Fork</a>からインストールします。</li>
+              </ol>
+            </div>
+
+            <div class="tab-panel" id="manual">
+              <h6>スクリプトがインストールできない場合</h6>
+              <ol>
+                <li>Greasy Forkのコードをコピーします。</li>
+                <li>Tampermonkeyを開きます。</li>
+                <li>設定 → 新しいスクリプトを追加を選択します。</li>
+                <li>初期コードを削除します。</li>
+                <li>コピーしたコードを貼り付けて保存します。</li>
+              </ol>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -101,5 +121,30 @@
   </footer>
 
   <script src="js/app.js"></script>
+  <script>
+    // タブ機能
+    document.addEventListener('DOMContentLoaded', () => {
+      const tabButtons = document.querySelectorAll('.tab-btn');
+      const tabPanels = document.querySelectorAll('.tab-panel');
+
+      tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          // アクティブクラスをリセット
+          tabButtons.forEach(btn => btn.classList.remove('active'));
+          tabPanels.forEach(panel => panel.classList.remove('active'));
+
+          // クリックされたボタンをアクティブに
+          button.classList.add('active');
+
+          // 対応するパネルを表示
+          const tabId = button.getAttribute('data-tab');
+          const targetPanel = document.getElementById(tabId);
+          if (targetPanel) {
+            targetPanel.classList.add('active');
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>
